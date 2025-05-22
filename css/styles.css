@@ -1,3 +1,8 @@
+/* Padding adicionado para padronizar o padding do header e do main content */
+:root {
+  --content-left-padding: 5vw;
+}
+
 header {
   background-color: transparent;
 
@@ -9,7 +14,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5vw 0;
+  padding: 1rem var(--content-left-padding) 0;
   box-sizing: border-box;
 }
 
@@ -37,4 +42,20 @@ nav ul {
   display: flex;
   flex-direction: row;
   gap: 20px;
+}
+
+/* Position */
+.main-text {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: var(--content-left-padding);
+  box-sizing: border-box;
+}
+
+/* Typography */
+.main-text {
+  font-family: "Poppins", sans-serif;
+  color: white;
 }
