@@ -1,3 +1,48 @@
+/* Font families */
+:root {
+  --font-primary: "Roboto", Arial, sans-serif;
+  --font-secondary: "Montserrat", Arial, sans-serif;
+}
+
+/* Tipografia */
+:root {
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-6xl: 3rem; /* 48px */
+}
+
+/* Tipografia hero text */
+.main-text {
+  font-family: var(--font-primary);
+  color: white;
+}
+
+.main-text h1 {
+  font-size: var(--font-size-6xl);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-text h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.main-text p {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
 /* Padding adicionado para padronizar o padding do header e do main content */
 :root {
   --content-left-padding: 5vw;
@@ -52,10 +97,4 @@ nav ul {
   justify-content: center;
   padding-left: var(--content-left-padding);
   box-sizing: border-box;
-}
-
-/* Typography */
-.main-text {
-  font-family: "Poppins", sans-serif;
-  color: white;
 }
