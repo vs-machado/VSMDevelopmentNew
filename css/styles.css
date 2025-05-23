@@ -82,7 +82,19 @@ body {
   background-size: cover;
   background-attachment: fixed;
   position: relative;
-  z-index: 0;
+  z-index: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2); /* Adjust opacity as needed */
+  z-index: 1;
+  pointer-events: none; /* Allows clicks to pass through */
 }
 
 .logo img {
@@ -107,6 +119,8 @@ nav ul {
   justify-content: center;
   padding-left: var(--content-left-padding);
   box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
 
 .language-switcher {
