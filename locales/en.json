@@ -1,6 +1,13 @@
 {
- "nav.home": "Home",
- "nav.portfolio": "Portfolio",
- "nav.about": "About",
- "nav.contact": "Contact"   
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Innovating Android solutions everyday",
+    "title": "Because great apps\n solve real problems.",
+    "description": "Our mission is to craft intuitive, problem-solving apps that\n enhance everyday life."
+  }
 }

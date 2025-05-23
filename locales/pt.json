@@ -1,0 +1,13 @@
+{
+  "nav": {
+    "home": "Início",
+    "portfolio": "Portfólio",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "hero": {
+    "subtitle": "Inovando soluções Android todos os dias",
+    "title": "Porque bons apps\n resolvem problemas reais.",
+    "description": "Nossa missão é criar apps intuitivos que resolvem problemas\ne melhoram a vida cotidiana."
+  }
+}

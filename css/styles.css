@@ -49,6 +49,10 @@ nav a {
   line-height: 1.5;
 }
 
+[data-i18n] {
+  white-space: pre-line;
+}
+
 /* Padding adicionado para padronizar o padding do header e do main content */
 :root {
   --content-left-padding: 5vw;
@@ -103,4 +107,25 @@ nav ul {
   justify-content: center;
   padding-left: var(--content-left-padding);
   box-sizing: border-box;
+}
+
+.language-switcher {
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+}
+.language-switcher button {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.language-switcher button:hover {
+  background: #f0f0f0;
+}
+.language-switcher button.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
 }
