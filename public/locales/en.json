@@ -9,5 +9,15 @@
     "subtitle": "Innovating Android solutions everyday",
     "title": "Because great apps\n solve real problems.",
     "description": "Our mission is to craft intuitive, problem-solving apps that\n enhance everyday life."
+  },
+  "services": {
+    "our-services": "Our Services",
+    "comprehensive-solutions": "Comprehensive solutions for your digital needs.",
+    "ui-ux-header": "Android UI/UX Design",
+    "ui-ux-p": "XML and Compose interface design",
+    "native-development-header": "Native Android Development",
+    "native-development-p": "Native development with Java and Kotlin.",
+    "legacy-modernization-header": "Legacy App Modernization",
+    "legacy-modernization-p": "Migrating to latest Android APIs and libraries, refactoring code for improved maintainability."
   }
 }

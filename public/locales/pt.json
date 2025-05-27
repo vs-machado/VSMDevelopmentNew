@@ -9,5 +9,15 @@
     "subtitle": "Inovando soluções Android todos os dias",
     "title": "Porque bons apps\n resolvem problemas reais.",
     "description": "Nossa missão é criar apps intuitivos que resolvem problemas\ne melhoram a vida cotidiana."
+  },
+  "services": {
+    "our-services": "Nossos Serviços",
+    "comprehensive-solutions": "Soluções abrangentes para suas necessidades digitais.",
+    "ui-ux-header": "Design de UI/UX para Android",
+    "ui-ux-p": "Design de interfaces com XML e Compose",
+    "native-development-header": "Desenvolvimento Nativo Android",
+    "native-development-p": "Desenvolvimento nativo com Java e Kotlin.",
+    "legacy-modernization-header": "Modernização de Apps Legados",
+    "legacy-modernization-p": "Migração para as APIs e bibliotecas mais recentes do Android, refatoração de código para melhor manutenção."
   }
 }
