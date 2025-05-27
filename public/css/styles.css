@@ -127,7 +127,7 @@ body::before {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.2); /* Adjust opacity as needed */
   z-index: 1;
   pointer-events: none; /* Allows clicks to pass through */
@@ -204,8 +204,11 @@ nav ul {
 }
 
 .section-our-services {
-  min-height: 100vh;
   background-color: white;
+}
+
+.container-our-services {
+  margin-bottom: 5rem;
 }
 
 .container-services-title {
@@ -226,9 +229,8 @@ nav ul {
 
 .service-card {
   background: white;
-  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 300px;
+  max-width: 240px;
   padding: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -244,4 +246,40 @@ nav ul {
   height: 3em;
   position: relative;
   box-sizing: border-box;
+}
+
+.help-us-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background: white;
+  width: 100%;
+  max-width: 1000px; /* or 90%, or adjust as needed */
+  margin: 2em auto;
+  padding: 2em;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.help-us-text {
+  max-width: 70%;
+}
+
+.help-us h2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-4xl);
+  color: black; /* Adjusted to match the blue in your screenshot */
+  margin-bottom: 10px;
+}
+
+#contact-us {
+  background-color: #0057ff;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
 }
