@@ -100,6 +100,10 @@ body {
   height: 100%;
 }
 
+main {
+  padding-bottom: 40px;
+}
+
 .background {
   position: absolute;
   top: 0;
@@ -252,11 +256,10 @@ nav ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
   background: white;
   width: 100%;
   max-width: 1000px; /* or 90%, or adjust as needed */
-  margin: 2em auto;
+  margin: 2em auto 4em auto;
   padding: 2em;
   position: relative;
   box-sizing: border-box;
