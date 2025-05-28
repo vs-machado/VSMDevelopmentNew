@@ -109,7 +109,7 @@ main {
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   object-fit: cover;
   z-index: -1;
 }
@@ -138,7 +138,7 @@ body::before {
 }
 
 .logo img {
-  width: 60%;
+  width: 11rem;
   height: auto;
 }
 
@@ -285,4 +285,92 @@ nav ul {
   font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+/* Footer */
+.home-footer {
+  color: white;
+  padding: 3em;
+  background-image: url("../images/background-footer.jpg");
+  background-size: cover;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+
+.footer-left {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+.logo {
+  width: 10rem;
+  height: auto;
+}
+
+.enterprise-footer {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.enterprise-footer p {
+  margin-bottom: 0;
+}
+
+.enterprise-footer .copyright {
+  text-align: center;
+}
+
+.nav-list-footer {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.nav-footer,
+.contact-footer {
+  margin-left: auto;
+}
+
+.contact-addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.company {
+  margin-top: 0;
+}
+
+.contact-title {
+  margin-top: 0;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 130, 138, 0.83);
+  z-index: 1;
+  pointer-events: none;
+}
+
+footer {
+  position: relative;
+}
+
+footer > * {
+  position: relative;
+  z-index: 2;
 }
