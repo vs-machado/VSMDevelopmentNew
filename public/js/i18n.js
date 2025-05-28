@@ -2,22 +2,32 @@
 let translations = {};
 let currentLang = "en";
 
+// Helper function to get nested translation value
+function getNestedTranslation(obj, path) {
+  return path.split(".").reduce((current, key) => {
+    return current && current[key] !== undefined ? current[key] : null;
+  }, obj);
+}
+
 /**
  * Carrega o idioma padrão ou selecionado pelo usuário.
- * 
+ *
  * @param {string} lang Idioma selecionado.
  */
 export async function loadTranslations(lang = "en") {
+  console.log("Loading translations for language:", lang);
   currentLang = lang;
   try {
+    // Using relative path since we're in the public/js directory
     const res = await fetch(`./locales/${lang}.json`);
     if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
+      throw new Error(`Failed to load translations: ${res.status}`);
     }
     translations = await res.json();
+    console.log("Translations loaded:", translations);
     applyTranslations();
   } catch (error) {
-    console.error(`Failed to load translations for ${lang}:`, error);
+    console.error("Error loading translations:", error);
     // Configura o idioma para inglês caso não consiga carregar o idioma selecionado
     if (lang !== "en") {
       loadTranslations("en");
@@ -26,39 +36,19 @@ export async function loadTranslations(lang = "en") {
 }
 
 /**
- * Retorna a tradução armazenada em uma nested key.
- *  
- * @param {string} key Chave que contém uma tradução armazenada do json.
- * @returns Uma string com a tradução caso o valor armazenado seja string.
- *          Caso contrário, retorna null.
- */
-function getNestedTranslation(key) {
-  const keys = key.split(".");
-  let value = translations;
-
-  for (const k of keys) {
-    if (value && typeof value === "object" && k in value) {
-      value = value[k];
-    } else {
-      return null;
-    }
-  }
-
-  return typeof value === "string" ? value : null;
-}
-
-/**
  * Aplica as traduções obtidas nos arquivos da pasta locales.
  */
 function applyTranslations() {
+  console.log("Applying translations to elements...");
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    const translation = getNestedTranslation(key);
-
+    console.log("Translating element with key:", key);
+    const translation = getNestedTranslation(translations, key);
     if (translation) {
-      el.textContent = translation;
+      // Handle newlines in translations
+      el.textContent = translation.replace(/\\n/g, "\n");
     } else {
-      console.warn(`Translation not found for key: ${key}`);
+      console.warn("Translation not found for key:", key);
     }
   });
 
