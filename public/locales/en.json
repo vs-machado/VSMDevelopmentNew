@@ -19,5 +19,15 @@
     "native-development-p": "Native development with Java and Kotlin.",
     "legacy-modernization-header": "Legacy App Modernization",
     "legacy-modernization-p": "Migrating to latest Android APIs and libraries, refactoring code for improved maintainability."
+  },
+  "help-us": {
+    "help-us-to-improve": "Help us to improve",
+    "do-you-have-suggestions": "Do you have any suggestions or complaints about our launched apps?\nContact us.",
+    "contact-us": "Contact us",
+    "contact-button": "CONTACT US"
+  },
+  "footer": {
+    "because-great-apps": "Because great apps solve real\n problems.",
+    "company": "Company"
   }
 }
