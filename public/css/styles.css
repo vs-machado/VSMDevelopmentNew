@@ -438,6 +438,22 @@ footer > * {
     height: auto;
   }
 
+  .help-us-container {
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+    padding: 1em;
+  }
+
+  .help-us-text {
+    max-width: 80%;
+    padding-bottom: 2rem;
+  }
+
+  #user-suggestion {
+    text-align: center;
+  }
+
   /* Ensure proper stacking order */
   .enterprise-footer {
     order: 1;
