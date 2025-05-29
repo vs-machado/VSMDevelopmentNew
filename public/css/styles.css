@@ -126,13 +126,14 @@ main {
   z-index: 1;
 } */
 
-body::before {
+.hero-text::before {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.2); /* Adjust opacity as needed */
+  background-color: rgba(0, 0, 0, 0.3); /* Adjust opacity as needed */
   z-index: 1;
   pointer-events: none; /* Allows clicks to pass through */
 }
