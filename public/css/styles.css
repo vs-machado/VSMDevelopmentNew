@@ -404,24 +404,6 @@ footer > * {
     overflow-x: hidden;
   }
 
-  .home-footer {
-    padding: 2rem 2rem;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .footer-left {
-    flex-direction: column;
-    gap: 2rem;
-    width: 100%;
-  }
-
-  .nav-footer,
-  .contact-footer {
-    margin-left: 0;
-    width: 100%;
-  }
-
   .enterprise-footer p,
   .contact-addresses a,
   h1,
@@ -437,6 +419,12 @@ footer > * {
     max-width: 100%;
     height: auto;
   }
+
+  .service-card {
+    max-width: 90%;
+  }
+
+  /* Seção Help Us */
 
   .help-us-container {
     flex-direction: column;
@@ -454,7 +442,7 @@ footer > * {
     text-align: center;
   }
 
-  /* Ensure proper stacking order */
+  /* Footer */
   .enterprise-footer {
     order: 1;
   }
@@ -466,6 +454,25 @@ footer > * {
   .contact-footer {
     order: 3;
   }
+
+    .nav-footer,
+  .contact-footer {
+    margin-left: 0;
+    width: 100%;
+  }
+
+    .home-footer {
+    padding: 2rem 2rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
 }
 
 @media (max-width: 480px) {
