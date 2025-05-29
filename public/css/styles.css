@@ -420,6 +420,40 @@ footer > * {
     height: auto;
   }
 
+  /* Seção Hero */
+  .main-text {
+    margin-top: -8em;
+    text-align: center;
+    padding: 0;
+  }
+
+  .main-text h2 {
+    font-size: var(--font-size-sm);
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+    margin: 0 auto;
+  }
+
+  .main-text h1 {
+    font-size: var(--font-size-3xl);
+    max-width: 80%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+
+  .main-text p {
+    font-size: var(--font-size-base);
+    max-width: 80%;
+    margin: 0 auto;
+    padding-bottom: 3em;
+  }
+
+  #contact-us-hero {
+    padding: 1em 1em;
+    width: 50%;
+  }
+
+  /* Seção Services */
   .service-card {
     max-width: 90%;
   }
@@ -455,13 +489,13 @@ footer > * {
     order: 3;
   }
 
-    .nav-footer,
+  .nav-footer,
   .contact-footer {
     margin-left: 0;
     width: 100%;
   }
 
-    .home-footer {
+  .home-footer {
     padding: 2rem 2rem;
     flex-direction: column;
     gap: 2rem;
@@ -472,7 +506,6 @@ footer > * {
     gap: 2rem;
     width: 100%;
   }
-
 }
 
 @media (max-width: 480px) {
