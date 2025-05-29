@@ -151,6 +151,41 @@ nav ul {
   gap: 40px;
 }
 
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  padding-top: 2rem;
+  z-index: 999;
+  gap: 0;
+  background-color: white;
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.sidebar li {
+  height: 50px;
+  width: 100%;
+}
+
+.sidebar li a {
+  display: block;
+  align-content: center;
+  color: black;
+  width: 100%;
+  height: 100%;
+  padding: 0 30px;
+}
+
+#menuButton {
+  display: none;
+}
+
 /* Position hero */
 
 .main-text {
@@ -387,7 +422,7 @@ footer > * {
 }
 
 /* Mobile styles for footer - add this to your existing CSS */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   * {
     box-sizing: border-box;
   }
@@ -418,6 +453,19 @@ footer > * {
   img {
     max-width: 100%;
     height: auto;
+  }
+
+  /* Seção Header */
+  .logo {
+    width: 8rem;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
+  #menuButton {
+    display: block;
   }
 
   /* Seção Hero */
@@ -509,16 +557,19 @@ footer > * {
 }
 
 @media (max-width: 480px) {
+  .sidebar {
+    width: 100%
+  }
+
   .home-footer {
     padding: 2rem 2rem;
   }
 
-  /* Reduce font sizes if needed */
-  .enterprise-footer p {
-    font-size: 0.9rem;
+  .logo {
+    width: 8rem;
   }
 
-  .logo {
-    width: 7rem;
+  .enterprise-footer p {
+    font-size: 0.9rem;
   }
 }
