@@ -75,7 +75,7 @@ a {
 
 /* Padding adicionado para padronizar o padding do header e do main content */
 :root {
-  --content-left-padding: 5vw;
+  --content-horizontal-padding: 5vw;
 }
 
 header {
@@ -89,7 +89,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem var(--content-left-padding) 0;
+  padding: 1rem var(--content-horizontal-padding) 0;
   box-sizing: border-box;
 }
 
@@ -158,7 +158,7 @@ nav ul {
   /* display: flex; */
   /* flex-direction: column; */
   /* justify-content: center; */
-  padding-left: var(--content-left-padding);
+  padding-left: var(--content-horizontal-padding);
   box-sizing: border-box;
   position: relative;
   z-index: 2;
@@ -218,7 +218,7 @@ nav ul {
 .container-services-title {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--content-left-padding);
+  padding: 0 var(--content-horizontal-padding);
   justify-items: center;
   text-align: center;
   margin-bottom: 4rem;
@@ -290,7 +290,7 @@ nav ul {
 /* Footer */
 .home-footer {
   color: white;
-  padding: 3em;
+  padding: 3rem var(--content-horizontal-padding) 3rem;
   background-image: url("../images/background-footer.jpg");
   background-size: cover;
   display: flex;
@@ -373,4 +373,85 @@ footer {
 footer > * {
   position: relative;
   z-index: 2;
+}
+
+/* Mobile styles for footer - add this to your existing CSS */
+@media (max-width: 768px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  .home-footer,
+  main,
+  section {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .home-footer {
+    padding: 2rem 2rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .nav-footer,
+  .contact-footer {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .enterprise-footer p,
+  .contact-addresses a,
+  h1,
+  h2,
+  h3 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .logo,
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Ensure proper stacking order */
+  .enterprise-footer {
+    order: 1;
+  }
+
+  .nav-footer {
+    order: 2;
+  }
+
+  .contact-footer {
+    order: 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-footer {
+    padding: 2rem 2rem;
+  }
+
+  /* Reduce font sizes if needed */
+  .enterprise-footer p {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    width: 7rem;
+  }
 }
