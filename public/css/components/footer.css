@@ -57,6 +57,12 @@
   gap: 0.8rem;
 }
 
+.contact-addresses a {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
 .company {
   margin-top: 0;
 }
