@@ -24,22 +24,22 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.querySelector("#menuButton");
   if (menuButton) {
-    menuButton.addEventListener("click", () => setSidebar('flex'));
+    menuButton.addEventListener("click", () => setSidebar("flex"));
   }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.querySelector("#closeSidebarMenu");
   if (menuButton) {
-    menuButton.addEventListener("click", () => setSidebar('none'));
+    menuButton.addEventListener("click", () => setSidebar("none"));
   }
 });
 
 /**
  * Altera o estilo da sidebar para exibi-la ou ocultá-la.
- * 
+ *
  * @param {string} style Estilo da sidebar. Utilize "flex" para exibir
- * e "none" para ocultar. 
+ * e "none" para ocultar.
  */
 function setSidebar(style) {
   const sidebar = document.querySelector(".sidebar");

@@ -9,7 +9,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem var(--content-horizontal-padding) 0;
+  padding: 1rem var(--content-horizontal-padding) 1rem;
   box-sizing: border-box;
 }
 

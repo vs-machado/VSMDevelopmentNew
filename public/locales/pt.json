@@ -29,5 +29,8 @@
   "footer": {
     "because-great-apps": "Porque bons apps resolvem\n problemas reais.",
     "company": "Empresa"
-  }
+  },
+  "page-titles": {
+    "about": "Sobre – VSM Development"
+  } 
 }

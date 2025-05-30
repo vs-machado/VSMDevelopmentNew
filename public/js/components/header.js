@@ -19,8 +19,27 @@ class Header extends HTMLElement {
   }
 
   connectedCallback() {
+    const useImage = this.getAttribute("image") === "true";
+
+    // Carrega a imagem de fundo e a cor verde na header quando useImage === "true"
+    const style = `
+      ${
+        useImage
+          ? `
+            background-image: linear-gradient(
+              rgba(22, 130, 138, 0.83),
+              rgba(22, 130, 138, 0.83)
+            ), url('./images/background-footer.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          `
+          : ""
+      }
+    `;
+
     this.innerHTML = `
-        <header>
+     <header style="${style}">
       <div class="logo">
         <img src="./images/vsm-development-logo.png" alt="Website Logo" />
       </div>
@@ -44,7 +63,7 @@ class Header extends HTMLElement {
             </li>
             <li><a href="./" data-i18n="nav.home">Home</a></li>
             <li><a href="Portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
-            <li><a href="About" data-i18n="nav.about">About</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
             <li><a href="Contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
           <ul>
@@ -56,7 +75,7 @@ class Header extends HTMLElement {
               <a href="Portfolio" data-i18n="nav.portfolio">Portfolio</a>
             </li>
             <li class="hideOnMobile">
-              <a href="About" data-i18n="nav.about">About</a>
+              <a href="about.html" data-i18n="nav.about">About</a>
             </li>
             <li class="hideOnMobile">
               <a href="Contact" data-i18n="nav.contact">Contact</a>
