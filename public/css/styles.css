@@ -17,12 +17,6 @@
   --font-size-6xl: 3rem; /* 48px */
 }
 
-nav a {
-  text-decoration: none;
-  color: white;
-  font-family: var(--font-secondary);
-}
-
 /* Fonte global do site */
 html {
   font-family: var(--font-primary);
@@ -79,21 +73,6 @@ a {
   --content-horizontal-padding: 5vw;
 }
 
-header {
-  background-color: transparent;
-
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem var(--content-horizontal-padding) 0;
-  box-sizing: border-box;
-}
-
 html,
 body {
   margin: 0;
@@ -139,55 +118,6 @@ main {
   pointer-events: none; /* Allows clicks to pass through */
 }
 
-.logo img {
-  width: 9rem;
-  height: auto;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-}
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 250px;
-  padding-top: 2rem;
-  z-index: 999;
-  gap: 0;
-  background-color: white;
-  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-.sidebar li {
-  height: 50px;
-  width: 100%;
-}
-
-.sidebar li a {
-  display: block;
-  align-content: center;
-  color: black;
-  width: 100%;
-  height: 100%;
-  padding: 0 30px;
-}
-
-#menuButton {
-  display: none;
-}
-
 /* Position hero */
 
 .main-text {
@@ -199,27 +129,6 @@ nav ul {
   box-sizing: border-box;
   position: relative;
   z-index: 2;
-}
-
-.language-switcher {
-  display: flex;
-  gap: 10px;
-  margin-left: 20px;
-}
-.language-switcher button {
-  padding: 5px 10px;
-  border: 1px solid #ddd;
-  background: white;
-  cursor: pointer;
-  border-radius: 3px;
-}
-.language-switcher button:hover {
-  background: #f0f0f0;
-}
-.language-switcher button.active {
-  background: #007bff;
-  color: white;
-  border-color: #007bff;
 }
 
 .hero-text {
@@ -353,11 +262,6 @@ nav ul {
   gap: 5rem;
 }
 
-.logo {
-  width: 12rem;
-  height: auto;
-}
-
 .enterprise-footer {
   position: relative;
   box-sizing: border-box;
@@ -423,6 +327,11 @@ footer > * {
   z-index: 2;
 }
 
+  .logo {
+  width: 12rem;
+  height: auto;
+}
+
 /* Mobile styles for footer - add this to your existing CSS */
 @media (max-width: 800px) {
   * {
@@ -451,24 +360,6 @@ footer > * {
     max-width: 100%;
   }
 
-  .logo,
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Seção Header */
-  .logo {
-    width: 8rem;
-  }
-
-  .hideOnMobile {
-    display: none;
-  }
-
-  #menuButton {
-    display: block;
-  }
 
   /* Seção Hero */
   .main-text {
@@ -556,21 +447,15 @@ footer > * {
     gap: 2rem;
     width: 100%;
   }
+
+
 }
 
 @media (max-width: 480px) {
-  .sidebar {
-    width: 100%
-  }
-
   .home-footer {
     padding: 2rem 2rem;
   }
-
-  .logo {
-    width: 7rem;
-  }
-
+  
   .enterprise-footer p {
     font-size: 0.9rem;
   }
