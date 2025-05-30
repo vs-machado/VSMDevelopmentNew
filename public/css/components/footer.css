@@ -2,7 +2,7 @@
 .home-footer {
   color: white;
   padding: 3rem var(--content-horizontal-padding) 3rem;
-  background-image: url("../images/background-footer.jpg");
+  background-image: url("../../../public/images/background-footer.jpg");
   background-size: cover;
   display: flex;
   position: relative;
