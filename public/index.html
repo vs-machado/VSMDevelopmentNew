@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/components/header.css" />
     <link rel="stylesheet" href="css/components/footer.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <title>VSM Development</title>
@@ -21,71 +20,7 @@
       src="./images/background-image.jpg"
       alt="Background Image"
     />
-    <header>
-      <div class="logo">
-        <img src="./images/vsm-development-logo.png" alt="Website Logo" />
-      </div>
-
-      <div class="header-right">
-        <nav>
-          <ul class="sidebar">
-            <li id="closeSidebarMenu">
-              <a href="#"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="26px"
-                  viewBox="0 -960 960 960"
-                  width="26px"
-                  fill="#000000"
-                >
-                  <path
-                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-                  /></svg
-              ></a>
-            </li>
-            <li><a href="./" data-i18n="nav.home">Home</a></li>
-            <li><a href="Portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
-            <li><a href="About" data-i18n="nav.about">About</a></li>
-            <li><a href="Contact" data-i18n="nav.contact">Contact</a></li>
-          </ul>
-          <ul>
-            <!-- TODO: implementar um botão para alterar o idioma do site-->
-            <li class="hideOnMobile">
-              <a href="./" data-i18n="nav.home">Home</a>
-            </li>
-            <li class="hideOnMobile">
-              <a href="Portfolio" data-i18n="nav.portfolio">Portfolio</a>
-            </li>
-            <li class="hideOnMobile">
-              <a href="About" data-i18n="nav.about">About</a>
-            </li>
-            <li class="hideOnMobile">
-              <a href="Contact" data-i18n="nav.contact">Contact</a>
-            </li>
-            <li id="menuButton">
-              <a href="#"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="26px"
-                  viewBox="0 -960 960 960"
-                  width="26px"
-                  fill="#e3e3e3"
-                >
-                  <path
-                    d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
-                  /></svg
-              ></a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <!-- <div class="language-switcher">
-        <button data-lang-switch="en" class="active">EN</button>
-        <button data-lang-switch="pt">PT</button>
-        <button data-lang-switch="es">ES</button>
-      </div> -->
-    </header>
-
+    <header-component></header-component>
     <main>
       <section class="hero-text">
         <div class="main-text">
@@ -242,5 +177,6 @@
     </footer>
 
     <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/components/header.js"></script>
   </body>
 </html>
