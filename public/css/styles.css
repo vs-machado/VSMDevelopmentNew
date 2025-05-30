@@ -67,6 +67,7 @@ a {
   font-family: var(--font-secondary);
   font-size: var(--font-size-base);
   line-height: 1.5;
+  margin-bottom: 2rem;
 }
 
 [data-i18n] {
@@ -324,7 +325,7 @@ nav ul {
   margin-bottom: 10px;
 }
 
-#contact-us {
+.button #contact-us {
   background-color: #0057ff;
   color: white;
   border: none;
