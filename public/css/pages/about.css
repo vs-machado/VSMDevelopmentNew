@@ -13,7 +13,7 @@ main {
 .about-us {
   background-color: white;
   padding: 4rem 0;
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
 }
 
 .about-us h1 {
@@ -116,7 +116,7 @@ h3 {
   background: white;
   width: 100%;
   max-width: 800px; /* or 90%, or adjust as needed */
-  margin: 6em auto 4em auto;
+  margin: 8em auto 8em auto;
   padding: 2em;
   position: relative;
   box-sizing: border-box;
