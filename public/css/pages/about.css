@@ -1,0 +1,115 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Seção About Us */
+
+.about-us {
+  background-color: white;
+  padding: 4rem 0;
+  margin-bottom: 4rem;
+}
+
+.about-us h1 {
+  font-size: var(--font-size-4xl);
+}
+
+.about-us h3 {
+  font-size: var(--font-size-2xl);
+}
+
+.about-us h1,
+h3 {
+  text-align: center;
+}
+
+.about-us h3 {
+  padding-bottom: 2rem;
+}
+
+.about-us-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--content-horizontal-padding);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.about-us-card {
+  background: white;
+  gap: 2rem;
+  max-width: 240px;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-us-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.about-us-card h2 {
+  font-family: var(--font-primary);
+}
+
+.about-us-card ul {
+  font-family: var(--font-secondary);
+}
+
+.divider {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 1.5rem;
+}
+
+.divider-separator {
+  width: 50px;
+  height: 7px;
+  background-color: #0057ff;
+  border: none;
+}
+
+#what-we-do {
+  padding-inline-start: 20px;
+}
+
+#what-we-do li {
+  margin-bottom: 8px;
+}
+
+/* Seção Our Story */
+.our-story h1 {
+  text-align: center;
+  font-size: var(--font-size-4xl);
+}
+
+.our-story {
+  text-align: left;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.our-story p {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  word-spacing: 0.05em;
+  text-align: left;
+}
+
+@media (max-width: 800px) {
+  /* Seção About Us */
+  .about-us-card {
+    max-width: 90%;
+  }
+}
