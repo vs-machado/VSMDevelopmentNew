@@ -1,8 +1,11 @@
 import { loadTranslations, changeLanguage } from "./i18n.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Carrega o idioma padrão
-  loadTranslations("en");
+  // Detecta a preferência de idioma do navegador
+  const browserLang = navigator.language.split('-')[0];
+
+  // Carrega o idioma 
+  loadTranslations(browserLang);
 
   // Gerencia a mudança de idiomas
   document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
