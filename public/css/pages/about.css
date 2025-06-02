@@ -107,9 +107,65 @@ h3 {
   text-align: left;
 }
 
+/* Seção Help Us */
+
+.help-us-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  width: 100%;
+  max-width: 800px; /* or 90%, or adjust as needed */
+  margin: 6em auto 4em auto;
+  padding: 2em;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.help-us-text {
+  max-width: 70%;
+}
+
+.help-us h2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-4xl);
+  color: black; /* Adjusted to match the blue in your screenshot */
+  margin-bottom: 10px;
+}
+
+#contact-us {
+  background-color: #0057ff;
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
 @media (max-width: 800px) {
   /* Seção About Us */
   .about-us-card {
     max-width: 90%;
+  }
+
+  /* Seção Help Us */
+
+  .help-us-container {
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+    padding: 1em;
+  }
+
+  .help-us-text {
+    max-width: 80%;
+    padding-bottom: 2rem;
+  }
+
+  #user-suggestion {
+    text-align: center;
   }
 }
