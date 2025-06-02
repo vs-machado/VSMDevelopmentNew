@@ -32,5 +32,22 @@
   },
   "page-titles": {
     "about": "Sobre – VSM Development"
-  } 
+  },
+    "about": {
+    "title": "Sobre Nós",
+    "welcome": "Bem-vindo à VSM Development",
+    "who-are-we-title": "Quem Somos",
+    "who-are-we-p": "Somos uma empresa apaixonada por desenvolvimento mobile, movida pelo objetivo de resolver problemas do dia a dia com tecnologia inteligente. Nossa jornada começou com a criação do aplicativo Remedi, uma ferramenta projetada para ajudar os usuários a cuidarem melhor da sua saúde.",
+    "our-mission-title": "Nossa Missão",
+    "our-mission-p": "Desenvolver aplicativos Android centrados no usuário que aumentem a produtividade e o bem-estar, oferecendo soluções móveis confiáveis que facilitam a vida.",
+    "what-we-do-title": "O Que Fazemos",
+    "what-we-do-list": {
+      "custom-dev": "Desenvolvimento de Aplicativos Android Personalizados",
+      "design": "Design de UI/UX para Aplicativos",
+      "maintenance": "Manutenção e Suporte de Aplicativos",
+      "testing": "Testes de Aplicativos"
+    },
+    "our-story-title": "Nossa História",
+    "our-story-p": "Em 2023, o fundador da empresa iniciou sua jornada no desenvolvimento Android, criando seu primeiro aplicativo comercial Remedi como TCC do curso de Engenharia da Computação. Sua paixão pelo desenvolvimento mobile continuou após o projeto, levando-o a seguir na área e buscar se profissionalizar."
+  }
 }

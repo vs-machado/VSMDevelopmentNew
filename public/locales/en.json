@@ -32,5 +32,22 @@
   },
   "page-titles": {
     "about": "About – VSM Development"
+  },
+  "about": {
+    "title": "About Us",
+    "welcome": "Welcome to VSM Development",
+    "who-are-we-title": "Who Are We",
+    "who-are-we-p": "We are a passionate mobile development enterprise driven by the goal of solving everyday problems through smart technology. Our journey began with the creation of the Pill Reminder app, a tool designed to help users stay on top of their health.",
+    "our-mission-title": "Our Mission",
+    "our-mission-p": "To develop user-centered Android applications that enhance productivity and well-being, delivering reliable mobile solutions that make life easier.",
+    "what-we-do-title": "What We Do",
+    "what-we-do-list": {
+      "custom-dev": "Custom Android App Development",
+      "design": "App UI/UX Design",
+      "maintenance": "App Maintenance & Support",
+      "testing": "App Testing"
+    },
+    "our-story-title": "Our Story",
+    "our-story-p": "In 2023, the company’s founder began his journey into Android development, creating his first commercial app (Pill Reminder) for his final course work in Computer Engineering. His passion for mobile development continued after the end of his work, leading him to continue in the field and seek professionalization."
   }
 }
