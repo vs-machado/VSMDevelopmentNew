@@ -31,9 +31,16 @@
     "company": "Empresa"
   },
   "page-titles": {
-    "about": "Sobre – VSM Development"
+    "about": "Sobre – VSM Development",
+    "contact": "Contato – VSM Development"
   },
-    "about": {
+  "contact": {
+    "title": "Contate-nos",
+    "subtitle": "Ajude-nos a continuar melhorando nossos aplicativos.",
+    "get-in-touch": "Entre em Contato",
+    "contact-image-alt": "Imagem de contato"
+  },
+  "about": {
     "title": "Sobre Nós",
     "welcome": "Bem-vindo à VSM Development",
     "who-are-we-title": "Quem Somos",

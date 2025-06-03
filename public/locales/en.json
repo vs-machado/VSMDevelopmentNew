@@ -31,7 +31,8 @@
     "company": "Company"
   },
   "page-titles": {
-    "about": "About – VSM Development"
+    "about": "About – VSM Development",
+    "contact": "Contact – VSM Development"
   },
   "about": {
     "title": "About Us",
@@ -49,5 +50,11 @@
     },
     "our-story-title": "Our Story",
     "our-story-p": "In 2023, the company’s founder began his journey into Android development, creating his first commercial app (Pill Reminder) for his final course work in Computer Engineering. His passion for mobile development continued after the end of his work, leading him to continue in the field and seek professionalization."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Help us to continue improving our apps.",
+    "get-in-touch": "Get In Touch",
+    "contact-image-alt": "Contact image"
   }
 }

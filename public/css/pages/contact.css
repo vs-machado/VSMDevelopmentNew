@@ -1,0 +1,70 @@
+span {
+  font-family: var(--font-secondary);
+}
+
+main {
+  flex: 1;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.p {
+  font-size: 5rem;
+}
+
+.flex-container {
+  display: flex;
+  gap: 6rem;
+  flex-direction: row;
+  max-width: 1000px;
+  width: 100%;
+  margin: 6rem auto 6rem auto;
+}
+
+.flex-container > img {
+  /* width: 500px;
+  height: auto; */
+  width: 100%; /* or any fixed size */
+  height: auto;
+  max-width: 500px;
+  object-fit: cover; /* ensures the image fills the circle nicely */
+  border-radius: 10%;
+}
+
+.contact-details h1 {
+  font-size: var(--font-size-6xl);
+}
+
+.contact-details h2 {
+  font-size: var(--font-size-3xl);
+}
+
+.contact-details > p:nth-of-type(1) {
+  margin-bottom: 3rem;
+}
+
+.contact-details a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  margin-bottom: 1rem; /* optional spacing between links */
+}
+
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+    max-width: 80%;
+    margin: 2rem auto 2rem auto;
+    gap: 1rem;
+  }
+
+  .flex-container > img {
+    width: 100%; /* make image responsive on small screens */
+    max-width: 100%;
+    height: auto;
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/pages/contact.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <title data-i18n="page-titles.contact">Contact – VSM Development</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header-component image="true"></header-component>
+      <main>
+        <div class="flex-container">
+          <img src="./images/contact-img.jpg" alt="Contact image" data-i18n-attr="alt:contact.contact-image-alt" />
+          <div class="contact-details">
+            <h1 data-i18n="contact.title">Contact Us</h1>
+            <p data-i18n="contact.subtitle">Help us to continue improving our apps.</p>
+            <h2 data-i18n="contact.get-in-touch">Get In Touch</h2>
+            <a href="mailto:vsm.development7@gmail.com" class="contact-link">
+              <i class="fa-solid fa-envelope" style="color: #187edc"></i>
+              <span>vsm.development7@gmail.com</span>
+            </a>
+            <a href="https://wa.me/5564935002198">
+              <i class="fa-solid fa-phone" style="color: #187edc"> </i>
+              <span>+55 64 93500-2198</span>
+            </a>
+          </div>
+        </div>
+      </main>
+      <footer-component></footer-component>
+    </div>
+  </body>
+  <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/components/header.js"></script>
+  <script type="module" src="./js/components/footer.js"></script>
+</html>
