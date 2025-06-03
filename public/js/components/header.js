@@ -64,7 +64,7 @@ class Header extends HTMLElement {
             <li><a href="./" data-i18n="nav.home">Home</a></li>
             <li><a href="Portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
             <li><a href="about.html" data-i18n="nav.about">About</a></li>
-            <li><a href="Contact" data-i18n="nav.contact">Contact</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
           </ul>
           <ul>
             <!-- TODO: implementar um botão para alterar o idioma do site-->
@@ -78,7 +78,7 @@ class Header extends HTMLElement {
               <a href="about.html" data-i18n="nav.about">About</a>
             </li>
             <li class="hideOnMobile">
-              <a href="Contact" data-i18n="nav.contact">Contact</a>
+              <a href="contact.html" data-i18n="nav.contact">Contact</a>
             </li>
             <li id="menuButton">
               <a href="#"
