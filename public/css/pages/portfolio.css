@@ -24,7 +24,8 @@ ul li {
 
 /* Título do portfólio */
 .title-container {
-  width: 40%;
+  width: 60%;
+  max-width: 300px;
   text-align: center;
   border-bottom: 1px solid #000;
   margin: 3rem auto 3rem auto;
@@ -33,6 +34,7 @@ ul li {
 .title-container > h1 {
   font-size: var(--font-size-4xl);
 }
+
 /* Nome e descrição do app */
 .app-presentation-container {
   text-align: center;
@@ -93,9 +95,23 @@ ul li {
   display: block;
 }
 
+.download-options {
+  margin-bottom: 6rem;
+}
+
 @media (max-width: 800px) {
   .download-options {
     flex-direction: column;
-    align-items: center; /* Center the buttons when stacked */
+    align-items: center; 
+    margin-bottom: 6rem;
+  }
+
+  main {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .title-container > h1 {
+    white-space: nowrap;
   }
 }
