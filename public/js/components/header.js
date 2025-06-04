@@ -62,7 +62,7 @@ class Header extends HTMLElement {
               ></a>
             </li>
             <li><a href="./" data-i18n="nav.home">Home</a></li>
-            <li><a href="Portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+            <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
             <li><a href="about.html" data-i18n="nav.about">About</a></li>
             <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
           </ul>
@@ -72,7 +72,7 @@ class Header extends HTMLElement {
               <a href="./" data-i18n="nav.home">Home</a>
             </li>
             <li class="hideOnMobile">
-              <a href="Portfolio" data-i18n="nav.portfolio">Portfolio</a>
+              <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
             </li>
             <li class="hideOnMobile">
               <a href="about.html" data-i18n="nav.about">About</a>
