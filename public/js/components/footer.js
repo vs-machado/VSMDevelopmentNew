@@ -41,6 +41,7 @@ class Footer extends HTMLElement {
             <li><a href="Portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
             <li><a href="About" data-i18n="nav.about">About</a></li>
             <li><a href="Contact" data-i18n="nav.contact">Contact</a></li>
+            <li><a href="remedi-privacy-policy" data-i18n="nav.policy">Privacy Policy</a></li>
           </ul>
         </div>
       </div>

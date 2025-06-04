@@ -3,7 +3,48 @@
     "home": "Início",
     "portfolio": "Portfólio",
     "about": "Sobre",
-    "contact": "Contato"
+    "contact": "Contato",
+    "policy": "Política de Privacidade"
+  },
+  "policy": {
+    "introduction-title": "Introdução",
+    "introduction": "Bem-vindo ao Remedi, desenvolvido pela VSM Development (\"nós\", \"nosso\" ou \"nossa\"). Sua privacidade é importante para nós. Esta Política de Privacidade explica como nosso aplicativo trata dados pessoais de acordo com o Regulamento Geral de Proteção de Dados (GDPR).",
+    "data-collection-title": "Coleta e Uso de Dados",
+    "data-collection": "Não coletamos ou armazenamos dados pessoais diretamente. No entanto, nosso aplicativo usa serviços de terceiros que podem coletar dados para melhorar a funcionalidade, exibir anúncios e analisar o desempenho do aplicativo. Esses serviços incluem:",
+    "service": {
+      "admob": "Google AdMob (para anúncios)",
+      "analytics": "Google Analytics (para rastreamento de uso)",
+      "crashlytics": "Firebase Crashlytics (para relatórios de falhas)",
+      "firebase": "Google Firebase (para serviços de backend)"
+    },
+    "service-note": "Esses serviços de terceiros podem coletar dados pessoais conforme descrito em suas respectivas políticas de privacidade.",
+    "third-party-title": "Coleta de Dados por Terceiros",
+    "third-party-desc": "Os serviços de terceiros integrados ao Remedi podem coletar informações como:",
+    "third-party": {
+      "ad-id": "Identificadores de publicidade para anúncios personalizados",
+      "usage": "Dados de uso para análise e relatórios de falhas",
+      "device-info": "Informações do dispositivo e endereço IP"
+    },
+    "third-party-note": "Não controlamos como esses terceiros coletam, armazenam ou usam dados. Revise suas políticas de privacidade para mais informações:",
+    "google-policy": "Política de Privacidade do Google",
+    "storage-title": "Armazenamento e Backup de Dados",
+    "storage-desc": "Não armazenamos dados do usuário localmente ou em servidores externos. No entanto, o Google pode fazer backup automático de dados relacionados ao aplicativo como parte de seus serviços. Não controlamos o processo de backup ou as políticas de retenção de dados do Google.",
+    "user-rights-title": "Direitos do Usuário Sob o GDPR",
+    "rights": {
+      "access": "Direito de Acesso: Você pode revisar dados coletados por terceiros (quando aplicável).",
+      "deletion": "Direito de Exclusão: Embora não armazenemos dados do usuário, você pode solicitar a exclusão de dados dos serviços do Google.",
+      "restrict": "Direito de Restringir Processamento: Você pode desabilitar anúncios personalizados nas configurações da sua conta Google."
+    },
+    "rights-note": "Para quaisquer preocupações relacionadas ao processamento de dados, você pode entrar em contato com o Google diretamente através de suas configurações de privacidade.",
+    "security-title": "Segurança",
+    "security-desc": "Embora não armazenemos dados nós mesmos, os serviços de terceiros que usamos implementam medidas de segurança para proteger dados do usuário. No entanto, não garantimos segurança completa do tratamento de dados por terceiros.",
+    "children-title": "Privacidade de Crianças",
+    "children-desc": "Nosso aplicativo é destinado a usuários adultos, mas não contém conteúdo prejudicial para crianças. No entanto, como inclui serviços de terceiros que podem coletar dados, a orientação dos pais é recomendada.",
+    "changes-title": "Alterações nesta Política de Privacidade",
+    "changes-desc": "Podemos atualizar esta Política de Privacidade periodicamente. Quaisquer alterações serão publicadas no aplicativo e/ou em nosso site.",
+    "contact-title": "Informações de Contato",
+    "contact-desc": "Se você tiver dúvidas ou preocupações sobre esta Política de Privacidade, entre em contato conosco em:",
+    "agreement": "Ao usar o Remedi, você concorda com os termos descritos nesta Política de Privacidade."
   },
   "hero": {
     "subtitle": "Inovando soluções Android todos os dias",
@@ -33,7 +74,8 @@
   "page-titles": {
     "about": "Sobre – VSM Development",
     "contact": "Contato – VSM Development",
-    "portfolio": "Portfólio – VSM Development"
+    "portfolio": "Portfólio – VSM Development",
+    "policy": "Política de Privacidade – VSM Development"
   },
   "contact": {
     "title": "Contate-nos",

@@ -1,0 +1,43 @@
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 4rem auto;
+  width: 80%;
+  max-width: 1000px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#policy-title {
+  text-align: center;
+}
+
+/* Seção data collection */
+.data-collection-section > ul li {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  margin-bottom: 1rem;
+}
+
+.third-party-data-section > ul li {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  margin-bottom: 1rem;
+}
+
+/* Seção user rights */
+.user-rights-section > ul li {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  margin-bottom: 1rem;
+}
+
+a[data-i18n="policy.google-policy"] {
+  color: blue;
+  text-decoration: none;
+}

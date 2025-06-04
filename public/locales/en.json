@@ -3,7 +3,48 @@
     "home": "Home",
     "portfolio": "Portfolio",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "policy": "Privacy Policy"
+  },
+  "policy": {
+    "introduction-title": "Introduction",
+    "introduction": "Welcome to Remedi, developed by VSM Development (\"we,\" \"our,\" or \"us\"). Your privacy is important to us. This Privacy Policy explains how our app handles personal data in accordance with the General Data Protection Regulation (GDPR).",
+    "data-collection-title": "Data Collection and Use",
+    "data-collection": "We do not directly collect or store personal data. However, our app uses third-party services that may collect data to improve functionality, serve ads, and analyze app performance. These services include:",
+    "service": {
+      "admob": "Google AdMob (for advertisements)",
+      "analytics": "Google Analytics (for usage tracking)",
+      "crashlytics": "Firebase Crashlytics (for crash reporting)",
+      "firebase": "Google Firebase (for backend services)"
+    },
+    "service-note": "These third-party services may collect personal data as described in their respective privacy policies.",
+    "third-party-title": "Third-Party Data Collection",
+    "third-party-desc": "The third-party services integrated into Remedi may collect information such as:",
+    "third-party": {
+      "ad-id": "Advertising identifiers for personalized ads",
+      "usage": "Usage data for analytics and crash reporting",
+      "device-info": "Device information and IP address"
+    },
+    "third-party-note": "We do not control how these third parties collect, store, or use data. Please review their privacy policies for more information:",
+    "google-policy": "Google Privacy Policy",
+    "storage-title": "Data Storage & Backup",
+    "storage-desc": "We do not store any user data locally or on external servers. However, Google may automatically back up app-related data as part of their services. We do not control Google's backup process or data retention policies.",
+    "user-rights-title": "User Rights Under GDPR",
+    "rights": {
+      "access": "Right to Access: You can review data collected by third parties (where applicable).",
+      "deletion": "Right to Deletion: While we do not store user data, you may be able to request data deletion from Google services.",
+      "restrict": "Right to Restrict Processing: You can disable personalized ads in your Google account settings."
+    },
+    "rights-note": "For any concerns related to data processing, you may contact Google directly through their privacy settings.",
+    "security-title": "Security",
+    "security-desc": "While we do not store data ourselves, third-party services we use implement security measures to protect user data. However, we do not guarantee complete security of third-party data handling.",
+    "children-title": "Children's Privacy",
+    "children-desc": "Our app is intended for adult users but does not contain harmful content for children. However, as it includes third-party services that may collect data, parental guidance is recommended.",
+    "changes-title": "Changes to This Privacy Policy",
+    "changes-desc": "We may update this Privacy Policy from time to time. Any changes will be posted within the app and/or on our website.",
+    "contact-title": "Contact Information",
+    "contact-desc": "If you have any questions or concerns about this Privacy Policy, please contact us at:",
+    "agreement": "By using Remedi, you agree to the terms outlined in this Privacy Policy."
   },
   "hero": {
     "subtitle": "Innovating Android solutions everyday",
@@ -50,7 +91,7 @@
       "testing": "App Testing"
     },
     "our-story-title": "Our Story",
-    "our-story-p": "In 2023, the company’s founder began his journey into Android development, creating his first commercial app (Pill Reminder) for his final course work in Computer Engineering. His passion for mobile development continued after the end of his work, leading him to continue in the field and seek professionalization."
+    "our-story-p": "In 2023, the company's founder began his journey into Android development, creating his first commercial app (Pill Reminder) for his final course work in Computer Engineering. His passion for mobile development continued after the end of his work, leading him to continue in the field and seek professionalization."
   },
   "contact": {
     "title": "Contact Us",
