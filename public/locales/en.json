@@ -74,7 +74,8 @@
   "page-titles": {
     "about": "About – VSM Development",
     "contact": "Contact – VSM Development",
-    "portfolio": "Portfolio – VSM Development"
+    "portfolio": "Portfolio – VSM Development",
+    "404": "Page Not Found"
   },
   "about": {
     "title": "About Us",
@@ -116,6 +117,11 @@
     "download-options": {
       "github": "GitHub Download",
       "google-play": "Google Play Download"
+    },
+    "404": {
+      "title": "404 - Page Not Found",
+      "description": "Sorry, the page you are looking for does not exist.",
+      "home-link": "Go to Home"
     }
   }
 }

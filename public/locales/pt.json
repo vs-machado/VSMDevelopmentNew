@@ -75,7 +75,8 @@
     "about": "Sobre – VSM Development",
     "contact": "Contato – VSM Development",
     "portfolio": "Portfólio – VSM Development",
-    "policy": "Política de Privacidade – VSM Development"
+    "policy": "Política de Privacidade – VSM Development",
+    "404": "Página Não Encontrada"
   },
   "contact": {
     "title": "Contate-nos",
@@ -118,5 +119,10 @@
       "github": "Baixar do GitHub",
       "google-play": "Baixar do Google Play"
     }
+  },
+  "404": {
+    "title": "404 - Página Não Encontrada",
+    "description": "Desculpe, a página que você está procurando não existe.",
+    "home-link": "Ir para a Página Inicial"
   }
 }
