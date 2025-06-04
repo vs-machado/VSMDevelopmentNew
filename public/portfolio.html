@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/pages/portfolio.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title data-i18n="page-titles.portfolio">Portfolio – VSM Development</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header-component image="true"></header-component>
+      <main>
+        <div class="title-container">
+          <h1 data-i18n="portfolio.title">Portfolio</h1>
+        </div>
+        <div class="app-presentation-container">
+          <h2 class="app-name" data-i18n="portfolio.app-name">Remedi</h2>
+          <p class="description" data-i18n="portfolio.description">
+            An Android application for helping users to track their medicines
+            doses
+          </p>
+        </div>
+        <div class="app-image">
+          <img src="./images/remedi-screenshots.png" alt="Remedi app image" />
+        </div>
+        <div class="features-container">
+          <h2 class="features-title" data-i18n="portfolio.features-title">
+            Features
+          </h2>
+          <ul class="features-list">
+            <li data-i18n="portfolio.features-list.schedule-alarms">
+              Schedule alarms to remind users about their medicines
+            </li>
+            <li data-i18n="portfolio.features-list.receive-notifications">
+              Receive notifications if user does not mark medicine as used in
+              the application
+            </li>
+            <li data-i18n="portfolio.features-list.set-treatment-period">
+              Allows users to set a treatment period or receive alarms until
+              medicine deletion
+            </li>
+            <li data-i18n="portfolio.features-list.daily-notifications">
+              Receive daily notifications after setting a pillbox refill
+              reminder
+            </li>
+            <li data-i18n="portfolio.features-list.list-treatments">
+              List all ongoing and ended treatments
+            </li>
+            <li data-i18n="portfolio.features-list.warn-user">
+              Warn user if he pretends to mark a medicine as used close to the
+              next dose hour
+            </li>
+          </ul>
+        </div>
+        <div class="download">
+          <div class="title-download-container">
+            <h2 class="title" data-i18n="portfolio.download-title">Download</h2>
+          </div>
+          <div class="download-options">
+            <div class="download-mirror">
+              <a
+                href="https://github.com/vs-machado/PillReminder/releases/tag/1.0.0"
+                ><img
+                  src="./images/github-icon.png"
+                  alt="GitHub Download"
+                  data-i18n="portfolio.download-options.github"
+                />
+              </a>
+            </div>
+            <div class="download-mirror">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.phoenix.remedi"
+                ><img
+                  src="./images/google-play-icon.png"
+                  alt="Google Play Download"
+                  data-i18n="portfolio.download-options.google-play"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer-component></footer-component>
+    </div>
+  </body>
+  <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/components/header.js"></script>
+  <script type="module" src="./js/components/footer.js"></script>
+</html>

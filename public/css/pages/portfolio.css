@@ -1,0 +1,101 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+p {
+  font-size: var(--font-size-lg);
+}
+ul li {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-lg);
+}
+
+/* Título do portfólio */
+.title-container {
+  width: 40%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  margin: 3rem auto 3rem auto;
+}
+
+.title-container > h1 {
+  font-size: var(--font-size-4xl);
+}
+/* Nome e descrição do app */
+.app-presentation-container {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Imagem do app */
+.app-image > img {
+  height: auto;
+  width: 95%;
+  max-width: 1600px;
+  margin: 0 auto 0 auto;
+  display: block;
+}
+
+.app-image {
+  margin-bottom: 3rem;
+}
+
+/* Recursos do app */
+.features-title {
+  text-align: center;
+}
+
+.features-container {
+  margin-bottom: 3rem;
+}
+
+.features-list {
+  padding-inline-start: 20px;
+}
+
+.features-list li {
+  margin-bottom: 8px;
+}
+
+/* Opções para download */
+.download {
+  text-align: center;
+}
+
+.download-options {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-direction: row; /* Default: side by side */
+}
+
+.download-mirror {
+  width: 240px;
+  height: 80px;
+}
+
+.download-mirror img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .download-options {
+    flex-direction: column;
+    align-items: center; /* Center the buttons when stacked */
+  }
+}

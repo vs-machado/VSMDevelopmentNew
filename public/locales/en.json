@@ -32,7 +32,8 @@
   },
   "page-titles": {
     "about": "About – VSM Development",
-    "contact": "Contact – VSM Development"
+    "contact": "Contact – VSM Development",
+    "portfolio": "Portfolio – VSM Development"
   },
   "about": {
     "title": "About Us",
@@ -56,5 +57,24 @@
     "subtitle": "Help us to continue improving our apps.",
     "get-in-touch": "Get In Touch",
     "contact-image-alt": "Contact image"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "app-name": "Remedi",
+    "description": "An Android application for helping users to track their medicines doses",
+    "features-title": "Features",
+    "features-list": {
+      "schedule-alarms": "Schedule alarms to remind users about their medicines",
+      "receive-notifications": "Receive notifications if user does not mark medicine as used in the application",
+      "set-treatment-period": "Allows users to set a treatment period or receive alarms until medicine deletion",
+      "daily-notifications": "Receive daily notifications after setting a pillbox refill reminder",
+      "list-treatments": "List all ongoing and ended treatments",
+      "warn-user": "Warn user if he pretends to mark a medicine as used close to the next dose hour"
+    },
+    "download-title": "Download",
+    "download-options": {
+      "github": "GitHub Download",
+      "google-play": "Google Play Download"
+    }
   }
 }

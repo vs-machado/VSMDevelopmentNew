@@ -32,7 +32,8 @@
   },
   "page-titles": {
     "about": "Sobre – VSM Development",
-    "contact": "Contato – VSM Development"
+    "contact": "Contato – VSM Development",
+    "portfolio": "Portfólio – VSM Development"
   },
   "contact": {
     "title": "Contate-nos",
@@ -56,5 +57,24 @@
     },
     "our-story-title": "Nossa História",
     "our-story-p": "Em 2023, o fundador da empresa iniciou sua jornada no desenvolvimento Android, criando seu primeiro aplicativo comercial Remedi como TCC do curso de Engenharia da Computação. Sua paixão pelo desenvolvimento mobile continuou após o projeto, levando-o a seguir na área e buscar se profissionalizar."
+  },
+  "portfolio": {
+    "title": "Portfólio",
+    "app-name": "Remedi",
+    "description": "Um aplicativo Android para ajudar os usuários a acompanhar suas doses de medicamentos",
+    "features-title": "Recursos",
+    "features-list": {
+      "schedule-alarms": "Agendar alarmes para lembrar os usuários sobre seus medicamentos",
+      "receive-notifications": "Receber notificações se o usuário não marcar o medicamento como usado no aplicativo",
+      "set-treatment-period": "Permite aos usuários definir um período de tratamento ou receber alarmes até a exclusão do medicamento",
+      "daily-notifications": "Receber notificações diárias após definir um lembrete de reabastecimento de caixa de comprimidos",
+      "list-treatments": "Listar todos os tratamentos em andamento e encerrados",
+      "warn-user": "Avisar o usuário se ele pretende marcar um medicamento como usado próximo ao horário da próxima dose"
+    },
+    "download-title": "Download",
+    "download-options": {
+      "github": "Baixar do GitHub",
+      "google-play": "Baixar do Google Play"
+    }
   }
 }
