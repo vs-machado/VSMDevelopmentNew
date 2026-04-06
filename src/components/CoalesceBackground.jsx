@@ -24,8 +24,8 @@ const CoalesceBackground = () => {
     const rangeTTL = 500;
     const baseSpeed = 0.1;
     const rangeSpeed = 1;
-    const baseSize = 1; // Smaller particles
-    const rangeSize = 6;  // Smaller particles
+    const baseSize = 2; // Slightly larger particles
+    const rangeSize = 8; // Slightly larger range
     const baseHue = 180; // Cyan start
     const rangeHue = 40; // Variation around cyan
     const backgroundColor = '#050505'; // Match application background
