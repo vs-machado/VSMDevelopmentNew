@@ -176,60 +176,94 @@ const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyCl
 const Home = () => {
   const { t } = useTranslation();
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans relative">
+      {/* Decorative Technical Elements */}
+      <div className="absolute top-48 left-10 w-px h-64 bg-gradient-to-b from-cyan/30 to-transparent hidden xl:block" />
+      <div className="absolute top-48 right-10 w-px h-64 bg-gradient-to-b from-cyan/30 to-transparent hidden xl:block" />
+      <div className="absolute top-[300px] left-0 w-32 h-[1px] bg-cyan/10 hidden xl:block" />
+      <div className="absolute top-[300px] right-0 w-32 h-[1px] bg-cyan/10 hidden xl:block" />
+
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <section className="mb-48 max-w-5xl">
-          <motion.div initial={{ y: 15, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7 }}>
-             <div className="inline-flex items-center gap-3 mb-10 px-4 py-2 glass-panel rounded-full border-cyan/20">
+          <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
+             <div className="inline-flex items-center gap-3 mb-12 px-5 py-2.5 glass-panel rounded-full border-cyan/10 bg-cyan/[0.03] backdrop-blur-md">
                 <div className="relative">
-                   <span className="block w-2 h-2 bg-cyan rounded-full"></span>
-                   <span className="absolute inset-0 w-2 h-2 bg-cyan rounded-full animate-ping opacity-75"></span>
+                   <span className="block w-2.5 h-2.5 bg-cyan rounded-full"></span>
+                   <span className="absolute inset-0 w-2.5 h-2.5 bg-cyan rounded-full animate-ping opacity-75"></span>
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan leading-none">{t('hero.status')}</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-cyan leading-none">{t('hero.status')}</span>
              </div>
-             <h1 className="text-5xl md:text-[5.5rem] mb-12 leading-[1.05] text-white font-extrabold tracking-tight text-balance">
-               {t('hero.title')}
+             
+             <h1 className="text-6xl md:text-[6.5rem] mb-14 leading-[0.95] text-white font-extrabold tracking-tight text-balance relative">
+               <span className="relative z-10">{t('hero.title')}</span>
+               <span className="absolute -left-10 -top-10 text-[10rem] text-cyan/[0.02] -z-10 font-mono select-none pointer-events-none hidden lg:block">VSM</span>
              </h1>
-             <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl mb-14 font-medium opacity-80 font-sans">
+
+             <p className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-3xl mb-16 font-medium opacity-80 font-sans tracking-tight">
                {t('hero.subtitle')}
              </p>
-             <Link to="/portfolio" className="inline-flex items-center gap-4 px-10 py-5 bg-white text-slate font-bold rounded-full hover:bg-cyan transition-all group shadow-xl shadow-white/5">
-               {t('hero.cta')} <ArrowRight size={22} className="group-hover:translate-x-1.5 transition-transform" />
-             </Link>
+
+             <div className="flex flex-wrap gap-6 items-center">
+               <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-12 py-6 bg-cyan text-slate-950 font-black rounded-full hover:bg-white transition-all duration-500 shadow-2xl shadow-cyan/20">
+                 {t('hero.cta')} <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
+               </Link>
+               
+               <div className="flex items-center gap-8 pl-4 opacity-40 hover:opacity-80 transition-opacity">
+                 <div className="flex -space-x-4">
+                    <div className="w-10 h-10 rounded-full border-2 border-slate bg-slate-800 flex items-center justify-center"><Code2 size={16} /></div>
+                    <div className="w-10 h-10 rounded-full border-2 border-slate bg-slate-800 flex items-center justify-center"><Smartphone size={16} /></div>
+                    <div className="w-10 h-10 rounded-full border-2 border-slate bg-slate-800 flex items-center justify-center"><Cpu size={16} /></div>
+                 </div>
+                 <span className="text-[10px] font-bold uppercase tracking-widest">{t('expertise.tech_stack') || 'FULLSTACK TECH'}</span>
+               </div>
+             </div>
           </motion.div>
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
-          <div className="group relative p-[1px] rounded-[2rem] bg-white/5 hover:bg-cyan/20 transition-all duration-700 overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="bg-slate/60 backdrop-blur-md p-10 md:p-14 rounded-[2rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/10 transition-colors duration-700">
-               <div className="w-14 h-14 bg-cyan/10 flex items-center justify-center text-cyan mb-10 rounded-2xl group-hover:bg-cyan/20 transition-all duration-500">
-                  <Code2 size={28} />
+          <motion.div 
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="group relative p-[1px] rounded-[2.5rem] bg-white/5 hover:bg-cyan/30 transition-all duration-700 overflow-hidden shadow-2xl"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.15),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="bg-slate-900/60 backdrop-blur-xl p-10 md:p-14 rounded-[2.5rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
+               <div className="w-16 h-16 bg-cyan/10 flex items-center justify-center text-cyan mb-12 rounded-2xl group-hover:bg-cyan/20 group-hover:scale-110 transition-all duration-500 shadow-inner">
+                  <Code2 size={32} />
                </div>
-               <h3 className="text-3xl mb-4 font-bold text-white tracking-tight font-sans">{t('expertise.web.title')}</h3>
-               <p className="text-slate-400 leading-relaxed text-[16px] mb-12 opacity-90 font-sans">{t('expertise.web.desc')}</p>
-               <div className="mt-auto flex flex-wrap gap-3 font-mono text-[10px] uppercase font-bold opacity-40">
-                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">React</span>
-                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">Node.js / Python</span>
-                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">PostgreSQL</span>
-               </div>
-            </div>
-          </div>
-          <div className="group relative p-[1px] rounded-[2rem] bg-white/5 hover:bg-cyan/20 transition-all duration-700 overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="bg-slate/60 backdrop-blur-md p-10 md:p-14 rounded-[2rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/10 transition-colors duration-700">
-               <div className="w-14 h-14 bg-cyan/10 flex items-center justify-center text-cyan mb-10 rounded-2xl group-hover:bg-cyan/20 transition-all duration-500">
-                  <Smartphone size={28} />
-               </div>
-               <h3 className="text-3xl mb-4 font-bold text-white tracking-tight font-sans">{t('expertise.mobile.title')}</h3>
-               <p className="text-slate-400 leading-relaxed text-[16px] mb-12 opacity-90 font-sans">{t('expertise.mobile.desc')}</p>
-               <div className="mt-auto flex flex-wrap gap-3 font-mono text-[10px] uppercase font-bold opacity-40">
-                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">Kotlin / Java</span>
-                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">Jetpack Compose</span>
-                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">Clean Arch</span>
+               <h3 className="text-4xl mb-6 font-bold text-white tracking-tighter font-sans">{t('expertise.web.title')}</h3>
+               <p className="text-slate-400 leading-relaxed text-lg mb-14 opacity-90 font-sans font-medium tracking-tight">{t('expertise.web.desc')}</p>
+               <div className="mt-auto flex flex-wrap gap-4 font-mono text-[11px] uppercase font-bold text-cyan/60">
+                  <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">React / Next.js</span>
+                  <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Node.js / Python</span>
+                  <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">PostgreSQL</span>
                </div>
             </div>
-          </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="group relative p-[1px] rounded-[2.5rem] bg-white/5 hover:bg-cyan/30 transition-all duration-700 overflow-hidden shadow-2xl"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.15),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="bg-slate-900/60 backdrop-blur-xl p-10 md:p-14 rounded-[2.5rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
+               <div className="w-16 h-16 bg-cyan/10 flex items-center justify-center text-cyan mb-12 rounded-2xl group-hover:bg-cyan/20 group-hover:scale-110 transition-all duration-500 shadow-inner">
+                  <Smartphone size={32} />
+               </div>
+               <h3 className="text-4xl mb-6 font-bold text-white tracking-tighter font-sans">{t('expertise.mobile.title')}</h3>
+               <p className="text-slate-400 leading-relaxed text-lg mb-14 opacity-90 font-sans font-medium tracking-tight">{t('expertise.mobile.desc')}</p>
+               <div className="mt-auto flex flex-wrap gap-4 font-mono text-[11px] uppercase font-bold text-cyan/60">
+                  <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Kotlin / Java</span>
+                  <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Jetpack Compose</span>
+                  <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Android SDK</span>
+               </div>
+            </div>
+          </motion.div>
         </section>
       </div>
     </motion.div>
@@ -239,10 +273,17 @@ const Home = () => {
 const Experience = () => {
   const { t } = useTranslation();
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans relative">
+      {/* Decorative Lines */}
+      <div className="absolute top-48 left-10 w-px h-full bg-gradient-to-b from-cyan/20 via-cyan/5 to-transparent hidden xl:block" />
+      
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="max-w-4xl">
-          <h2 className="text-5xl md:text-7xl mb-24 font-extrabold text-white tracking-tighter">{t('experience.title')}</h2>
+        <div className="max-w-4xl relative">
+          <h2 className="text-6xl md:text-8xl mb-24 font-extrabold text-white tracking-tighter relative">
+            {t('experience.title')}
+            <span className="absolute -left-12 top-0 text-cyan/10 text-lg font-mono tracking-[0.5em] [writing-mode:vertical-lr] hidden xl:block uppercase">Timeline</span>
+          </h2>
+
           {/* ... existing space-y-24 ... */}
         
         <div className="space-y-24 mb-32">
@@ -356,9 +397,16 @@ const Portfolio = () => {
   };
   
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans relative">
+      {/* Decorative Blueprint Line */}
+      <div className="absolute top-48 right-10 w-px h-full bg-gradient-to-b from-cyan/20 via-cyan/5 to-transparent hidden xl:block" />
+
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <h2 className="text-5xl md:text-7xl mb-24 font-extrabold text-white tracking-tighter">{t('portfolio.title')}</h2>
+        <h2 className="text-6xl md:text-8xl mb-24 font-extrabold text-white tracking-tighter relative">
+          {t('portfolio.title')}
+          <span className="absolute -right-12 top-0 text-cyan/10 text-lg font-mono tracking-[0.5em] [writing-mode:vertical-lr] hidden xl:block uppercase">Works</span>
+        </h2>
+
         
         {/* Web Section */}
         <div className="mb-40">
