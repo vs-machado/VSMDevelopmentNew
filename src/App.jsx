@@ -5,7 +5,10 @@ import { useTranslation } from 'react-i18next';
 import './i18n';
 import { Globe, Smartphone, ArrowRight, ExternalLink, Shield, X, Code2, Cpu, Search, MessageSquare, Newspaper, Binary, Briefcase, GraduationCap, Award, Play } from 'lucide-react';
 
+import CoalesceBackground from './components/CoalesceBackground';
+
 /* --- Components --- */
+
 
 const Nav = () => {
   const { t, i18n } = useTranslation();
@@ -17,8 +20,9 @@ const Nav = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-slate/80 backdrop-blur-xl border-b border-white/5 font-sans">
+    <nav className="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/5 font-sans">
       <div className="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
+
         <Link to="/" className="hover:opacity-80 transition-opacity">
           <img src="/images/vsm-development-logo.png" alt="VSM Development" className="h-10 w-auto" />
         </Link>
@@ -177,13 +181,8 @@ const Home = () => {
   const { t } = useTranslation();
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans relative">
-      {/* Decorative Technical Elements */}
-      <div className="absolute top-48 left-10 w-px h-64 bg-gradient-to-b from-cyan/30 to-transparent hidden xl:block" />
-      <div className="absolute top-48 right-10 w-px h-64 bg-gradient-to-b from-cyan/30 to-transparent hidden xl:block" />
-      <div className="absolute top-[300px] left-0 w-32 h-[1px] bg-cyan/10 hidden xl:block" />
-      <div className="absolute top-[300px] right-0 w-32 h-[1px] bg-cyan/10 hidden xl:block" />
-
       <div className="max-w-7xl mx-auto px-6 md:px-8">
+
         <section className="mb-48 max-w-5xl">
           <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
              <div className="inline-flex items-center gap-3 mb-12 px-5 py-2.5 glass-panel rounded-full border-cyan/10 bg-cyan/[0.03] backdrop-blur-md">
@@ -264,10 +263,8 @@ const Experience = () => {
   const { t } = useTranslation();
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans relative">
-      {/* Decorative Lines */}
-      <div className="absolute top-48 left-10 w-px h-full bg-gradient-to-b from-cyan/20 via-cyan/5 to-transparent hidden xl:block" />
-      
       <div className="max-w-7xl mx-auto px-6 md:px-8">
+
         <div className="max-w-4xl relative">
           <h2 className="text-6xl md:text-8xl mb-24 font-extrabold text-white tracking-tighter relative">
             {t('experience.title')}
@@ -388,10 +385,8 @@ const Portfolio = () => {
   
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans relative">
-      {/* Decorative Blueprint Line */}
-      <div className="absolute top-48 right-10 w-px h-full bg-gradient-to-b from-cyan/20 via-cyan/5 to-transparent hidden xl:block" />
-
       <div className="max-w-7xl mx-auto px-6 md:px-8">
+
         <h2 className="text-6xl md:text-8xl mb-24 font-extrabold text-white tracking-tighter relative">
           {t('portfolio.title')}
           <span className="absolute -right-12 top-0 text-cyan/10 text-lg font-mono tracking-[0.5em] [writing-mode:vertical-lr] hidden xl:block uppercase">Works</span>
@@ -472,7 +467,8 @@ const Portfolio = () => {
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer className="py-24 border-t border-white/5 px-8 mt-auto font-sans bg-slate/40 backdrop-blur-xl relative overflow-hidden">
+    <footer className="py-24 border-t border-white/5 px-8 mt-auto font-sans bg-[#050505]/60 backdrop-blur-xl relative overflow-hidden">
+
        {/* Accent Glow */}
        <div className="absolute top-0 right-0 w-1/3 h-full bg-cyan/5 blur-[120px] -z-10 rounded-full"></div>
        
@@ -511,9 +507,11 @@ const Footer = () => {
 const App = () => {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-slate font-sans">
+      <div className="min-h-screen flex flex-col font-sans">
+        <CoalesceBackground />
         <Nav />
         <main className="flex-grow">
+
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />} />
