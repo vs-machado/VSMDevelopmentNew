@@ -35,7 +35,7 @@ const Nav = () => {
           <button onClick={toggleLanguage} className="px-3 py-1 glass-panel text-[10px] uppercase font-bold hover:bg-cyan hover:text-slate transition-all cursor-pointer">
             {i18n.language.toUpperCase().substring(0, 2)}
           </button>
-          <a href="mailto:vsm.development7@gmail.com" className="px-6 py-2.5 bg-cyan text-slate font-bold rounded-full hover:bg-white transition-all shadow-lg shadow-cyan/10">
+          <a href="mailto:vinicius.s.machado@protonmail.com" className="px-6 py-2.5 bg-cyan text-slate font-bold rounded-full hover:bg-white transition-all shadow-lg shadow-cyan/10">
             {t('nav.contact')}
           </a>
         </div>
@@ -461,8 +461,8 @@ const Footer = () => {
           <div className="md:col-span-4 flex flex-col gap-6 items-center md:items-end text-center md:text-right">
              <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-cyan">{t('footer.connect')}</h4>
              <div className="space-y-4">
-                <a href="mailto:vsm.development7@gmail.com" className="text-sm md:text-base font-bold text-white hover:text-cyan transition-colors tracking-tight block">
-                  vsm.development7@gmail.com
+                <a href="mailto:vinicius.s.machado@protonmail.com" className="text-sm md:text-base font-bold text-white hover:text-cyan transition-colors tracking-tight block">
+                  vinicius.s.machado@protonmail.com
                 </a>
              </div>
           </div>
