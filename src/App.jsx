@@ -218,14 +218,15 @@ const Home = () => {
             className="group relative p-[1px] rounded-[2.5rem] bg-white/5 hover:bg-cyan/30 transition-all duration-700 overflow-hidden shadow-2xl"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.15),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="bg-slate-900/60 backdrop-blur-xl p-10 md:p-14 rounded-[2.5rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
+            <div className="bg-[#050505]/40 backdrop-blur-xl p-10 md:p-14 rounded-[2.5rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
                <div className="w-16 h-16 bg-cyan/10 flex items-center justify-center text-cyan mb-12 rounded-2xl group-hover:bg-cyan/20 group-hover:scale-110 transition-all duration-500 shadow-inner">
                   <Code2 size={32} />
                </div>
                <h3 className="text-4xl mb-6 font-bold text-white tracking-tighter font-sans">{t('expertise.web.title')}</h3>
                <p className="text-slate-400 leading-relaxed text-lg mb-14 opacity-90 font-sans font-medium tracking-tight">{t('expertise.web.desc')}</p>
                <div className="mt-auto flex flex-wrap gap-4 font-mono text-[11px] uppercase font-bold text-cyan/60">
-                  <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">React / Next.js</span>
+                  <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">React</span>
+
                   <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Node.js / Python</span>
                   <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">PostgreSQL</span>
                </div>
@@ -240,7 +241,8 @@ const Home = () => {
             className="group relative p-[1px] rounded-[2.5rem] bg-white/5 hover:bg-cyan/30 transition-all duration-700 overflow-hidden shadow-2xl"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.15),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="bg-slate-900/60 backdrop-blur-xl p-10 md:p-14 rounded-[2.5rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
+            <div className="bg-[#050505]/40 backdrop-blur-xl p-10 md:p-14 rounded-[2.5rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
+
                <div className="w-16 h-16 bg-cyan/10 flex items-center justify-center text-cyan mb-12 rounded-2xl group-hover:bg-cyan/20 group-hover:scale-110 transition-all duration-500 shadow-inner">
                   <Smartphone size={32} />
                </div>
