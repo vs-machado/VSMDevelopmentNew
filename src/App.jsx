@@ -83,18 +83,50 @@ const PrivacyModal = ({ isOpen, onClose }) => {
   );
 };
 
-const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyClick, image }) => {
+const ImageModal = ({ isOpen, onClose, image, title }) => {
+  if (!isOpen) return null;
+  return (
+    <div 
+      className="fixed inset-0 z-[110] flex items-center justify-center bg-slate/95 backdrop-blur-xl p-4 md:p-12 cursor-zoom-out"
+      onClick={onClose}
+    >
+       <motion.div 
+         initial={{ opacity: 0, scale: 0.9 }}
+         animate={{ opacity: 1, scale: 1 }}
+         className="relative max-w-full max-h-full"
+         onClick={e => e.stopPropagation()}
+       >
+          <img 
+            src={image} 
+            alt={title} 
+            className="w-auto h-auto max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain border border-white/10" 
+          />
+          <button 
+            onClick={onClose} 
+            className="absolute -top-12 right-0 text-white/50 hover:text-white transition-colors flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em]"
+          >
+            Fechar <X size={18} />
+          </button>
+       </motion.div>
+    </div>
+  );
+};
+
+const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyClick, onImageClick, image, isMobile }) => {
   const { t } = useTranslation();
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-32 font-sans">
-      <div className="lg:col-span-7 rounded-[2rem] glass-panel overflow-hidden group relative aspect-[16/10] shadow-2xl border-white/10">
+      <div 
+        onClick={() => onImageClick(image, title)}
+        className={`lg:col-span-7 rounded-[2rem] glass-panel overflow-hidden group relative aspect-[16/10] shadow-2xl border-white/10 cursor-zoom-in ${isMobile ? 'bg-[#050505]' : ''}`}
+      >
          <img 
            src={image} 
            alt={title} 
-           className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-1000 ease-out" 
+           className={`w-full h-full ${isMobile ? 'object-contain' : 'object-cover object-top'} opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-1000 ease-out`} 
          />
          <div className="absolute inset-0 bg-gradient-to-t from-slate/80 via-transparent to-transparent opacity-80"></div>
-         <div className="absolute bottom-10 left-10 text-left">
+         <div className="absolute bottom-10 left-10 text-left pointer-events-none">
             <h3 className="text-4xl font-extrabold text-white mb-2 italic tracking-tight">{title}</h3>
             <span className="px-4 py-1 bg-cyan text-slate text-[10px] font-bold uppercase rounded-full tracking-[0.2em] shadow-lg shadow-cyan/20">{label}</span>
          </div>
@@ -317,6 +349,11 @@ const Experience = () => {
 const Portfolio = () => {
   const { t } = useTranslation();
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
+  const [activeImage, setActiveImage] = useState(null);
+
+  const handleImageClick = (image, title) => {
+    setActiveImage({ image, title });
+  };
   
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans">
@@ -336,7 +373,8 @@ const Portfolio = () => {
               label={t('portfolio.project_label.web')}
               image="/images/debrid-searcher.jpg"
               github="https://github.com/vs-machado/debrid-searcher"
-              specs={["React / TypeScript", "Node.js Backend", "Torznab Integration", "Dockerized"]}
+              specs={t('portfolio.debrid.specs_list', { returnObjects: true })}
+              onImageClick={handleImageClick}
            />
            
            <ProjectCard 
@@ -345,7 +383,8 @@ const Portfolio = () => {
               label={t('portfolio.project_label.web')}
               image="/images/chatbot-rag.png"
               github="https://github.com/vs-machado/chatbot-rag"
-              specs={["FastAPI / Python", "PostgreSQL + pgvector", "RAG / LLM Integration", "Docker Compose"]}
+              specs={t('portfolio.chatbot.specs_list', { returnObjects: true })}
+              onImageClick={handleImageClick}
            />
         </div>
 
@@ -364,7 +403,8 @@ const Portfolio = () => {
               github="https://github.com/vs-machado/PillReminder/releases/tag/1.5.3"
               playstore="https://play.google.com/store/apps/details?id=com.phoenix.remedi"
               onPrivacyClick={() => setIsPolicyOpen(true)}
-              specs={["Kotlin / MVVM", "Room Database", "Jetpack Compose", "Local Persistence"]}
+              specs={t('portfolio.remedi.specs_list', { returnObjects: true })}
+              onImageClick={handleImageClick}
            />
            
            <ProjectCard 
@@ -373,14 +413,23 @@ const Portfolio = () => {
               label={t('portfolio.project_label.mobile')}
               image="/images/ainformation.png"
               github="https://github.com/vs-machado/AInformation"
-              specs={["Kotlin / Compose", "Gemini AI SDK", "RSS Feed Integration", "Hilt DI"]}
+              specs={t('portfolio.ainformation.specs_list', { returnObjects: true })}
+              isMobile={true}
+              onImageClick={handleImageClick}
            />
         </div>
       </div>
       <PrivacyModal isOpen={isPolicyOpen} onClose={() => setIsPolicyOpen(false)} />
+      <ImageModal 
+        isOpen={!!activeImage} 
+        onClose={() => setActiveImage(null)} 
+        image={activeImage?.image} 
+        title={activeImage?.title} 
+      />
     </motion.div>
   );
 };
+
 
 const Footer = () => {
   const { t } = useTranslation();
