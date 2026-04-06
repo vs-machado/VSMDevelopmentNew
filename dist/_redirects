@@ -1,0 +1,16 @@
+# Redireciona os arquivos .html para os URLs
+/index.html / 301
+/about.html /about/ 301
+/portfolio.html /portfolio/ 301
+/contact.html /contact/ 301
+/policy.html /remedi-privacy-policy/ 301
+
+# Serve URLs limpas a partir de arquivos .html
+/ /index.html 200
+/about/ /about.html 200
+/portfolio/ /portfolio.html 200
+/contact/ /contact.html 200
+/remedi-privacy-policy/ /policy.html 200
+
+# 404 fallback
+/* /404.html 404

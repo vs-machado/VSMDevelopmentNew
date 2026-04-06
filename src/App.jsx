@@ -1,0 +1,442 @@
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import './i18n';
+import { Globe, Smartphone, ArrowRight, ExternalLink, Shield, X, Code2, Cpu, Search, MessageSquare, Newspaper, Binary, Briefcase, GraduationCap, Award, Play } from 'lucide-react';
+
+/* --- Components --- */
+
+const Nav = () => {
+  const { t, i18n } = useTranslation();
+  const location = useLocation();
+
+  const toggleLanguage = () => {
+    const nextLng = i18n.language.startsWith('en') ? 'pt' : 'en';
+    i18n.changeLanguage(nextLng);
+  };
+
+  return (
+    <nav className="fixed top-0 w-full z-50 bg-slate/80 backdrop-blur-xl border-b border-white/5 font-sans">
+      <div className="max-w-7xl mx-auto md:px-8 h-20 flex items-center justify-between">
+        <Link to="/" className="hover:opacity-80 transition-opacity">
+          <img src="/images/vsm-development-logo.png" alt="VSM Development" className="h-10 w-auto" />
+        </Link>
+        <div className="hidden md:flex gap-10 items-center font-semibold text-[13px] tracking-tight">
+          <Link to="/" className={`link-hover ${location.pathname === '/' ? 'text-cyan after:w-full' : 'text-slate-400 hover:text-white'}`}>
+            {t('nav.home')}
+          </Link>
+          <Link to="/portfolio" className={`link-hover ${location.pathname === '/portfolio' ? 'text-cyan after:w-full' : 'text-slate-400 hover:text-white'}`}>
+            {t('nav.portfolio')}
+          </Link>
+          <Link to="/experience" className={`link-hover ${location.pathname === '/experience' ? 'text-cyan after:w-full' : 'text-slate-400 hover:text-white'}`}>
+            {t('nav.experience')}
+          </Link>
+          <button onClick={toggleLanguage} className="px-3 py-1 glass-panel text-[10px] uppercase font-bold hover:bg-cyan hover:text-slate transition-all cursor-pointer">
+            {i18n.language.toUpperCase().substring(0, 2)}
+          </button>
+          <a href="mailto:vsm.development7@gmail.com" className="px-6 py-2.5 bg-cyan text-slate font-bold rounded-full hover:bg-white transition-all shadow-lg shadow-cyan/10">
+            {t('nav.contact')}
+          </a>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+const PrivacyModal = ({ isOpen, onClose }) => {
+  const { t } = useTranslation();
+  if (!isOpen) return null;
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate/90 backdrop-blur-md font-sans">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="bg-slate border border-white/10 p-8 md:p-12 rounded-[2rem] max-w-2xl max-h-[85vh] overflow-y-auto relative shadow-2xl"
+      >
+        <button onClick={onClose} className="absolute top-8 right-8 text-slate-400 hover:text-white transition-colors cursor-pointer">
+          <X size={24} />
+        </button>
+        <h2 className="text-3xl font-bold text-white mb-8 pr-12">{t('policy.title')}</h2>
+        <div className="space-y-8 text-slate-400 leading-relaxed text-[15px]">
+          <section>
+            <h3 className="text-white font-bold mb-3">{t('policy.intro_title')}</h3>
+            <p>{t('policy.intro')}</p>
+          </section>
+          <section>
+            <h3 className="text-white font-bold mb-3">{t('policy.collection_title')}</h3>
+            <p>{t('policy.collection')}</p>
+            <ul className="mt-4 space-y-2 list-disc list-inside text-sm opacity-80 font-sans">
+              <li>Google AdMob</li>
+              <li>Google Analytics</li>
+              <li>Firebase Crashlytics</li>
+              <li>Google Firebase</li>
+            </ul>
+          </section>
+          <section>
+            <h3 className="text-white font-bold mb-3">{t('policy.storage_title')}</h3>
+            <p>{t('policy.storage')}</p>
+          </section>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyClick, image }) => {
+  const { t } = useTranslation();
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-32 font-sans">
+      <div className="lg:col-span-7 rounded-[2rem] glass-panel overflow-hidden group relative aspect-[16/10] shadow-2xl border-white/10">
+         <img 
+           src={image} 
+           alt={title} 
+           className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-1000 ease-out" 
+         />
+         <div className="absolute inset-0 bg-gradient-to-t from-slate/80 via-transparent to-transparent opacity-80"></div>
+         <div className="absolute bottom-10 left-10 text-left">
+            <h3 className="text-4xl font-extrabold text-white mb-2 italic tracking-tight">{title}</h3>
+            <span className="px-4 py-1 bg-cyan text-slate text-[10px] font-bold uppercase rounded-full tracking-[0.2em] shadow-lg shadow-cyan/20">{label}</span>
+         </div>
+      </div>
+      <div className="lg:col-span-5 space-y-8">
+         <p className="text-lg text-slate-400 leading-relaxed font-medium opacity-90 text-balance font-sans">
+           {desc}
+         </p>
+         <div className="space-y-6 font-sans">
+            <h4 className="text-[10px] uppercase font-bold tracking-[0.3em] text-cyan">{t('portfolio.specs')}</h4>
+            <ul className="grid grid-cols-2 gap-x-8 gap-y-4 text-[13px] font-medium opacity-60">
+               {specs.map((spec, i) => (
+                 <li key={i} className="flex items-center gap-2"><div className="w-1 h-1 bg-cyan rounded-full shrink-0"></div> {spec}</li>
+               ))}
+            </ul>
+         </div>
+         
+         <div className="flex flex-col gap-4 font-sans">
+            <div className="flex gap-4">
+              {github && (
+                <a href={github} target="_blank" rel="noopener noreferrer" className="flex-1 py-3.5 glass-panel hover:bg-white hover:text-slate rounded-full transition-all flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-widest">
+                  {t('portfolio.github')} <Binary size={16} />
+                </a>
+              )}
+              {playstore && (
+                <a href={playstore} target="_blank" rel="noopener noreferrer" className="flex-1 py-3.5 bg-cyan text-slate hover:bg-white rounded-full transition-all flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-widest">
+                  {t('portfolio.playstore')} <ExternalLink size={16} />
+                </a>
+              )}
+            </div>
+            {onPrivacyClick && (
+              <button 
+                onClick={onPrivacyClick}
+                className="w-full py-3.5 glass-panel text-slate-400 hover:text-white hover:border-cyan/50 rounded-full transition-all flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-widest cursor-pointer"
+              >
+                {t('portfolio.privacy')} <Shield size={16} />
+              </button>
+            )}
+         </div>
+      </div>
+    </div>
+  );
+};
+
+/* --- Pages --- */
+
+const Home = () => {
+  const { t } = useTranslation();
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 px-8 font-sans">
+      <div className="max-w-7xl mx-auto">
+        <section className="mb-48 max-w-5xl">
+          <motion.div initial={{ y: 15, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7 }}>
+             <div className="inline-flex items-center gap-3 mb-10 px-4 py-2 glass-panel rounded-full border-cyan/20">
+                <div className="relative">
+                   <span className="block w-2 h-2 bg-cyan rounded-full"></span>
+                   <span className="absolute inset-0 w-2 h-2 bg-cyan rounded-full animate-ping opacity-75"></span>
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan leading-none">{t('hero.status')}</span>
+             </div>
+             <h1 className="text-5xl md:text-[5.5rem] mb-12 leading-[1.05] text-white font-extrabold tracking-tight text-balance">
+               {t('hero.title')}
+             </h1>
+             <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl mb-14 font-medium opacity-80 font-sans">
+               {t('hero.subtitle')}
+             </p>
+             <Link to="/portfolio" className="inline-flex items-center gap-4 px-10 py-5 bg-white text-slate font-bold rounded-full hover:bg-cyan transition-all group shadow-xl shadow-white/5">
+               {t('hero.cta')} <ArrowRight size={22} className="group-hover:translate-x-1.5 transition-transform" />
+             </Link>
+          </motion.div>
+        </section>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
+          <div className="group relative p-[1px] rounded-[2rem] bg-white/5 hover:bg-cyan/20 transition-all duration-700 overflow-hidden shadow-2xl">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="bg-slate/60 backdrop-blur-md p-10 md:p-14 rounded-[2rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/10 transition-colors duration-700">
+               <div className="w-14 h-14 bg-cyan/10 flex items-center justify-center text-cyan mb-10 rounded-2xl group-hover:bg-cyan/20 transition-all duration-500">
+                  <Code2 size={28} />
+               </div>
+               <h3 className="text-3xl mb-4 font-bold text-white tracking-tight font-sans">{t('expertise.web.title')}</h3>
+               <p className="text-slate-400 leading-relaxed text-[16px] mb-12 opacity-90 font-sans">{t('expertise.web.desc')}</p>
+               <div className="mt-auto flex flex-wrap gap-3 font-mono text-[10px] uppercase font-bold opacity-40">
+                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">React</span>
+                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">Node.js / Python</span>
+                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">PostgreSQL</span>
+               </div>
+            </div>
+          </div>
+          <div className="group relative p-[1px] rounded-[2rem] bg-white/5 hover:bg-cyan/20 transition-all duration-700 overflow-hidden shadow-2xl">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="bg-slate/60 backdrop-blur-md p-10 md:p-14 rounded-[2rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/10 transition-colors duration-700">
+               <div className="w-14 h-14 bg-cyan/10 flex items-center justify-center text-cyan mb-10 rounded-2xl group-hover:bg-cyan/20 transition-all duration-500">
+                  <Smartphone size={28} />
+               </div>
+               <h3 className="text-3xl mb-4 font-bold text-white tracking-tight font-sans">{t('expertise.mobile.title')}</h3>
+               <p className="text-slate-400 leading-relaxed text-[16px] mb-12 opacity-90 font-sans">{t('expertise.mobile.desc')}</p>
+               <div className="mt-auto flex flex-wrap gap-3 font-mono text-[10px] uppercase font-bold opacity-40">
+                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">Kotlin / Java</span>
+                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">Jetpack Compose</span>
+                  <span className="px-3 py-1 border border-white/10 rounded-full tracking-widest">Clean Arch</span>
+               </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </motion.div>
+  );
+};
+
+const Experience = () => {
+  const { t } = useTranslation();
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 px-8 font-sans">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-5xl md:text-7xl mb-24 font-extrabold text-white tracking-tighter">{t('experience.title')}</h2>
+        
+        <div className="space-y-24 mb-32">
+           <div className="relative pl-12 border-l border-white/10 font-sans">
+              <div className="absolute top-0 left-[-8px] w-4 h-4 bg-cyan rounded-full shadow-[0_0_15px_rgba(34,211,238,0.5)]"></div>
+              
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+                 <div>
+                    <h3 className="text-3xl font-bold text-white mb-3 tracking-tight">{t('experience.nativa.role')}</h3>
+                    <div className="flex items-center gap-4 text-cyan font-bold text-sm uppercase tracking-[0.2em]">
+                       <span>{t('experience.nativa.company')}</span>
+                       <div className="w-1.5 h-1.5 bg-white/10 rounded-full"></div>
+                       <span className="opacity-60">{t('experience.nativa.location')}</span>
+                    </div>
+                 </div>
+                 <div className="px-5 py-2 glass-panel text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    {t('experience.nativa.period')}
+                 </div>
+              </div>
+              
+              <p className="text-xl text-slate-400 leading-relaxed mb-12 opacity-90 font-sans">
+                 {t('experience.nativa.description')}
+              </p>
+              
+              <div className="grid grid-cols-1 gap-8">
+                 {/* LIA Project */}
+                 <div className="group relative p-[1px] rounded-[2rem] bg-white/5 hover:bg-cyan/20 transition-all duration-500">
+                    <div className="bg-slate/40 p-8 rounded-[2rem] h-full font-sans">
+                       <div className="flex items-start gap-5">
+                          <div className="mt-1.5 w-2 h-2 bg-cyan rounded-full shrink-0"></div>
+                          <div>
+                             <h4 className="text-xl font-bold text-white mb-3 tracking-tight">LIA (Licitações com IA) @ TRE-AC</h4>
+                             <p className="text-[15px] text-slate-400 leading-relaxed opacity-80 font-sans">{t('experience.nativa.lia')}</p>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+
+                 {/* Nativa Auditoria Project - AWARD */}
+                 <div className="group relative p-[1.5px] rounded-[2rem] bg-gradient-to-r from-cyan/40 via-violet/40 to-cyan/40 shadow-[0_0_40px_rgba(34,211,238,0.05)]">
+                    <div className="bg-slate/60 backdrop-blur-md p-8 md:p-10 rounded-[2rem] h-full relative overflow-hidden font-sans">
+                       <div className="flex flex-col md:flex-row gap-8">
+                          <div className="flex-grow">
+                             <div className="flex items-center gap-3 text-cyan mb-4">
+                                <Award size={24} className="animate-pulse" />
+                                <span className="text-xs font-bold uppercase tracking-[0.2em]">{t('experience.award_badge')}</span>
+                             </div>
+                             <h4 className="text-2xl font-bold text-white mb-4 tracking-tight">Nativa Auditoria</h4>
+                             <p className="text-[15px] text-slate-400 leading-relaxed opacity-90 mb-8 font-sans">{t('experience.nativa.auditoria')}</p>
+                             
+                             <a 
+                                href="https://www.cnj.jus.br/geracao-de-valor-premiacao-reconhece-boas-praticas-em-auditoria-interna/" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 px-6 py-3 bg-white text-slate font-bold rounded-full hover:bg-cyan transition-all text-xs uppercase tracking-widest"
+                             >
+                                <Play size={14} fill="currentColor" /> {t('experience.view_details')}
+                             </a>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+
+                 {/* BI Dashboards Project */}
+                 <div className="group relative p-[1px] rounded-[2rem] bg-white/5 hover:bg-cyan/20 transition-all duration-500">
+                    <div className="bg-slate/40 p-8 rounded-[2rem] h-full font-sans">
+                       <div className="flex items-start gap-5">
+                          <div className="mt-1.5 w-2 h-2 bg-cyan rounded-full shrink-0"></div>
+                          <div>
+                             <h4 className="text-xl font-bold text-white mb-3 tracking-tight">BI Dashboards @ TRE-RO</h4>
+                             <p className="text-[15px] text-slate-400 leading-relaxed opacity-80 font-sans">{t('experience.nativa.bi')}</p>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
+
+        {/* Academic Background */}
+        <h3 className="text-4xl font-bold text-white mb-16 tracking-tight font-sans">{t('experience.education.title')}</h3>
+        <div className="relative pl-12 border-l border-white/10 font-sans">
+           <div className="absolute top-0 left-[-8px] w-4 h-4 glass-panel border-cyan/40 bg-slate rounded-full"></div>
+           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div>
+                 <h4 className="text-2xl font-bold text-white mb-2 tracking-tight">{t('experience.education.uninter.degree')}</h4>
+                 <div className="text-cyan font-bold text-sm uppercase tracking-widest">
+                    {t('experience.education.uninter.school')}
+                 </div>
+              </div>
+              <div className="px-5 py-2 glass-panel text-xs font-bold text-slate-400 uppercase tracking-widest font-sans">
+                 {t('experience.education.uninter.period')}
+              </div>
+           </div>
+        </div>
+      </div>
+      <PrivacyModal isOpen={false} onClose={() => {}} />
+    </motion.div>
+  );
+};
+
+const Portfolio = () => {
+  const { t } = useTranslation();
+  const [isPolicyOpen, setIsPolicyOpen] = useState(false);
+  
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 px-8 font-sans">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-5xl md:text-7xl mb-24 font-extrabold text-white tracking-tighter">{t('portfolio.title')}</h2>
+        
+        {/* Web Section */}
+        <div className="mb-40">
+           <div className="flex items-center gap-6 mb-16 opacity-30 text-white font-sans">
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] shrink-0">{t('portfolio.web_section')}</span>
+              <div className="h-[1px] flex-grow bg-white"></div>
+           </div>
+           
+           <ProjectCard 
+              title={t('portfolio.debrid.title')}
+              desc={t('portfolio.debrid.desc')}
+              label={t('portfolio.project_label.web')}
+              image="/images/debrid-searcher.jpg"
+              github="https://github.com/vs-machado/debrid-searcher"
+              specs={["React / TypeScript", "Node.js Backend", "Torznab Integration", "Dockerized"]}
+           />
+           
+           <ProjectCard 
+              title={t('portfolio.chatbot.title')}
+              desc={t('portfolio.chatbot.desc')}
+              label={t('portfolio.project_label.web')}
+              image="/images/chatbot-rag.png"
+              github="https://github.com/vs-machado/chatbot-rag"
+              specs={["FastAPI / Python", "PostgreSQL + pgvector", "RAG / LLM Integration", "Docker Compose"]}
+           />
+        </div>
+
+        {/* Mobile Section */}
+        <div>
+           <div className="flex items-center gap-6 mb-16 opacity-30 text-white font-sans">
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] shrink-0">{t('portfolio.mobile_section')}</span>
+              <div className="h-[1px] flex-grow bg-white"></div>
+           </div>
+           
+           <ProjectCard 
+              title={t('portfolio.remedi.title')}
+              desc={t('portfolio.remedi.desc')}
+              label={t('portfolio.project_label.mobile')}
+              image="/images/remedi-screenshots.png"
+              github="https://github.com/vs-machado/PillReminder/releases/tag/1.5.3"
+              playstore="https://play.google.com/store/apps/details?id=com.phoenix.remedi"
+              onPrivacyClick={() => setIsPolicyOpen(true)}
+              specs={["Kotlin / MVVM", "Room Database", "Jetpack Compose", "Local Persistence"]}
+           />
+           
+           <ProjectCard 
+              title={t('portfolio.ainformation.title')}
+              desc={t('portfolio.ainformation.desc')}
+              label={t('portfolio.project_label.mobile')}
+              image="/images/ainformation.png"
+              github="https://github.com/vs-machado/AInformation"
+              specs={["Kotlin / Compose", "Gemini AI SDK", "RSS Feed Integration", "Hilt DI"]}
+           />
+        </div>
+      </div>
+      <PrivacyModal isOpen={isPolicyOpen} onClose={() => setIsPolicyOpen(false)} />
+    </motion.div>
+  );
+};
+
+const Footer = () => {
+  const { t } = useTranslation();
+  return (
+    <footer className="py-24 border-t border-white/5 px-8 mt-auto font-sans bg-slate/40 backdrop-blur-xl relative overflow-hidden">
+       {/* Accent Glow */}
+       <div className="absolute top-0 right-0 w-1/3 h-full bg-cyan/5 blur-[120px] -z-10 rounded-full"></div>
+       
+       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 items-start">
+          {/* Brand Column */}
+          <div className="md:col-span-5 space-y-6 text-center md:text-left">
+             <img src="/images/vsm-development-logo.png" alt="VSM Development" className="h-10 w-auto mx-auto md:mx-0 opacity-90" />
+             <p className="text-slate-500 text-[13px] max-w-sm leading-relaxed mx-auto md:mx-0 font-medium opacity-80">
+                © 2025 VSM Development. {t('footer.rights')}
+             </p>
+          </div>
+
+          {/* Navigation Column */}
+          <div className="md:col-span-3 flex flex-col gap-6 items-center md:items-start text-center md:text-left">
+             <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-cyan">{t('nav.home')}</h4>
+             <nav className="flex flex-col gap-4 text-[13px] font-bold text-slate-400">
+                <Link to="/" className="hover:text-cyan transition-colors">{t('nav.home')}</Link>
+                <Link to="/portfolio" className="hover:text-cyan transition-colors">{t('nav.portfolio')}</Link>
+                <Link to="/experience" className="hover:text-cyan transition-colors">{t('nav.experience')}</Link>
+             </nav>
+          </div>
+
+          {/* Connect Column */}
+          <div className="md:col-span-4 flex flex-col gap-6 items-center md:items-end text-center md:text-right">
+             <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-cyan">{t('footer.connect')}</h4>
+             <div className="space-y-4">
+                <a href="mailto:vsm.development7@gmail.com" className="text-sm md:text-base font-bold text-white hover:text-cyan transition-colors tracking-tight block">
+                  vsm.development7@gmail.com
+                </a>
+                <a href="#" className="text-slate-500 hover:text-white transition-colors text-[13px] block">{t('footer.privacy')}</a>
+             </div>
+          </div>
+       </div>
+    </footer>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <div className="min-h-screen flex flex-col bg-slate font-sans">
+        <Nav />
+        <main className="flex-grow">
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/experience" element={<Experience />} />
+            </Routes>
+          </AnimatePresence>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+};
+
+export default App;
