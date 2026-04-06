@@ -170,11 +170,13 @@ const CoalesceBackground = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="fixed inset-0 -z-50 pointer-events-none opacity-50">
+    <div ref={containerRef} className="fixed inset-0 -z-50 pointer-events-none opacity-30">
       <canvas
         ref={canvasRefB}
         className="w-full h-full"
       />
+      {/* Radial vignette to darken the background behind text */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,#050505_100%)] opacity-60" />
     </div>
   );
 };
