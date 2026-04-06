@@ -194,9 +194,8 @@ const Home = () => {
                 <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-cyan leading-none">{t('hero.status')}</span>
              </div>
              
-             <h1 className="text-6xl md:text-[6.5rem] mb-14 leading-[0.95] text-white font-extrabold tracking-tight text-balance relative">
+             <h1 className="text-5xl md:text-[5.5rem] mb-14 leading-[1] text-white font-extrabold tracking-tight text-balance relative">
                <span className="relative z-10">{t('hero.title')}</span>
-               <span className="absolute -left-10 -top-10 text-[10rem] text-cyan/[0.02] -z-10 font-mono select-none pointer-events-none hidden lg:block">VSM</span>
              </h1>
 
              <p className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-3xl mb-16 font-medium opacity-80 font-sans tracking-tight">
@@ -207,15 +206,6 @@ const Home = () => {
                <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-12 py-6 bg-cyan text-slate-950 font-black rounded-full hover:bg-white transition-all duration-500 shadow-2xl shadow-cyan/20">
                  {t('hero.cta')} <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
                </Link>
-               
-               <div className="flex items-center gap-8 pl-4 opacity-40 hover:opacity-80 transition-opacity">
-                 <div className="flex -space-x-4">
-                    <div className="w-10 h-10 rounded-full border-2 border-slate bg-slate-800 flex items-center justify-center"><Code2 size={16} /></div>
-                    <div className="w-10 h-10 rounded-full border-2 border-slate bg-slate-800 flex items-center justify-center"><Smartphone size={16} /></div>
-                    <div className="w-10 h-10 rounded-full border-2 border-slate bg-slate-800 flex items-center justify-center"><Cpu size={16} /></div>
-                 </div>
-                 <span className="text-[10px] font-bold uppercase tracking-widest">{t('expertise.tech_stack') || 'FULLSTACK TECH'}</span>
-               </div>
              </div>
           </motion.div>
         </section>
@@ -497,7 +487,6 @@ const Footer = () => {
 
           {/* Navigation Column */}
           <div className="md:col-span-3 flex flex-col gap-6 items-center md:items-start text-center md:text-left">
-             <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-cyan">{t('nav.home')}</h4>
              <nav className="flex flex-col gap-4 text-[13px] font-bold text-slate-400">
                 <Link to="/" className="hover:text-cyan transition-colors">{t('nav.home')}</Link>
                 <Link to="/portfolio" className="hover:text-cyan transition-colors">{t('nav.portfolio')}</Link>
