@@ -33,7 +33,7 @@ i18n
             }
           },
           experience: {
-            title: 'Professional Journey',
+            title: 'Professional Experience',
             award_badge: '2025 Award Winner',
             view_details: 'View Details',
             nativa: {
@@ -41,7 +41,7 @@ i18n
               company: 'Nativa IA',
               period: 'Jul 2025 – Present',
               location: 'Remote / On-site',
-              description: 'Developing high-impact AI solutions for the Brazilian public sector.',
+              description: 'Collaborative development of high-impact AI solutions for the Brazilian public sector.',
               lia: 'On-site development of LIA (AI Bidding) at TRE-AC. Built with FastAPI and PostgreSQL.',
               auditoria: 'Development of Nativa Auditoria for automated audit document generation. Winner of the CNJ Audit Value Generation Award.',
               bi: 'Implementation of advanced BI Dashboards for the TRE-RO intranet.'
@@ -61,19 +61,23 @@ i18n
             mobile_section: 'Mobile Applications',
             debrid: {
               title: 'Debrid Searcher',
-              desc: 'Web interface for searching torrents via Torznab indexers and instantly verifying cache status on TorBox.'
+              desc: 'Web interface for searching torrents via Torznab indexers and instantly verifying cache status on TorBox.',
+              specs_list: ["React / TypeScript", "Node.js Backend", "Torznab Integration", "Dockerized"]
             },
             chatbot: {
               title: 'Chatbot RAG',
-              desc: 'AI Chatbot application with Retrieval-Augmented Generation (RAG) capabilities using FastAPI and PostgreSQL.'
+              desc: 'AI Chatbot application with Retrieval-Augmented Generation (RAG) capabilities using FastAPI and PostgreSQL.',
+              specs_list: ["FastAPI / Python", "PostgreSQL + pgvector", "RAG / LLM Integration", "Docker Compose"]
             },
             remedi: {
               title: 'Remedi',
-              desc: 'Precision medicine tracking engine built for Android to manage long-term treatments.'
+              desc: 'Precision medicine tracking engine built for Android to manage long-term treatments.',
+              specs_list: ["Kotlin / MVVM", "Room Database", "XML Layouts", "Local Persistence"]
             },
             ainformation: {
               title: 'AInformation',
-              desc: 'Android demonstration app that generates AI-powered news summaries from RSS feeds.'
+              desc: 'Android demonstration app that generates AI-powered news summaries from RSS feeds.',
+              specs_list: ["Kotlin / Compose", "Gemini AI SDK", "RSS Feed Integration", "Hilt DI"]
             },
             specs: 'Core Specifications',
             github: 'Github',
@@ -125,7 +129,7 @@ i18n
             }
           },
           experience: {
-            title: 'Trajetória Profissional',
+            title: 'Experiência Profissional',
             award_badge: 'Vencedor do Prêmio Geração de Valor 2025',
             view_details: 'Ver Detalhes',
             nativa: {
@@ -133,7 +137,7 @@ i18n
               company: 'Nativa IA',
               period: 'Jul 2025 – Presente',
               location: 'Remoto / Presencial',
-              description: 'Desenvolvimento de soluções de IA de alto impacto para o setor público brasileiro.',
+              description: 'Desenvolvimento colaborativo de soluções de IA de alto impacto para o setor público brasileiro.',
               lia: 'Desenvolvimento presencial da aplicação LIA (Licitações com IA) no TRE-AC. Tecnologias: FastAPI e PostgreSQL.',
               auditoria: 'Desenvolvimento do Nativa Auditoria para geração automatizada de documentos com auxílio de IA. Vencedor do Prêmio Auditoria de Geração de Valor do CNJ (Eixo I).',
               bi: 'Implantação de painéis de BI avançados na intranet do TRE-RO.'
@@ -153,19 +157,23 @@ i18n
             mobile_section: 'Aplicações Mobile',
             debrid: {
               title: 'Debrid Searcher',
-              desc: 'Interface web para busca de torrents via indexadores Torznab e verificação instantânea de cache no TorBox.'
+              desc: 'Interface web para busca de torrents via indexadores Torznab e verificação instantânea de cache no TorBox.',
+              specs_list: ["React / TypeScript", "Backend Node.js", "Integração Torznab", "Dockerizado"]
             },
             chatbot: {
               title: 'Chatbot RAG',
-              desc: 'Aplicação de Chatbot de IA com capacidades de Geração Aumentada de Recuperação (RAG) usando FastAPI e PostgreSQL.'
+              desc: 'Aplicação de Chatbot de IA com capacidades de Retrieval-Augmented Generation (RAG) usando FastAPI e PostgreSQL.',
+              specs_list: ["FastAPI / Python", "PostgreSQL + pgvector", "Integração RAG / LLM", "Docker Compose"]
             },
             remedi: {
               title: 'Remedi',
-              desc: 'Mecanismo de rastreamento de medicamentos de precisão para Android, projetado para gerenciar tratamentos de longo prazo.'
+              desc: 'Mecanismo de rastreamento de medicamentos de precisão para Android, projetado para gerenciar tratamentos de longo prazo.',
+              specs_list: ["Kotlin / MVVM", "Banco de Dados Room", "Layouts XML", "Persistência Local"]
             },
             ainformation: {
               title: 'AInformation',
-              desc: 'Aplicativo Android de demonstração que gera resumos de notícias por IA a partir de feeds RSS.'
+              desc: 'Aplicativo Android de demonstração que gera resumos de notícias por IA a partir de feeds RSS.',
+              specs_list: ["Kotlin / Compose", "SDK de IA Gemini", "Integração Feed RSS", "Injeção de Dependência Hilt"]
             },
             specs: 'Especificações Principais',
             github: 'Github',
