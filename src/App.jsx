@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import './i18n';
 import { Globe, Smartphone, ArrowRight, ExternalLink, Shield, X, Code2, Cpu, Search, MessageSquare, Newspaper, Binary, Briefcase, GraduationCap, Award, Play } from 'lucide-react';
 
+
 import CoalesceBackground from './components/CoalesceBackground';
 
 /* --- Components --- */
@@ -36,12 +37,13 @@ const Nav = () => {
           <Link to="/experience" className={`link-hover ${location.pathname === '/experience' ? 'text-cyan after:w-full' : 'text-slate-400 hover:text-white'}`}>
             {t('nav.experience')}
           </Link>
-          <button onClick={toggleLanguage} className="px-3 py-1 glass-panel text-[10px] uppercase font-bold hover:bg-cyan hover:text-slate transition-all cursor-pointer">
+          <button onClick={toggleLanguage} className="px-3 py-1 glass-panel text-[10px] uppercase font-bold hover:bg-cyan hover:text-slate-950 transition-all duration-200 cursor-pointer">
             {i18n.language.toUpperCase().substring(0, 2)}
           </button>
-          <a href="mailto:vinicius.s.machado@protonmail.com" className="px-6 py-2.5 bg-cyan text-slate font-bold rounded-full hover:bg-white transition-all shadow-lg shadow-cyan/10">
+          <a href="mailto:vinicius.s.machado@protonmail.com" className="px-6 py-2.5 bg-cyan text-slate-950 font-bold rounded-full hover:bg-white transition-all duration-200 shadow-lg shadow-cyan/10">
             {t('nav.contact')}
           </a>
+
         </div>
       </div>
     </nav>
@@ -141,8 +143,8 @@ const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyCl
          </p>
          <div className="space-y-8 font-sans">
             <div className="flex items-center gap-4">
-               <div className="h-px flex-grow bg-white/10"></div>
                <h4 className="text-[11px] uppercase font-bold tracking-[0.4em] text-cyan shrink-0">{t('portfolio.specs')}</h4>
+               <div className="h-px flex-grow bg-white/10"></div>
             </div>
             <ul className="grid grid-cols-2 gap-x-10 gap-y-5 text-[14px] font-semibold opacity-60">
                {specs.map((spec, i) => (
@@ -157,22 +159,24 @@ const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyCl
          <div className="flex flex-col gap-5 font-sans pt-6">
             <div className="flex gap-5">
               {github && (
-                <a href={github} target="_blank" rel="noopener noreferrer" className="flex-1 py-4 bg-white/5 hover:bg-white hover:text-slate-950 border border-white/10 rounded-full transition-all flex items-center justify-center gap-3 text-[12px] font-bold uppercase tracking-widest">
-                  {t('portfolio.github')} <Binary size={18} />
+                <a href={github} target="_blank" rel="noopener noreferrer" className="flex-1 py-4 bg-white/5 hover:bg-white hover:text-slate-950 border border-white/10 rounded-full transition-all duration-200 flex items-center justify-center gap-3 text-[12px] font-bold uppercase tracking-widest text-white">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  {t('portfolio.github')}
                 </a>
               )}
               {playstore && (
-                <a href={playstore} target="_blank" rel="noopener noreferrer" className="flex-1 py-4 bg-cyan text-slate-950 hover:bg-white rounded-full transition-all flex items-center justify-center gap-3 text-[12px] font-bold uppercase tracking-widest">
-                  {t('portfolio.playstore')} <ExternalLink size={18} />
+                <a href={playstore} target="_blank" rel="noopener noreferrer" className="flex-1 py-4 bg-cyan text-slate-950 hover:bg-white rounded-full transition-all duration-200 flex items-center justify-center gap-3 text-[12px] font-bold uppercase tracking-widest">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.609 22.186c-.18.172-.412.214-.609.114V1.7c.197-.1.429-.058.609.114zm11.39 9.141l2.459 1.411c.713.402.713 1.054 0 1.456l-2.459 1.411-2.404-2.404 2.404-2.474zM3.882 1.341l9.117 9.117 2.404-2.474-10.422-5.992c-.391-.225-.795-.214-1.099.349zm0 21.318c.304.563.708.574 1.099.349l10.422-5.992-2.404-2.404-9.117 8.047z" /></svg>
+                  {t('portfolio.playstore')}
                 </a>
               )}
             </div>
             {onPrivacyClick && (
               <button 
                 onClick={onPrivacyClick}
-                className="w-full py-4 bg-[#050505]/40 backdrop-blur-md text-slate-400 hover:text-white border border-white/5 hover:border-cyan/30 rounded-full transition-all flex items-center justify-center gap-3 text-[12px] font-bold uppercase tracking-widest cursor-pointer"
+                className="w-full py-4 bg-[#050505]/40 backdrop-blur-md text-slate-400 hover:text-white border border-white/5 hover:border-cyan/30 rounded-full transition-all duration-200 flex items-center justify-center gap-3 text-[12px] font-bold uppercase tracking-widest cursor-pointer"
               >
-                {t('portfolio.privacy')} <Shield size={18} />
+                <Shield size={18} /> {t('portfolio.privacy')}
               </button>
             )}
          </div>
@@ -396,9 +400,9 @@ const Portfolio = () => {
         
         {/* Web Section */}
         <div className="mb-64">
-           <div className="flex items-center gap-8 mb-24 opacity-40 text-white font-sans">
-              <span className="text-[12px] font-black uppercase tracking-[0.6em] shrink-0 text-cyan">{t('portfolio.web_section')}</span>
-              <div className="h-px flex-grow bg-gradient-to-r from-cyan/50 to-transparent"></div>
+           <div className="flex items-center gap-8 mb-24 text-white font-sans">
+              <span className="text-[13px] font-black uppercase tracking-[0.6em] shrink-0 text-cyan opacity-80">{t('portfolio.web_section')}</span>
+              <div className="h-px flex-grow bg-gradient-to-r from-cyan/40 to-transparent"></div>
            </div>
 
            
@@ -425,9 +429,9 @@ const Portfolio = () => {
 
         {/* Mobile Section */}
         <div>
-           <div className="flex items-center gap-8 mb-24 opacity-40 text-white font-sans">
-              <span className="text-[12px] font-black uppercase tracking-[0.6em] shrink-0 text-cyan">{t('portfolio.mobile_section')}</span>
-              <div className="h-px flex-grow bg-gradient-to-r from-cyan/50 to-transparent"></div>
+           <div className="flex items-center gap-8 mb-24 text-white font-sans">
+              <span className="text-[13px] font-black uppercase tracking-[0.6em] shrink-0 text-cyan opacity-80">{t('portfolio.mobile_section')}</span>
+              <div className="h-px flex-grow bg-gradient-to-r from-cyan/40 to-transparent"></div>
            </div>
 
            
