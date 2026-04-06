@@ -18,7 +18,7 @@ const Nav = () => {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-slate/80 backdrop-blur-xl border-b border-white/5 font-sans">
-      <div className="max-w-7xl mx-auto md:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
         <Link to="/" className="hover:opacity-80 transition-opacity">
           <img src="/images/vsm-development-logo.png" alt="VSM Development" className="h-10 w-auto" />
         </Link>
@@ -144,8 +144,8 @@ const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyCl
 const Home = () => {
   const { t } = useTranslation();
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 px-8 font-sans">
-      <div className="max-w-7xl mx-auto">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
         <section className="mb-48 max-w-5xl">
           <motion.div initial={{ y: 15, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7 }}>
              <div className="inline-flex items-center gap-3 mb-10 px-4 py-2 glass-panel rounded-full border-cyan/20">
@@ -207,9 +207,11 @@ const Home = () => {
 const Experience = () => {
   const { t } = useTranslation();
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 px-8 font-sans">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-5xl md:text-7xl mb-24 font-extrabold text-white tracking-tighter">{t('experience.title')}</h2>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <div className="max-w-4xl">
+          <h2 className="text-5xl md:text-7xl mb-24 font-extrabold text-white tracking-tighter">{t('experience.title')}</h2>
+          {/* ... existing space-y-24 ... */}
         
         <div className="space-y-24 mb-32">
            <div className="relative pl-12 border-l border-white/10 font-sans">
@@ -302,7 +304,8 @@ const Experience = () => {
               <div className="px-5 py-2 glass-panel text-xs font-bold text-slate-400 uppercase tracking-widest font-sans">
                  {t('experience.education.uninter.period')}
               </div>
-           </div>
+            </div>
+         </div>
         </div>
       </div>
       <PrivacyModal isOpen={false} onClose={() => {}} />
@@ -310,13 +313,14 @@ const Experience = () => {
   );
 };
 
+
 const Portfolio = () => {
   const { t } = useTranslation();
   const [isPolicyOpen, setIsPolicyOpen] = useState(false);
   
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 px-8 font-sans">
-      <div className="max-w-7xl mx-auto">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
         <h2 className="text-5xl md:text-7xl mb-24 font-extrabold text-white tracking-tighter">{t('portfolio.title')}</h2>
         
         {/* Web Section */}
@@ -385,7 +389,7 @@ const Footer = () => {
        {/* Accent Glow */}
        <div className="absolute top-0 right-0 w-1/3 h-full bg-cyan/5 blur-[120px] -z-10 rounded-full"></div>
        
-       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 items-start">
+       <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 items-start">
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-6 text-center md:text-left">
              <img src="/images/vsm-development-logo.png" alt="VSM Development" className="h-10 w-auto mx-auto md:mx-0 opacity-90" />
@@ -411,7 +415,6 @@ const Footer = () => {
                 <a href="mailto:vsm.development7@gmail.com" className="text-sm md:text-base font-bold text-white hover:text-cyan transition-colors tracking-tight block">
                   vsm.development7@gmail.com
                 </a>
-                <a href="#" className="text-slate-500 hover:text-white transition-colors text-[13px] block">{t('footer.privacy')}</a>
              </div>
           </div>
        </div>
