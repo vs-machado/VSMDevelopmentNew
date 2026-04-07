@@ -134,11 +134,11 @@ const PrivacyModal = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
   if (!isOpen) return null;
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate/90 backdrop-blur-md font-sans">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#050505]/90 backdrop-blur-md font-sans">
       <motion.div 
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-slate border border-white/10 p-8 md:p-12 rounded-[2rem] max-w-2xl max-h-[85vh] overflow-y-auto relative shadow-2xl"
+        className="bg-[#050505] border border-white/10 p-8 md:p-12 rounded-[2rem] max-w-2xl max-h-[85vh] overflow-y-auto relative shadow-2xl"
       >
         <button onClick={onClose} className="absolute top-8 right-8 text-slate-400 hover:text-white transition-colors cursor-pointer">
           <X size={24} />
@@ -173,7 +173,7 @@ const ImageModal = ({ isOpen, onClose, image, title }) => {
   if (!isOpen) return null;
   return (
     <div 
-      className="fixed inset-0 z-[110] flex items-center justify-center bg-slate/95 backdrop-blur-xl p-4 md:p-12 cursor-zoom-out"
+      className="fixed inset-0 z-[110] flex items-center justify-center bg-[#050505]/95 backdrop-blur-xl p-4 md:p-12 cursor-zoom-out"
       onClick={onClose}
     >
        <motion.div 
@@ -185,11 +185,11 @@ const ImageModal = ({ isOpen, onClose, image, title }) => {
           <img 
             src={image} 
             alt={title} 
-            className="w-auto h-auto max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain border border-white/10" 
+            className="w-auto h-auto max-w-full max-h-[85vh] rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] object-contain border border-white/10" 
           />
           <button 
             onClick={onClose} 
-            className="absolute -top-12 right-0 text-white/50 hover:text-white transition-colors flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em]"
+            className="absolute -top-12 right-0 text-white/50 hover:text-white transition-colors flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] cursor-pointer"
           >
             Fechar <X size={18} />
           </button>
