@@ -494,7 +494,7 @@ const Home = () => {
         </section>
 
         {/* --- Experience Preview --- */}
-        <section className="mb-32">
+        <section className="mb-64">
            <motion.div 
              initial={{ y: 30, opacity: 0 }}
              whileInView={{ y: 0, opacity: 1 }}
@@ -511,27 +511,49 @@ const Home = () => {
               </Link>
            </motion.div>
 
-           <motion.div 
-             initial={{ y: 40, opacity: 0 }}
-             whileInView={{ y: 0, opacity: 1 }}
-             viewport={{ once: true, margin: "-100px" }}
-             className="relative p-10 md:p-16 rounded-[3rem] bg-[#050505]/40 backdrop-blur-3xl border border-white/5 hover:border-cyan/20 transition-all duration-700 group overflow-hidden"
-           >  
-              <div className="relative z-10">
-                 <div className="flex flex-wrap items-center gap-4 text-cyan font-black text-[12px] uppercase tracking-[0.3em] mb-10">
-                    <span className="bg-cyan/10 px-4 py-1.5 rounded-full border border-cyan/20">{t('experience.nativa.company')}</span>
-                    <span className="opacity-60">{t('experience.nativa.period')}</span>
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <motion.div 
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="relative p-10 md:p-12 rounded-[3rem] bg-[#050505]/40 backdrop-blur-3xl border border-white/5 hover:border-cyan/20 transition-all duration-700 group overflow-hidden flex flex-col justify-center"
+              >  
+                 <div className="relative z-10">
+                    <div className="flex items-center gap-4 text-cyan font-black text-[10px] uppercase tracking-[0.3em] mb-6">
+                       <span className="bg-cyan/10 px-3 py-1 rounded-full border border-cyan/20">{t('experience.nativa.company')}</span>
+                       <span className="opacity-40">{t('experience.nativa.period')}</span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight italic leading-tight">
+                       {t('experience.nativa.role')}
+                    </h3>
+                    <p className="text-slate-400 leading-relaxed font-medium opacity-80 line-clamp-2">
+                       {t('experience.nativa.description')}
+                    </p>
                  </div>
-                 
-                 <h3 className="text-3xl md:text-5xl font-bold text-white mb-8 tracking-tight italic leading-tight max-w-3xl">
-                    {t('experience.nativa.role')}
-                 </h3>
-                 
-                 <p className="text-lg md:text-xl text-slate-400 leading-relaxed font-medium opacity-90 max-w-4xl mb-12">
-                    {t('experience.nativa.description')}
-                 </p>
-              </div>
-           </motion.div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: 0.1 }}
+                className="relative p-10 md:p-12 rounded-[3rem] bg-white/[0.02] border border-white/5 hover:border-cyan/20 transition-all duration-700 group overflow-hidden flex flex-col justify-center"
+              >  
+                 <div className="relative z-10">
+                    <div className="text-cyan font-black text-[10px] uppercase tracking-[0.3em] mb-6 opacity-60">
+                       {t('experience.education.title')}
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight italic leading-tight">
+                       {t('experience.education.uninter.degree')}
+                    </h3>
+                    <div className="flex items-center gap-4">
+                       <span className="text-slate-400 font-bold text-[12px]">{t('experience.education.uninter.school')}</span>
+                       <div className="h-px w-8 bg-white/10"></div>
+                       <span className="text-slate-500 font-medium text-[11px] uppercase tracking-widest">{t('experience.education.uninter.period')}</span>
+                    </div>
+                 </div>
+              </motion.div>
+           </div>
         </section>
 
       </div>
@@ -725,21 +747,21 @@ const Experience = () => {
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  className="group relative flex flex-col md:flex-row md:items-center justify-between gap-8 bg-[#050505]/80 backdrop-blur-3xl p-8 md:p-10 rounded-[2rem] border border-white/5 hover:border-cyan/20 transition-all duration-500 shadow-xl"
+                  className="group relative flex flex-col md:flex-row md:items-center justify-between gap-8 bg-[#050505]/40 backdrop-blur-3xl p-10 md:p-14 rounded-[3rem] border border-white/5 hover:border-cyan/20 transition-all duration-700 shadow-2xl overflow-hidden"
                 >
-                  <div className="flex items-center gap-6">
-                     <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-slate-500 group-hover:text-cyan group-hover:scale-110 transition-all border border-white/5">
-                        <GraduationCap size={32} />
+                  <div className="relative z-10 flex flex-col gap-6">
+                     <div className="text-cyan font-black text-[12px] uppercase tracking-[0.4em] opacity-60">
+                       {t('experience.education.uninter.school')}
                      </div>
-                     <div>
-                       <h4 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">{t('experience.education.uninter.degree')}</h4>
-                       <div className="text-cyan font-black text-[11px] uppercase tracking-[0.3em] opacity-60">
-                         {t('experience.education.uninter.school')}
-                       </div>
+                     <h4 className="text-3xl md:text-5xl font-black text-white tracking-tight italic leading-none max-w-2xl">
+                       {t('experience.education.uninter.degree')}
+                     </h4>
+                     <div className="flex items-center gap-6">
+                        <div className="h-px w-12 bg-cyan/30"></div>
+                        <div className="text-slate-500 font-bold text-[13px] uppercase tracking-widest">
+                          {t('experience.education.uninter.period')}
+                        </div>
                      </div>
-                  </div>
-                  <div className="px-6 py-2 glass-panel text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] bg-white/[0.01] border-white/5">
-                    {t('experience.education.uninter.period')}
                   </div>
                 </motion.div>
               </section>
