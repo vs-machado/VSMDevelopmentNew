@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './i18n';
-import { Globe, Smartphone, ArrowRight, ExternalLink, Shield, X, Code2, Cpu, Search, MessageSquare, Newspaper, Binary, Briefcase, GraduationCap, Award, Play, Menu, MapPin, Calendar, Layers } from 'lucide-react';
+import { Globe, Smartphone, ArrowRight, ExternalLink, Shield, X, Code2, Cpu, Search, MessageSquare, Newspaper, Binary, Briefcase, GraduationCap, Award, Play, Menu, MapPin, Calendar, Layers, ChevronDown } from 'lucide-react';
 import { useEffect } from 'react';
 
 
@@ -286,25 +286,24 @@ const Home = () => {
   };
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 md:pt-72 pb-32 font-sans relative">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-8">
-        
-        {/* --- Hero Section --- */}
-        <section className="mb-48 md:mb-64">
-          <motion.div 
-            initial={{ y: 20, opacity: 0 }} 
-            animate={{ y: 0, opacity: 1 }} 
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 items-center"
-          >
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pb-32 font-sans relative">
+      
+      {/* --- Hero Section (Full Viewport) --- */}
+      <section className="min-h-screen flex flex-col justify-center relative max-w-screen-2xl mx-auto px-6 md:px-8 pt-24 overflow-hidden">
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }} 
+          animate={{ y: 0, opacity: 1 }} 
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 items-center"
+        >
              {/* Left Column: Massive Title & Sub-info */}
-             <div className="xl:col-span-8 order-2 xl:order-1">
+             <div className="xl:col-span-8 order-2 xl:order-1 flex flex-col items-center xl:items-start text-center xl:text-left">
                 <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[7.5rem] font-black italic text-white leading-[0.9] tracking-tighter mb-10 md:mb-20 text-balance">
                   {t('hero.title')}
                 </h1>
                 
-                <div className="flex flex-col md:flex-row md:items-center items-start gap-8 md:gap-16">
-                  <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-md font-medium opacity-80 font-sans tracking-tight">
+                <div className="flex flex-col md:flex-row md:items-center items-center xl:items-start gap-8 md:gap-16">
+                  <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-md font-medium opacity-80 font-sans tracking-tight text-center xl:text-left">
                     {t('hero.subtitle')}
                   </p>
                   <div className="shrink-0">
@@ -315,40 +314,54 @@ const Home = () => {
                 </div>
              </div>
 
-             {/* Right Column: Profile Card */}
-             <div className="xl:col-span-4 order-1 xl:order-2 flex flex-col items-center xl:items-end">
-                <div className="relative group mb-6 md:mb-8">
-                   <div className="absolute -inset-4 bg-cyan/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full"></div>
-                   <div className="w-28 h-28 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-cyan/30 bg-white/[0.02] backdrop-blur-3xl relative shadow-[0_0_50px_rgba(34,211,238,0.15)]">
-                      <img 
-                        src="/images/profile.png" 
-                        alt="Vinícius Santos Machado" 
-                        className="w-full h-full object-cover transition-transform duration-500"
-                        onError={(e) => e.target.style.display = 'none'}
-                      />
-                   </div>
-                </div>
+           {/* Right Column: Profile Card */}
+           <div className="xl:col-span-4 order-1 xl:order-2 flex flex-col items-center xl:items-end">
+              <div className="relative group mb-6 md:mb-8">
+                 <div className="absolute -inset-4 bg-cyan/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full"></div>
+                 <div className="w-28 h-28 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-cyan/30 bg-white/[0.02] backdrop-blur-3xl relative shadow-[0_0_50px_rgba(34,211,238,0.15)]">
+                    <img 
+                      src="/images/profile.png" 
+                      alt="Vinícius Santos Machado" 
+                      className="w-full h-full object-cover transition-transform duration-500"
+                      onError={(e) => e.target.style.display = 'none'}
+                    />
+                 </div>
+              </div>
 
-                <div className="text-center xl:text-right space-y-3 md:space-y-4">
-                   <h2 className="relative w-fit mx-auto xl:ml-auto xl:mr-0 text-cyan font-black text-[11px] md:text-[16px] uppercase tracking-[0.2em] md:tracking-[0.4em] opacity-90 whitespace-nowrap">
-                     {t('hero.name')}
-                     <div className="absolute -bottom-2 left-0 xl:left-auto right-[0.2em] md:right-[0.4em] xl:w-1/2 h-1 bg-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)]"></div>
-                   </h2>
-                   
-                   <div className="pt-2 md:pt-4">
-                      <div className="inline-flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 glass-panel rounded-full border-cyan/10 bg-cyan/[0.03] backdrop-blur-md">
-                         <div className="relative">
-                            <span className="block w-1.5 h-1.5 md:w-2 md:h-2 bg-cyan rounded-full"></span>
-                            <span className="absolute inset-0 w-1.5 h-1.5 md:w-2 md:h-2 bg-cyan rounded-full animate-ping opacity-75"></span>
-                         </div>
-                         <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-cyan leading-none">{t('hero.status')}</span>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </motion.div>
-        </section>
+              <div className="text-center xl:text-right space-y-3 md:space-y-4">
+                 <h2 className="relative w-fit mx-auto xl:ml-auto xl:mr-0 text-cyan font-black text-[11px] md:text-[16px] uppercase tracking-[0.2em] md:tracking-[0.4em] opacity-90 whitespace-nowrap">
+                   {t('hero.name')}
+                   <div className="absolute -bottom-2 left-0 xl:left-auto right-[0.2em] md:right-[0.4em] xl:w-1/2 h-1 bg-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)]"></div>
+                 </h2>
+                 
+                 <div className="pt-2 md:pt-4">
+                    <div className="inline-flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-4 md:py-2 glass-panel rounded-full border-cyan/10 bg-cyan/[0.03] backdrop-blur-md">
+                       <div className="relative">
+                          <span className="block w-1.5 h-1.5 md:w-2 md:h-2 bg-cyan rounded-full"></span>
+                          <span className="absolute inset-0 w-1.5 h-1.5 md:w-2 md:h-2 bg-cyan rounded-full animate-ping opacity-75"></span>
+                       </div>
+                       <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-cyan leading-none">{t('hero.status')}</span>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </motion.div>
 
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 md:gap-3 text-cyan/20 md:text-cyan/30">
+           <span className="text-[8px] md:text-[9px] uppercase font-bold tracking-[0.4em] opacity-40 hidden md:block">Scroll</span>
+           <motion.div 
+             animate={{ y: [0, 6, 0] }} 
+             transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }} 
+             className="cursor-pointer hover:text-cyan transition-colors"
+           >
+              <ChevronDown className="w-6 h-6 md:w-8 md:h-8" strokeWidth={1.5} />
+           </motion.div>
+        </div>
+      </section>
+
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-8">
+        
         {/* --- Expertise Section --- */}
         <section className="mb-64">
           <motion.div 
@@ -420,7 +433,7 @@ const Home = () => {
                     {t('portfolio.web_section')} & {t('portfolio.mobile_section')}
                  </p>
               </div>
-              <Link to="/portfolio" className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-cyan hover:text-slate-950 hover:border-cyan transition-all duration-200 shadow-xl">
+              <Link to="/portfolio" className="group w-fit inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-cyan hover:text-slate-950 hover:border-cyan transition-all duration-200 shadow-xl">
                  {t('portfolio.view_full')} <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
               </Link>
            </motion.div>
@@ -476,7 +489,7 @@ const Home = () => {
                     {t('experience.title')}
                  </h2>
               </div>
-              <Link to="/experience" className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-cyan hover:text-slate-950 hover:border-cyan transition-all duration-200 shadow-xl">
+              <Link to="/experience" className="group w-fit inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-cyan hover:text-slate-950 hover:border-cyan transition-all duration-200 shadow-xl">
                  {t('experience.view_details')} <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
               </Link>
            </motion.div>
