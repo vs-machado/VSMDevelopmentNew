@@ -547,8 +547,9 @@ const Experience = () => {
           
           <header className="mb-24 md:mb-40">
             <motion.h2 
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
               className="text-3xl sm:text-4xl md:text-8xl font-black text-white tracking-tighter relative inline-block"
             >
               {t('experience.title')}
@@ -568,9 +569,9 @@ const Experience = () => {
                 <div className="absolute left-[-4px] md:left-[28px] top-0 w-2 h-2 bg-cyan rounded-full shadow-[0_0_15px_rgba(34,211,238,0.8)] ring-4 ring-cyan/20"></div>
                 
                 <motion.div 
-                  initial={{ y: 20, opacity: 0 }}
+                  initial={{ y: 40, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "-100px" }}
                   className="mb-16"
                 >
                   <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
@@ -600,6 +601,9 @@ const Experience = () => {
                   
                   {/* LIA Project */}
                   <motion.div 
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
                     whileHover={{ x: 10 }}
                     className="group relative p-8 md:p-10 rounded-[2rem] bg-[#050505]/80 backdrop-blur-3xl border border-white/5 hover:border-cyan/30 transition-all duration-500"
                   >
@@ -622,9 +626,9 @@ const Experience = () => {
 
                   {/* Nativa Auditoria Project - AWARD */}
                   <motion.div 
-                    initial={{ scale: 0.98 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
+                    initial={{ y: 30, opacity: 0, scale: 0.98 }}
+                    whileInView={{ y: 0, opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
                     className="group relative p-[1px] rounded-[2.5rem] bg-gradient-to-br from-cyan/40 via-white/5 to-violet/40 overflow-hidden shadow-2xl"
                   >
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.2),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -663,6 +667,9 @@ const Experience = () => {
 
                   {/* BI Dashboards Project */}
                   <motion.div 
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
                     whileHover={{ x: 10 }}
                     className="group relative p-8 md:p-10 rounded-[2rem] bg-[#050505]/80 backdrop-blur-3xl border border-white/5 hover:border-cyan/30 transition-all duration-500"
                   >
@@ -698,8 +705,9 @@ const Experience = () => {
                 </header>
                 
                 <motion.div 
-                  initial={{ y: 20, opacity: 0 }}
+                  initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
                   className="group relative flex flex-col md:flex-row md:items-center justify-between gap-8 bg-[#050505]/80 backdrop-blur-3xl p-8 md:p-10 rounded-[2rem] border border-white/5 hover:border-cyan/20 transition-all duration-500 shadow-xl"
                 >
                   <div className="flex items-center gap-6">
@@ -745,76 +753,94 @@ const Portfolio = () => {
 
         <header className="mb-16 md:mb-24">
           <motion.h2 
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
             className="text-3xl sm:text-4xl md:text-8xl font-black text-white tracking-tighter relative inline-block"
           >
             {t('portfolio.title')}
             <div className="absolute -bottom-4 left-0 w-32 h-2 bg-cyan shadow-[0_0_20px_rgba(34,211,238,0.5)]"></div>
-            <span className="absolute -right-12 top-0 text-cyan/10 text-lg font-mono tracking-[0.5em] [writing-mode:vertical-lr] hidden xl:block uppercase">Works</span>
           </motion.h2>
         </header>
 
         
         {/* Web Section */}
         <div className="mb-64">
-           <div className="flex items-center gap-8 mb-24 text-white font-sans">
+           <motion.div 
+             initial={{ y: 30, opacity: 0 }}
+             whileInView={{ y: 0, opacity: 1 }}
+             viewport={{ once: true }}
+             className="flex items-center gap-8 mb-24 text-white font-sans"
+           >
               <span className="text-[13px] font-black uppercase tracking-[0.6em] shrink-0 text-cyan opacity-80">{t('portfolio.web_section')}</span>
               <div className="h-px flex-grow bg-gradient-to-r from-cyan/40 to-transparent"></div>
-           </div>
+           </motion.div>
 
            
-           <ProjectCard 
-              title={t('portfolio.debrid.title')}
-              desc={t('portfolio.debrid.desc')}
-              label={t('portfolio.project_label.web')}
-              image="/images/debrid-searcher.jpg"
-              github="https://github.com/vs-machado/debrid-searcher"
-              specs={t('portfolio.debrid.specs_list', { returnObjects: true })}
-              onImageClick={handleImageClick}
-           />
+           <motion.div initial={{ y: 40, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: "-100px" }}>
+             <ProjectCard 
+                title={t('portfolio.debrid.title')}
+                desc={t('portfolio.debrid.desc')}
+                label={t('portfolio.project_label.web')}
+                image="/images/debrid-searcher.jpg"
+                github="https://github.com/vs-machado/debrid-searcher"
+                specs={t('portfolio.debrid.specs_list', { returnObjects: true })}
+                onImageClick={handleImageClick}
+             />
+           </motion.div>
            
-           <ProjectCard 
-              title={t('portfolio.chatbot.title')}
-              desc={t('portfolio.chatbot.desc')}
-              label={t('portfolio.project_label.web')}
-              image="/images/chatbot-rag.png"
-              github="https://github.com/vs-machado/chatbot-rag"
-              specs={t('portfolio.chatbot.specs_list', { returnObjects: true })}
-              onImageClick={handleImageClick}
-           />
+           <motion.div initial={{ y: 40, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: "-100px" }}>
+             <ProjectCard 
+                title={t('portfolio.chatbot.title')}
+                desc={t('portfolio.chatbot.desc')}
+                label={t('portfolio.project_label.web')}
+                image="/images/chatbot-rag.png"
+                github="https://github.com/vs-machado/chatbot-rag"
+                specs={t('portfolio.chatbot.specs_list', { returnObjects: true })}
+                onImageClick={handleImageClick}
+             />
+           </motion.div>
         </div>
 
         {/* Mobile Section */}
         <div>
-           <div className="flex items-center gap-8 mb-24 text-white font-sans">
+           <motion.div 
+             initial={{ y: 30, opacity: 0 }}
+             whileInView={{ y: 0, opacity: 1 }}
+             viewport={{ once: true }}
+             className="flex items-center gap-8 mb-24 text-white font-sans"
+           >
               <span className="text-[13px] font-black uppercase tracking-[0.6em] shrink-0 text-cyan opacity-80">{t('portfolio.mobile_section')}</span>
               <div className="h-px flex-grow bg-gradient-to-r from-cyan/40 to-transparent"></div>
-           </div>
+           </motion.div>
 
            
-           <ProjectCard 
-              title={t('portfolio.remedi.title')}
-              desc={t('portfolio.remedi.desc')}
-              label={t('portfolio.project_label.mobile')}
-              image="/images/remedi-screenshots.png"
-              github="https://github.com/vs-machado/PillReminder/"
-              playstore="https://play.google.com/store/apps/details?id=com.phoenix.remedi"
-              onPrivacyClick={() => setIsPolicyOpen(true)}
-              specs={t('portfolio.remedi.specs_list', { returnObjects: true })}
-              onImageClick={handleImageClick}
-           />
+           <motion.div initial={{ y: 40, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: "-100px" }}>
+             <ProjectCard 
+                title={t('portfolio.remedi.title')}
+                desc={t('portfolio.remedi.desc')}
+                label={t('portfolio.project_label.mobile')}
+                image="/images/remedi-screenshots.png"
+                github="https://github.com/vs-machado/PillReminder/"
+                playstore="https://play.google.com/store/apps/details?id=com.phoenix.remedi"
+                onPrivacyClick={() => setIsPolicyOpen(true)}
+                specs={t('portfolio.remedi.specs_list', { returnObjects: true })}
+                onImageClick={handleImageClick}
+             />
+           </motion.div>
            
-           <ProjectCard 
-              title={t('portfolio.ainformation.title')}
-              desc={t('portfolio.ainformation.desc')}
-              label={t('portfolio.project_label.mobile')}
-              image="/images/ainformation.png"
-              github="https://github.com/vs-machado/AInformation"
-              specs={t('portfolio.ainformation.specs_list', { returnObjects: true })}
-              isMobile={true}
-              onImageClick={handleImageClick}
-           />
+           <motion.div initial={{ y: 40, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: "-100px" }}>
+             <ProjectCard 
+                title={t('portfolio.ainformation.title')}
+                desc={t('portfolio.ainformation.desc')}
+                label={t('portfolio.project_label.mobile')}
+                image="/images/ainformation.png"
+                github="https://github.com/vs-machado/AInformation"
+                specs={t('portfolio.ainformation.specs_list', { returnObjects: true })}
+                isMobile={true}
+                onImageClick={handleImageClick}
+             />
+           </motion.div>
         </div>
       </div>
       <PrivacyModal isOpen={isPolicyOpen} onClose={() => setIsPolicyOpen(false)} />
