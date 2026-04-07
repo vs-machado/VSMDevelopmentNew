@@ -520,7 +520,7 @@ const Portfolio = () => {
               desc={t('portfolio.remedi.desc')}
               label={t('portfolio.project_label.mobile')}
               image="/images/remedi-screenshots.png"
-              github="https://github.com/vs-machado/PillReminder/releases/tag/1.5.3"
+              github="https://github.com/vs-machado/PillReminder/"
               playstore="https://play.google.com/store/apps/details?id=com.phoenix.remedi"
               onPrivacyClick={() => setIsPolicyOpen(true)}
               specs={t('portfolio.remedi.specs_list', { returnObjects: true })}
