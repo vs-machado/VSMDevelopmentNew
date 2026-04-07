@@ -4,11 +4,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './i18n';
 import { Globe, Smartphone, ArrowRight, ExternalLink, Shield, X, Code2, Cpu, Search, MessageSquare, Newspaper, Binary, Briefcase, GraduationCap, Award, Play, Menu, MapPin, Calendar, Layers } from 'lucide-react';
+import { useEffect } from 'react';
 
 
 import CoalesceBackground from './components/CoalesceBackground';
 
 /* --- Components --- */
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 
 const Nav = () => {
@@ -309,10 +318,15 @@ const Home = () => {
 
         {/* --- Expertise Section --- */}
         <section className="mb-64">
-          <div className="flex items-center gap-6 mb-16">
+          <motion.div 
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex items-center gap-6 mb-16"
+          >
             <h2 className="text-[11px] font-black uppercase tracking-[0.5em] text-cyan">{t('expertise.label')}</h2>
             <div className="h-px flex-grow bg-white/5"></div>
-          </div>
+          </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <motion.div 
@@ -359,7 +373,12 @@ const Home = () => {
 
         {/* --- Featured Projects Preview --- */}
         <section className="mb-64">
-           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+           <motion.div 
+             initial={{ y: 30, opacity: 0 }}
+             whileInView={{ y: 0, opacity: 1 }}
+             viewport={{ once: true, margin: "-100px" }}
+             className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20"
+           >
               <div className="max-w-2xl">
                  <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter italic mb-6">
                     {t('portfolio.title')}
@@ -368,54 +387,71 @@ const Home = () => {
                     {t('portfolio.web_section')} & {t('portfolio.mobile_section')}
                  </p>
               </div>
-              <Link to="/portfolio" className="inline-flex items-center gap-3 px-8 py-4 glass-panel rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-white hover:text-slate-950 transition-all duration-300 shadow-xl">
-                 {t('hero.cta')} <ArrowRight size={18} />
+              <Link to="/portfolio" className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-cyan hover:text-slate-950 hover:border-cyan transition-all duration-300 shadow-xl">
+                 {t('portfolio.view_full')} <ArrowRight size={18} />
               </Link>
-           </div>
+           </motion.div>
 
            <div className="space-y-12">
-              <ProjectCard 
-                title={t('portfolio.debrid.title')}
-                desc={t('portfolio.debrid.desc')}
-                label={t('portfolio.project_label.web')}
-                image="/images/debrid-searcher.jpg"
-                github="https://github.com/vs-machado/debrid-searcher"
-                specs={t('portfolio.debrid.specs_list', { returnObjects: true })}
-                onImageClick={handleImageClick}
-              />
-              <ProjectCard 
-                title={t('portfolio.remedi.title')}
-                desc={t('portfolio.remedi.desc')}
-                label={t('portfolio.project_label.mobile')}
-                image="/images/remedi-screenshots.png"
-                github="https://github.com/vs-machado/PillReminder/"
-                playstore="https://play.google.com/store/apps/details?id=com.phoenix.remedi"
-                specs={t('portfolio.remedi.specs_list', { returnObjects: true })}
-                onImageClick={handleImageClick}
-              />
+              <motion.div initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: "-100px" }}>
+                <ProjectCard 
+                  title={t('portfolio.debrid.title')}
+                  desc={t('portfolio.debrid.desc')}
+                  label={t('portfolio.project_label.web')}
+                  image="/images/debrid-searcher.jpg"
+                  github="https://github.com/vs-machado/debrid-searcher"
+                  specs={t('portfolio.debrid.specs_list', { returnObjects: true })}
+                  onImageClick={handleImageClick}
+                />
+              </motion.div>
+              <motion.div initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: "-100px" }}>
+                <ProjectCard 
+                  title={t('portfolio.chatbot.title')}
+                  desc={t('portfolio.chatbot.desc')}
+                  label={t('portfolio.project_label.web')}
+                  image="/images/chatbot-rag.png"
+                  github="https://github.com/vs-machado/chatbot-rag"
+                  specs={t('portfolio.chatbot.specs_list', { returnObjects: true })}
+                  onImageClick={handleImageClick}
+                />
+              </motion.div>
+              <motion.div initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, margin: "-100px" }}>
+                <ProjectCard 
+                  title={t('portfolio.remedi.title')}
+                  desc={t('portfolio.remedi.desc')}
+                  label={t('portfolio.project_label.mobile')}
+                  image="/images/remedi-screenshots.png"
+                  github="https://github.com/vs-machado/PillReminder/"
+                  playstore="https://play.google.com/store/apps/details?id=com.phoenix.remedi"
+                  specs={t('portfolio.remedi.specs_list', { returnObjects: true })}
+                  onImageClick={handleImageClick}
+                />
+              </motion.div>
            </div>
         </section>
 
         {/* --- Experience Preview --- */}
         <section className="mb-32">
-           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+           <motion.div 
+             initial={{ y: 30, opacity: 0 }}
+             whileInView={{ y: 0, opacity: 1 }}
+             viewport={{ once: true, margin: "-100px" }}
+             className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10"
+           >
               <div className="max-w-2xl">
-                 <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter italic mb-6">
+                 <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter italic ">
                     {t('experience.title')}
                  </h2>
-                 <p className="text-lg md:text-xl text-slate-400 font-medium opacity-80">
-                    {t('experience.nativa.company')} • {t('experience.nativa.role')}
-                 </p>
               </div>
-              <Link to="/experience" className="inline-flex items-center gap-3 px-8 py-4 glass-panel rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-white hover:text-slate-950 transition-all duration-300 shadow-xl">
+              <Link to="/experience" className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-cyan hover:text-slate-950 hover:border-cyan transition-all duration-300 shadow-xl">
                  {t('experience.view_details')} <ArrowRight size={18} />
               </Link>
-           </div>
+           </motion.div>
 
            <motion.div 
-             initial={{ y: 20, opacity: 0 }}
+             initial={{ y: 40, opacity: 0 }}
              whileInView={{ y: 0, opacity: 1 }}
-             viewport={{ once: true }}
+             viewport={{ once: true, margin: "-100px" }}
              className="relative p-10 md:p-16 rounded-[3rem] bg-[#050505]/40 backdrop-blur-3xl border border-white/5 hover:border-cyan/20 transition-all duration-700 group overflow-hidden"
            >  
               <div className="relative z-10">
@@ -452,7 +488,7 @@ const Experience = () => {
   
   const techStackLia = ["FastAPI", "PostgreSQL", "Tailwind CSS", "JavaScript"];
   const techStackAuditoria = ["FastAPI", "PostgreSQL", "Tailwind CSS", "JavaScript"];
-  const techStackBi = ["Vanilla JS", "HTML", "CSS"];
+  const techStackBi = ["Javascript", "HTML", "CSS"];
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 md:pt-48 pb-32 font-sans relative overflow-hidden">
@@ -791,6 +827,7 @@ const Footer = () => {
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col font-sans">
         <CoalesceBackground />
         <Nav />
