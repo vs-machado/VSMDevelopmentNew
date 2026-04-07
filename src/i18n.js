@@ -17,6 +17,7 @@ i18n
             contact: 'Contact'
           },
           hero: {
+            name: 'Vinícius Santos Machado',
             title: 'Fullstack Web & Mobile Developer',
             subtitle: 'I engineer scalable web ecosystems and high-performance native Android applications with a focus on precision and user experience.',
             cta: 'View Portfolio',
@@ -115,6 +116,7 @@ i18n
             contact: 'Contato'
           },
           hero: {
+            name: 'Vinícius Santos Machado',
             title: 'Desenvolvedor Fullstack Web & Mobile',
             subtitle: 'Desenvolvo ecossistemas web escaláveis e aplicativos Android nativos de alta performance com foco em precisão e experiência do usuário.',
             cta: 'Ver Portfólio',

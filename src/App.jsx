@@ -290,8 +290,37 @@ const Home = () => {
       <div className="max-w-screen-2xl mx-auto px-6 md:px-8">
         
         {/* --- Hero Section --- */}
-        <section className="mb-48 md:mb-64 max-w-6xl">
-          <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
+        <section className="mb-48 md:mb-64 max-w-4xl">
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }} 
+            animate={{ y: 0, opacity: 1 }} 
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+             {/* Profile Header: Photo + Name */}
+             <div className="flex items-center gap-6 mb-12">
+                <div className="relative group">
+                   <div className="absolute -inset-2 bg-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full"></div>
+                   <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 bg-white/[0.02] backdrop-blur-3xl relative">
+                      <div className="absolute inset-0 flex items-center justify-center text-white/10 font-black text-2xl select-none italic">
+                        VSM
+                      </div>
+                      <img 
+                        src="/images/profile.png" 
+                        alt="Vinícius Santos Machado" 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        onError={(e) => e.target.style.display = 'none'}
+                      />
+                   </div>
+                </div>
+                <div>
+                   <h2 className="text-cyan font-black text-[12px] md:text-[14px] uppercase tracking-[0.4em] mb-2 opacity-90">
+                     {t('hero.name')}
+                   </h2>
+                   <div className="h-1 w-12 bg-cyan/30 rounded-full"></div>
+                </div>
+             </div>
+
+             {/* Status Badge */}
              <div className="inline-flex items-center gap-3 mb-10 px-5 py-2.5 glass-panel rounded-full border-cyan/10 bg-cyan/[0.03] backdrop-blur-md">
                 <div className="relative">
                    <span className="block w-2.5 h-2.5 bg-cyan rounded-full"></span>
@@ -300,13 +329,15 @@ const Home = () => {
                 <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-cyan leading-none">{t('hero.status')}</span>
              </div>
              
-             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-12 leading-[1.05] text-white font-extrabold tracking-tight text-balance relative">
-               <span className="relative z-10">{t('hero.title')}</span>
-             </h1>
-
-             <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mb-14 font-medium opacity-80 font-sans tracking-tight">
-               {t('hero.subtitle')}
-             </p>
+             {/* Title & Subtitle */}
+             <div className="mb-14">
+               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl mb-10 leading-[1.05] text-white font-extrabold tracking-tight text-balance">
+                 {t('hero.title')}
+               </h1>
+               <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl font-medium opacity-80 font-sans tracking-tight">
+                 {t('hero.subtitle')}
+               </p>
+             </div>
 
              <div className="flex flex-wrap gap-6 items-center">
                <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-8 md:px-10 py-4 md:py-5 bg-cyan text-slate-950 font-black rounded-full hover:bg-white transition-all duration-500 shadow-2xl shadow-cyan/20">
