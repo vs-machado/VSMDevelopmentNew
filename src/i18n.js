@@ -42,9 +42,9 @@ i18n
               period: 'Jul 2025 – Present',
               location: 'Remote / On-site',
               description: 'Collaborative development of high-impact AI solutions for the Brazilian public sector.',
-              lia: 'On-site development of LIA (AI Bidding) at TRE-AC. Built with FastAPI and PostgreSQL.',
-              auditoria: 'Development of Nativa Auditoria for automated audit document generation. Winner of the CNJ Audit Value Generation Award.',
-              bi: 'Implementation of advanced BI Dashboards for the TRE-RO intranet.'
+              lia: 'On-site development of LIA (AI Bidding) at the Regional Electoral Court - AC, using JavaScript, Tailwind CSS, Python (FastAPI), and PostgreSQL, featuring API integration and database persistence.',
+              auditoria: 'Development of Nativa Auditoria, an application for automated generation of audit documents using AI for analysis and structuring of administrative and legal data. A collaborative project between Regional Electoral Courts (TREs) and State Courts (TJs), winner of the 2025 CNJ Audit Value Generation Award (Axis I).',
+              bi: 'On-site frontend development and deployment of BI (Business Intelligence) dashboards for the Regional Electoral Court - RO intranet.'
             },
             education: {
               title: 'Academic Background',
@@ -138,9 +138,9 @@ i18n
               period: 'Jul 2025 – Presente',
               location: 'Remoto / Presencial',
               description: 'Desenvolvimento colaborativo de soluções de IA de alto impacto para o setor público brasileiro.',
-              lia: 'Desenvolvimento presencial da aplicação LIA (Licitações com IA) no TRE-AC. Tecnologias: FastAPI e PostgreSQL.',
-              auditoria: 'Desenvolvimento do Nativa Auditoria para geração automatizada de documentos com auxílio de IA. Vencedor do Prêmio Auditoria de Geração de Valor do CNJ (Eixo I).',
-              bi: 'Implantação de painéis de BI avançados na intranet do TRE-RO.'
+              lia: 'Desenvolvimento presencial da aplicação LIA (Licitações com IA) no Tribunal Regional Eleitoral - AC, utilizando JavaScript, Tailwind CSS, Python (FastAPI) e PostgreSQL, com integração de APIs e persistência em banco de dados.',
+              auditoria: 'Desenvolvimento da aplicação Nativa Auditoria, voltada à geração automatizada de documentos de auditoria, empregando inteligência artificial para análise e estruturação de informações administrativas e jurídicas. Projeto colaborativo entre Tribunais Regionais Eleitorais (TREs) e Tribunais de Justiça (TJs), vencedor do Prêmio Auditoria de Geração de Valor 2025 (Eixo I) do CNJ.',
+              bi: 'Desenvolvimento presencial do frontend e implantação de uma aplicação de painéis de BI (Business Intelligence) na intranet do Tribunal Regional Eleitoral - RO.'
             },
             education: {
               title: 'Formação Acadêmica',
