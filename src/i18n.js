@@ -19,10 +19,11 @@ i18n
           hero: {
             title: 'Fullstack Web & Mobile Developer',
             subtitle: 'I engineer scalable web ecosystems and high-performance native Android applications with a focus on precision and user experience.',
-            cta: 'View Portfolio',
+            cta: 'View Full',
             status: 'Available for new projects'
           },
           expertise: {
+            label: 'Specialization',
             web: {
               title: 'Fullstack Web Development',
               desc: 'Building robust, end-to-end web applications with React, Node.js, Python, and PostgreSQL. Focused on performance and scalability.'
@@ -115,10 +116,11 @@ i18n
           hero: {
             title: 'Desenvolvedor Fullstack Web & Mobile',
             subtitle: 'Desenvolvo ecossistemas web escaláveis e aplicativos Android nativos de alta performance com foco em precisão e experiência do usuário.',
-            cta: 'Ver Portfólio',
+            cta: 'Ver Completo',
             status: 'Disponível para novos projetos'
           },
           expertise: {
+            label: 'Especialização',
             web: {
               title: 'Desenvolvimento Web Fullstack',
               desc: 'Construindo aplicações web robustas de ponta a ponta com React, Node.js, Python e PostgreSQL. Foco em performance e escalabilidade.'

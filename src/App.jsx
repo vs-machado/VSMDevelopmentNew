@@ -270,83 +270,179 @@ const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyCl
 
 const Home = () => {
   const { t } = useTranslation();
+  const [activeImage, setActiveImage] = useState(null);
+
+  const handleImageClick = (image, title) => {
+    setActiveImage({ image, title });
+  };
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 md:pt-48 pb-32 font-sans relative">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-8">
-        <section className="mb-48 max-w-6xl">
-
+        
+        {/* --- Hero Section --- */}
+        <section className="mb-48 md:mb-64 max-w-6xl">
           <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
-             <div className="inline-flex items-center gap-3 mb-12 px-5 py-2.5 glass-panel rounded-full border-cyan/10 bg-cyan/[0.03] backdrop-blur-md">
+             <div className="inline-flex items-center gap-3 mb-10 px-5 py-2.5 glass-panel rounded-full border-cyan/10 bg-cyan/[0.03] backdrop-blur-md">
                 <div className="relative">
                    <span className="block w-2.5 h-2.5 bg-cyan rounded-full"></span>
                    <span className="absolute inset-0 w-2.5 h-2.5 bg-cyan rounded-full animate-ping opacity-75"></span>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-cyan leading-none">{t('hero.status')}</span>
+                <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-cyan leading-none">{t('hero.status')}</span>
              </div>
              
-             <h1 className="text-3xl sm:text-4xl md:text-[5.5rem] mb-14 leading-[1] text-white font-extrabold tracking-tight text-balance relative">
+             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-12 leading-[1.05] text-white font-extrabold tracking-tight text-balance relative">
                <span className="relative z-10">{t('hero.title')}</span>
              </h1>
 
-             <p className="text-lg md:text-2xl text-slate-400 leading-relaxed max-w-3xl mb-16 font-medium opacity-80 font-sans tracking-tight">
+             <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mb-14 font-medium opacity-80 font-sans tracking-tight">
                {t('hero.subtitle')}
              </p>
 
              <div className="flex flex-wrap gap-6 items-center">
-               <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-8 md:px-12 py-4 md:py-6 bg-cyan text-slate-950 font-black rounded-full hover:bg-white transition-all duration-500 shadow-2xl shadow-cyan/20">
-                 {t('hero.cta')} <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
+               <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-8 md:px-10 py-4 md:py-5 bg-cyan text-slate-950 font-black rounded-full hover:bg-white transition-all duration-500 shadow-2xl shadow-cyan/20">
+                 {t('hero.cta')} <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform" />
                </Link>
              </div>
           </motion.div>
         </section>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-          <motion.div 
-            initial={{ y: 40, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="group relative p-[1px] rounded-[3rem] bg-white/5 hover:bg-cyan/30 transition-all duration-700 overflow-hidden shadow-2xl"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="bg-[#050505]/60 backdrop-blur-3xl p-8 sm:p-12 md:p-16 rounded-[3rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
-               <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan/10 flex items-center justify-center text-cyan mb-10 md:mb-14 rounded-2xl group-hover:bg-cyan/20 transition-all duration-500 shadow-inner">
-                  <Code2 size={32} className="md:w-10 md:h-10" />
-               </div>
-               <h3 className="text-3xl sm:text-4xl md:text-5xl mb-6 md:mb-8 font-bold text-white tracking-tighter font-sans italic">{t('expertise.web.title')}</h3>
-               <p className="text-slate-400 leading-relaxed text-lg md:text-xl mb-12 md:mb-16 opacity-90 font-sans font-medium tracking-tight text-balance">{t('expertise.web.desc')}</p>
-               <div className="mt-auto flex flex-wrap gap-4 font-mono text-[12px] uppercase font-bold text-cyan/60">
-                  <span className="px-5 py-2 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">React</span>
-                  <span className="px-5 py-2 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Node.js / Python</span>
-                  <span className="px-5 py-2 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">PostgreSQL</span>
-               </div>
-            </div>
-          </motion.div>
+        {/* --- Expertise Section --- */}
+        <section className="mb-64">
+          <div className="flex items-center gap-6 mb-16">
+            <h2 className="text-[11px] font-black uppercase tracking-[0.5em] text-cyan">{t('expertise.label')}</h2>
+            <div className="h-px flex-grow bg-white/5"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <motion.div 
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="group relative p-10 md:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-cyan/20 transition-all duration-700 overflow-hidden flex flex-col"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.05),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              <div className="w-14 h-14 bg-cyan/10 flex items-center justify-center text-cyan mb-10 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                <Code2 size={28} />
+              </div>
+              <h3 className="text-3xl md:text-4xl mb-6 font-bold text-white tracking-tighter italic">{t('expertise.web.title')}</h3>
+              <p className="text-slate-400 leading-relaxed text-lg mb-12 opacity-80 font-medium tracking-tight text-balance">{t('expertise.web.desc')}</p>
+              <div className="mt-auto flex flex-wrap gap-3 font-mono text-[10px] uppercase font-bold text-cyan/50">
+                <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5">React</span>
+                <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5">Node.js / Python</span>
+                <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5">PostgreSQL</span>
+              </div>
+            </motion.div>
 
-          <motion.div 
-            initial={{ y: 40, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="group relative p-[1px] rounded-[3rem] bg-white/5 hover:bg-cyan/30 transition-all duration-700 overflow-hidden shadow-2xl"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="bg-[#050505]/60 backdrop-blur-3xl p-8 sm:p-12 md:p-16 rounded-[3rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
-               <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan/10 flex items-center justify-center text-cyan mb-10 md:mb-14 rounded-2xl group-hover:bg-cyan/20 transition-all duration-500 shadow-inner">
-                  <Smartphone size={32} className="md:w-10 md:h-10" />
-               </div>
-               <h3 className="text-3xl sm:text-4xl md:text-5xl mb-6 md:mb-8 font-bold text-white tracking-tighter font-sans italic">{t('expertise.mobile.title')}</h3>
-               <p className="text-slate-400 leading-relaxed text-lg md:text-xl mb-12 md:mb-16 opacity-90 font-sans font-medium tracking-tight text-balance">{t('expertise.mobile.desc')}</p>
-               <div className="mt-auto flex flex-wrap gap-4 font-mono text-[12px] uppercase font-bold text-cyan/60">
-                  <span className="px-5 py-2 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Kotlin / Java</span>
-                  <span className="px-5 py-2 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Jetpack Compose</span>
-                  <span className="px-5 py-2 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Android SDK</span>
-               </div>
-            </div>
-          </motion.div>
+            <motion.div 
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="group relative p-10 md:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-cyan/20 transition-all duration-700 overflow-hidden flex flex-col"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.05),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              <div className="w-14 h-14 bg-cyan/10 flex items-center justify-center text-cyan mb-10 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                <Smartphone size={28} />
+              </div>
+              <h3 className="text-3xl md:text-4xl mb-6 font-bold text-white tracking-tighter italic">{t('expertise.mobile.title')}</h3>
+              <p className="text-slate-400 leading-relaxed text-lg mb-12 opacity-80 font-medium tracking-tight text-balance">{t('expertise.mobile.desc')}</p>
+              <div className="mt-auto flex flex-wrap gap-3 font-mono text-[10px] uppercase font-bold text-cyan/50">
+                <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5">Kotlin / Java</span>
+                <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5">Jetpack Compose</span>
+                <span className="px-4 py-1.5 bg-white/5 rounded-full border border-white/5">Android SDK</span>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* --- Featured Projects Preview --- */}
+        <section className="mb-64">
+           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+              <div className="max-w-2xl">
+                 <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter italic mb-6">
+                    {t('portfolio.title')}
+                 </h2>
+                 <p className="text-lg md:text-xl text-slate-400 font-medium opacity-80">
+                    {t('portfolio.web_section')} & {t('portfolio.mobile_section')}
+                 </p>
+              </div>
+              <Link to="/portfolio" className="inline-flex items-center gap-3 px-8 py-4 glass-panel rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-white hover:text-slate-950 transition-all duration-300 shadow-xl">
+                 {t('hero.cta')} <ArrowRight size={18} />
+              </Link>
+           </div>
+
+           <div className="space-y-12">
+              <ProjectCard 
+                title={t('portfolio.debrid.title')}
+                desc={t('portfolio.debrid.desc')}
+                label={t('portfolio.project_label.web')}
+                image="/images/debrid-searcher.jpg"
+                github="https://github.com/vs-machado/debrid-searcher"
+                specs={t('portfolio.debrid.specs_list', { returnObjects: true })}
+                onImageClick={handleImageClick}
+              />
+              <ProjectCard 
+                title={t('portfolio.remedi.title')}
+                desc={t('portfolio.remedi.desc')}
+                label={t('portfolio.project_label.mobile')}
+                image="/images/remedi-screenshots.png"
+                github="https://github.com/vs-machado/PillReminder/"
+                playstore="https://play.google.com/store/apps/details?id=com.phoenix.remedi"
+                specs={t('portfolio.remedi.specs_list', { returnObjects: true })}
+                onImageClick={handleImageClick}
+              />
+           </div>
+        </section>
+
+        {/* --- Experience Preview --- */}
+        <section className="mb-32">
+           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+              <div className="max-w-2xl">
+                 <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter italic mb-6">
+                    {t('experience.title')}
+                 </h2>
+                 <p className="text-lg md:text-xl text-slate-400 font-medium opacity-80">
+                    {t('experience.nativa.company')} • {t('experience.nativa.role')}
+                 </p>
+              </div>
+              <Link to="/experience" className="inline-flex items-center gap-3 px-8 py-4 glass-panel rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-white hover:text-slate-950 transition-all duration-300 shadow-xl">
+                 {t('experience.view_details')} <ArrowRight size={18} />
+              </Link>
+           </div>
+
+           <motion.div 
+             initial={{ y: 20, opacity: 0 }}
+             whileInView={{ y: 0, opacity: 1 }}
+             viewport={{ once: true }}
+             className="relative p-10 md:p-16 rounded-[3rem] bg-[#050505]/40 backdrop-blur-3xl border border-white/5 hover:border-cyan/20 transition-all duration-700 group overflow-hidden"
+           >  
+              <div className="relative z-10">
+                 <div className="flex flex-wrap items-center gap-4 text-cyan font-black text-[12px] uppercase tracking-[0.3em] mb-10">
+                    <span className="bg-cyan/10 px-4 py-1.5 rounded-full border border-cyan/20">{t('experience.nativa.company')}</span>
+                    <span className="opacity-60">{t('experience.nativa.period')}</span>
+                 </div>
+                 
+                 <h3 className="text-3xl md:text-5xl font-bold text-white mb-8 tracking-tight italic leading-tight max-w-3xl">
+                    {t('experience.nativa.role')}
+                 </h3>
+                 
+                 <p className="text-lg md:text-xl text-slate-400 leading-relaxed font-medium opacity-90 max-w-4xl mb-12">
+                    {t('experience.nativa.description')}
+                 </p>
+              </div>
+           </motion.div>
         </section>
 
       </div>
+      
+      <ImageModal 
+        isOpen={!!activeImage} 
+        onClose={() => setActiveImage(null)} 
+        image={activeImage?.image} 
+        title={activeImage?.title} 
+      />
     </motion.div>
   );
 };
