@@ -301,9 +301,6 @@ const Home = () => {
                 <div className="relative group">
                    <div className="absolute -inset-2 bg-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full"></div>
                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 bg-white/[0.02] backdrop-blur-3xl relative">
-                      <div className="absolute inset-0 flex items-center justify-center text-white/10 font-black text-2xl select-none italic">
-                        VSM
-                      </div>
                       <img 
                         src="/images/profile.png" 
                         alt="Vinícius Santos Machado" 
@@ -313,10 +310,10 @@ const Home = () => {
                    </div>
                 </div>
                 <div>
-                   <h2 className="text-cyan font-black text-[12px] md:text-[14px] uppercase tracking-[0.4em] mb-2 opacity-90">
+                   <h2 className="relative inline-block text-cyan font-black text-[12px] md:text-[14px] uppercase tracking-[0.4em] mb-4 opacity-90">
                      {t('hero.name')}
+                     <div className="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)]"></div>
                    </h2>
-                   <div className="h-1 w-12 bg-cyan/30 rounded-full"></div>
                 </div>
              </div>
 
@@ -340,7 +337,7 @@ const Home = () => {
              </div>
 
              <div className="flex flex-wrap gap-6 items-center">
-               <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-8 md:px-10 py-4 md:py-5 bg-cyan text-slate-950 font-black rounded-full hover:bg-white transition-all duration-500 shadow-2xl shadow-cyan/20">
+               <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-8 md:px-10 py-4 md:py-5 bg-cyan text-slate-950 font-black rounded-full hover:bg-white transition-all duration-200 shadow-2xl shadow-cyan/20">
                  {t('hero.cta')} <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform" />
                </Link>
              </div>
@@ -365,10 +362,10 @@ const Home = () => {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="group relative p-10 md:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-cyan/20 transition-all duration-700 overflow-hidden flex flex-col"
+               className="group relative p-10 md:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-cyan/20 transition-all duration-300 overflow-hidden flex flex-col"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.05),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              <div className="w-14 h-14 bg-cyan/10 flex items-center justify-center text-cyan mb-10 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.05),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="w-14 h-14 bg-cyan/10 flex items-center justify-center text-cyan mb-10 rounded-2xl transition-transform duration-200">
                 <Code2 size={28} />
               </div>
               <h3 className="text-3xl md:text-4xl mb-6 font-bold text-white tracking-tighter italic">{t('expertise.web.title')}</h3>
@@ -385,10 +382,10 @@ const Home = () => {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="group relative p-10 md:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-cyan/20 transition-all duration-700 overflow-hidden flex flex-col"
+               className="group relative p-10 md:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-cyan/20 transition-all duration-300 overflow-hidden flex flex-col"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.05),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              <div className="w-14 h-14 bg-cyan/10 flex items-center justify-center text-cyan mb-10 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.05),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="w-14 h-14 bg-cyan/10 flex items-center justify-center text-cyan mb-10 rounded-2xl transition-transform duration-200">
                 <Smartphone size={28} />
               </div>
               <h3 className="text-3xl md:text-4xl mb-6 font-bold text-white tracking-tighter italic">{t('expertise.mobile.title')}</h3>
@@ -418,8 +415,8 @@ const Home = () => {
                     {t('portfolio.web_section')} & {t('portfolio.mobile_section')}
                  </p>
               </div>
-              <Link to="/portfolio" className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-cyan hover:text-slate-950 hover:border-cyan transition-all duration-300 shadow-xl">
-                 {t('portfolio.view_full')} <ArrowRight size={18} />
+              <Link to="/portfolio" className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-cyan hover:text-slate-950 hover:border-cyan transition-all duration-200 shadow-xl">
+                 {t('portfolio.view_full')} <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
               </Link>
            </motion.div>
 
@@ -474,8 +471,8 @@ const Home = () => {
                     {t('experience.title')}
                  </h2>
               </div>
-              <Link to="/experience" className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-cyan hover:text-slate-950 hover:border-cyan transition-all duration-300 shadow-xl">
-                 {t('experience.view_details')} <ArrowRight size={18} />
+              <Link to="/experience" className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white hover:bg-cyan hover:text-slate-950 hover:border-cyan transition-all duration-200 shadow-xl">
+                 {t('experience.view_details')} <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
               </Link>
            </motion.div>
 
