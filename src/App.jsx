@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './i18n';
-import { Globe, Smartphone, ArrowRight, ExternalLink, Shield, X, Code2, Cpu, Search, MessageSquare, Newspaper, Binary, Briefcase, GraduationCap, Award, Play } from 'lucide-react';
+import { Globe, Smartphone, ArrowRight, ExternalLink, Shield, X, Code2, Cpu, Search, MessageSquare, Newspaper, Binary, Briefcase, GraduationCap, Award, Play, Menu } from 'lucide-react';
 
 
 import CoalesceBackground from './components/CoalesceBackground';
@@ -14,39 +14,119 @@ import CoalesceBackground from './components/CoalesceBackground';
 const Nav = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleLanguage = () => {
     const nextLng = i18n.language.startsWith('en') ? 'pt' : 'en';
     i18n.changeLanguage(nextLng);
   };
 
+  const navLinks = [
+    { to: "/", label: t('nav.home') },
+    { to: "/portfolio", label: t('nav.portfolio') },
+    { to: "/experience", label: t('nav.experience') },
+  ];
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#050505]/60 backdrop-blur-2xl border-b border-white/5 font-sans">
-      <div className="max-w-screen-2xl mx-auto px-8 md:px-12 h-24 flex items-center justify-between">
+    <>
+      <nav className="fixed top-0 w-full z-50 bg-[#050505]/60 backdrop-blur-2xl border-b border-white/5 font-sans">
+        <div className="max-w-screen-2xl mx-auto px-8 md:px-12 h-24 flex items-center justify-between">
+          
+          <div className="flex items-center gap-4">
+            {/* Mobile Menu Button - Left Aligned */}
+            <button 
+              className="md:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors cursor-pointer"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <Menu size={24} />
+            </button>
 
-        <Link to="/" className="hover:opacity-80 transition-opacity">
-          <img src="/images/vsm-development-logo.png" alt="VSM Development" className="h-10 w-auto" />
-        </Link>
-        <div className="hidden md:flex gap-10 items-center font-semibold text-[13px] tracking-tight">
-          <Link to="/" className={`link-hover ${location.pathname === '/' ? 'text-cyan after:w-full' : 'text-slate-400 hover:text-white'}`}>
-            {t('nav.home')}
-          </Link>
-          <Link to="/portfolio" className={`link-hover ${location.pathname === '/portfolio' ? 'text-cyan after:w-full' : 'text-slate-400 hover:text-white'}`}>
-            {t('nav.portfolio')}
-          </Link>
-          <Link to="/experience" className={`link-hover ${location.pathname === '/experience' ? 'text-cyan after:w-full' : 'text-slate-400 hover:text-white'}`}>
-            {t('nav.experience')}
-          </Link>
-          <button onClick={toggleLanguage} className="px-3 py-1 glass-panel text-[10px] uppercase font-bold hover:bg-cyan hover:text-slate-950 transition-all duration-200 cursor-pointer">
-            {i18n.language.toUpperCase().substring(0, 2)}
-          </button>
-          <a href="mailto:vinicius.s.machado@protonmail.com" className="px-6 py-2.5 bg-cyan text-slate-950 font-bold rounded-full hover:bg-white transition-all duration-200 shadow-lg shadow-cyan/10">
-            {t('nav.contact')}
-          </a>
+            <Link to="/" className="hover:opacity-80 transition-opacity">
+              <img src="/images/vsm-development-logo.png" alt="VSM Development" className="h-10 w-auto" />
+            </Link>
+          </div>
 
+          {/* Desktop Nav */}
+          <div className="hidden md:flex gap-10 items-center font-semibold text-[13px] tracking-tight">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.to}
+                to={link.to} 
+                className={`link-hover ${location.pathname === link.to ? 'text-cyan after:w-full' : 'text-slate-400 hover:text-white'}`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <button onClick={toggleLanguage} className="px-3 py-1 glass-panel text-[10px] uppercase font-bold hover:bg-cyan hover:text-slate-950 transition-all duration-200 cursor-pointer">
+              {i18n.language.toUpperCase().substring(0, 2)}
+            </button>
+            <a href="mailto:vinicius.s.machado@protonmail.com" className="px-6 py-2.5 bg-cyan text-slate-950 font-bold rounded-full hover:bg-white transition-all duration-200 shadow-lg shadow-cyan/10">
+              {t('nav.contact')}
+            </a>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ x: '-100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '-100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[60] bg-[#050505] flex flex-col font-sans md:hidden"
+          >
+            <div className="h-24 px-8 flex items-center justify-between border-b border-white/5">
+              <button 
+                onClick={() => setIsMenuOpen(false)} 
+                className="text-slate-400 hover:text-white p-2 cursor-pointer"
+              >
+                <X size={28} />
+              </button>
+              <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                <img src="/images/vsm-development-logo.png" alt="VSM Development" className="h-8 w-auto" />
+              </Link>
+            </div>
+
+            <div className="flex-grow flex flex-col items-center justify-center gap-12 p-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-4xl font-bold tracking-tighter transition-colors ${location.pathname === link.to ? 'text-cyan' : 'text-white/60 hover:text-white'}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              
+              <div className="flex flex-col items-center gap-6 mt-8 w-full max-w-xs">
+                <button 
+                  onClick={() => {
+                    toggleLanguage();
+                    setIsMenuOpen(false);
+                  }} 
+                  className="w-full py-4 glass-panel text-[12px] uppercase font-bold text-white border-white/10 hover:bg-white/5 transition-colors cursor-pointer"
+                >
+                  {i18n.language === 'en' ? 'Português' : 'English'}
+                </button>
+                <a 
+                  href="mailto:vinicius.s.machado@protonmail.com" 
+                  className="w-full py-4 bg-cyan text-slate-950 font-bold rounded-full text-[12px] uppercase tracking-wider text-center hover:bg-white transition-all shadow-lg shadow-cyan/20"
+                >
+                  {t('nav.contact')}
+                </a>
+              </div>
+            </div>
+            
+            <div className="p-12 text-center opacity-40">
+               <p className="text-slate-400 text-[10px] uppercase tracking-[0.3em]">VSM Development © 2025</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
@@ -124,7 +204,7 @@ const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyCl
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-48 font-sans">
       <div 
         onClick={() => onImageClick(image, title)}
-        className={`lg:col-span-7 rounded-[3rem] overflow-hidden group relative aspect-[16/10] shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/5 cursor-zoom-in ${isMobile ? 'bg-[#050505]' : ''}`}
+        className={`lg:col-span-7 rounded-[2rem] md:rounded-[3rem] overflow-hidden group relative aspect-[16/10] shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/5 cursor-zoom-in ${isMobile ? 'bg-[#050505]' : ''}`}
       >
          <img 
            src={image} 
@@ -132,13 +212,13 @@ const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyCl
            className={`w-full h-full ${isMobile ? 'object-contain' : 'object-cover object-top'} opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-1000 ease-out`} 
          />
          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60"></div>
-         <div className="absolute bottom-12 left-12 text-left pointer-events-none">
-            <h3 className="text-5xl font-black text-white mb-4 italic tracking-tight">{title}</h3>
-            <span className="px-6 py-2 bg-cyan text-slate-950 text-[11px] font-bold uppercase rounded-full tracking-[0.2em] shadow-2xl shadow-cyan/20">{label}</span>
+         <div className="absolute bottom-6 md:bottom-12 left-6 md:left-12 text-left pointer-events-none">
+            <h3 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-2 md:mb-4 italic tracking-tight">{title}</h3>
+            <span className="px-4 md:px-6 py-1.5 md:py-2 bg-cyan text-slate-950 text-[10px] md:text-[11px] font-bold uppercase rounded-full tracking-[0.2em] shadow-2xl shadow-cyan/20">{label}</span>
          </div>
       </div>
-      <div className="lg:col-span-5 space-y-10">
-         <p className="text-xl text-slate-400 leading-relaxed font-medium opacity-90 text-balance font-sans">
+      <div className="lg:col-span-5 space-y-6 md:space-y-10">
+         <p className="text-lg md:text-xl text-slate-400 leading-relaxed font-medium opacity-90 text-balance font-sans">
            {desc}
          </p>
          <div className="space-y-8 font-sans">
@@ -146,7 +226,7 @@ const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyCl
                <h4 className="text-[11px] uppercase font-bold tracking-[0.4em] text-cyan shrink-0">{t('portfolio.specs')}</h4>
                <div className="h-px flex-grow bg-white/10"></div>
             </div>
-            <ul className="grid grid-cols-2 gap-x-10 gap-y-5 text-[14px] font-semibold opacity-60">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 text-[13px] md:text-[14px] font-semibold opacity-60">
                {specs.map((spec, i) => (
                  <li key={i} className="flex items-center gap-3">
                    <div className="w-1.5 h-1.5 bg-cyan rounded-full shadow-[0_0_8px_rgba(34,211,238,0.5)] shrink-0"></div> 
@@ -191,7 +271,7 @@ const ProjectCard = ({ title, desc, label, specs, github, playstore, onPrivacyCl
 const Home = () => {
   const { t } = useTranslation();
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans relative">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 md:pt-48 pb-32 font-sans relative">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-8">
         <section className="mb-48 max-w-6xl">
 
@@ -204,16 +284,16 @@ const Home = () => {
                 <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-cyan leading-none">{t('hero.status')}</span>
              </div>
              
-             <h1 className="text-5xl md:text-[5.5rem] mb-14 leading-[1] text-white font-extrabold tracking-tight text-balance relative">
+             <h1 className="text-3xl sm:text-4xl md:text-[5.5rem] mb-14 leading-[1] text-white font-extrabold tracking-tight text-balance relative">
                <span className="relative z-10">{t('hero.title')}</span>
              </h1>
 
-             <p className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-3xl mb-16 font-medium opacity-80 font-sans tracking-tight">
+             <p className="text-lg md:text-2xl text-slate-400 leading-relaxed max-w-3xl mb-16 font-medium opacity-80 font-sans tracking-tight">
                {t('hero.subtitle')}
              </p>
 
              <div className="flex flex-wrap gap-6 items-center">
-               <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-12 py-6 bg-cyan text-slate-950 font-black rounded-full hover:bg-white transition-all duration-500 shadow-2xl shadow-cyan/20">
+               <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-8 md:px-12 py-4 md:py-6 bg-cyan text-slate-950 font-black rounded-full hover:bg-white transition-all duration-500 shadow-2xl shadow-cyan/20">
                  {t('hero.cta')} <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
                </Link>
              </div>
@@ -229,12 +309,12 @@ const Home = () => {
             className="group relative p-[1px] rounded-[3rem] bg-white/5 hover:bg-cyan/30 transition-all duration-700 overflow-hidden shadow-2xl"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="bg-[#050505]/60 backdrop-blur-3xl p-12 md:p-16 rounded-[3rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
-               <div className="w-20 h-20 bg-cyan/10 flex items-center justify-center text-cyan mb-14 rounded-2xl group-hover:bg-cyan/20 transition-all duration-500 shadow-inner">
-                  <Code2 size={40} />
+            <div className="bg-[#050505]/60 backdrop-blur-3xl p-8 sm:p-12 md:p-16 rounded-[3rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
+               <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan/10 flex items-center justify-center text-cyan mb-10 md:mb-14 rounded-2xl group-hover:bg-cyan/20 transition-all duration-500 shadow-inner">
+                  <Code2 size={32} className="md:w-10 md:h-10" />
                </div>
-               <h3 className="text-5xl mb-8 font-bold text-white tracking-tighter font-sans italic">{t('expertise.web.title')}</h3>
-               <p className="text-slate-400 leading-relaxed text-xl mb-16 opacity-90 font-sans font-medium tracking-tight text-balance">{t('expertise.web.desc')}</p>
+               <h3 className="text-3xl sm:text-4xl md:text-5xl mb-6 md:mb-8 font-bold text-white tracking-tighter font-sans italic">{t('expertise.web.title')}</h3>
+               <p className="text-slate-400 leading-relaxed text-lg md:text-xl mb-12 md:mb-16 opacity-90 font-sans font-medium tracking-tight text-balance">{t('expertise.web.desc')}</p>
                <div className="mt-auto flex flex-wrap gap-4 font-mono text-[12px] uppercase font-bold text-cyan/60">
                   <span className="px-5 py-2 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">React</span>
                   <span className="px-5 py-2 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Node.js / Python</span>
@@ -251,12 +331,12 @@ const Home = () => {
             className="group relative p-[1px] rounded-[3rem] bg-white/5 hover:bg-cyan/30 transition-all duration-700 overflow-hidden shadow-2xl"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="bg-[#050505]/60 backdrop-blur-3xl p-12 md:p-16 rounded-[3rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
-               <div className="w-20 h-20 bg-cyan/10 flex items-center justify-center text-cyan mb-14 rounded-2xl group-hover:bg-cyan/20 transition-all duration-500 shadow-inner">
-                  <Smartphone size={40} />
+            <div className="bg-[#050505]/60 backdrop-blur-3xl p-8 sm:p-12 md:p-16 rounded-[3rem] h-full relative overflow-hidden flex flex-col border border-white/5 group-hover:border-cyan/20 transition-colors duration-700">
+               <div className="w-16 h-16 md:w-20 md:h-20 bg-cyan/10 flex items-center justify-center text-cyan mb-10 md:mb-14 rounded-2xl group-hover:bg-cyan/20 transition-all duration-500 shadow-inner">
+                  <Smartphone size={32} className="md:w-10 md:h-10" />
                </div>
-               <h3 className="text-5xl mb-8 font-bold text-white tracking-tighter font-sans italic">{t('expertise.mobile.title')}</h3>
-               <p className="text-slate-400 leading-relaxed text-xl mb-16 opacity-90 font-sans font-medium tracking-tight text-balance">{t('expertise.mobile.desc')}</p>
+               <h3 className="text-3xl sm:text-4xl md:text-5xl mb-6 md:mb-8 font-bold text-white tracking-tighter font-sans italic">{t('expertise.mobile.title')}</h3>
+               <p className="text-slate-400 leading-relaxed text-lg md:text-xl mb-12 md:mb-16 opacity-90 font-sans font-medium tracking-tight text-balance">{t('expertise.mobile.desc')}</p>
                <div className="mt-auto flex flex-wrap gap-4 font-mono text-[12px] uppercase font-bold text-cyan/60">
                   <span className="px-5 py-2 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Kotlin / Java</span>
                   <span className="px-5 py-2 bg-white/5 rounded-full border border-white/5 tracking-widest group-hover:border-cyan/20 transition-colors">Jetpack Compose</span>
@@ -274,10 +354,10 @@ const Home = () => {
 const Experience = () => {
   const { t } = useTranslation();
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans relative">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 md:pt-48 pb-32 font-sans relative">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-8">
         <div className="max-w-6xl relative">
-          <h2 className="text-6xl md:text-8xl mb-32 font-extrabold text-white tracking-tighter relative">
+          <h2 className="text-3xl sm:text-4xl md:text-8xl mb-20 md:mb-32 font-extrabold text-white tracking-tighter relative">
             {t('experience.title')}
             <span className="absolute -left-12 top-0 text-cyan/10 text-lg font-mono tracking-[0.5em] [writing-mode:vertical-lr] hidden xl:block uppercase">Timeline</span>
           </h2>
@@ -389,10 +469,10 @@ const Portfolio = () => {
   };
   
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 pb-32 font-sans relative">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 md:pt-48 pb-32 font-sans relative">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-8">
 
-        <h2 className="text-6xl md:text-8xl mb-24 font-extrabold text-white tracking-tighter relative">
+        <h2 className="text-3xl sm:text-4xl md:text-8xl mb-16 md:mb-24 font-extrabold text-white tracking-tighter relative">
           {t('portfolio.title')}
           <span className="absolute -right-12 top-0 text-cyan/10 text-lg font-mono tracking-[0.5em] [writing-mode:vertical-lr] hidden xl:block uppercase">Works</span>
         </h2>
