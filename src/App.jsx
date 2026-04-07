@@ -286,7 +286,7 @@ const Home = () => {
   };
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 md:pt-48 pb-32 font-sans relative">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-48 md:pt-72 pb-32 font-sans relative">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-8">
         
         {/* --- Hero Section --- */}
@@ -303,7 +303,7 @@ const Home = () => {
                   {t('hero.title')}
                 </h1>
                 
-                <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-16">
+                <div className="flex flex-col md:flex-row md:items-center items-start gap-8 md:gap-16">
                   <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-md font-medium opacity-80 font-sans tracking-tight">
                     {t('hero.subtitle')}
                   </p>
@@ -330,9 +330,9 @@ const Home = () => {
                 </div>
 
                 <div className="text-center xl:text-right space-y-3 md:space-y-4">
-                   <h2 className="relative inline-block text-cyan font-black text-[12px] md:text-[16px] uppercase tracking-[0.4em] opacity-90">
+                   <h2 className="relative w-fit mx-auto xl:ml-auto xl:mr-0 text-cyan font-black text-[11px] md:text-[16px] uppercase tracking-[0.2em] md:tracking-[0.4em] opacity-90 whitespace-nowrap">
                      {t('hero.name')}
-                     <div className="absolute -bottom-2 right-0 w-12 xl:w-1/2 h-1 bg-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)]"></div>
+                     <div className="absolute -bottom-2 left-0 xl:left-auto right-[0.2em] md:right-[0.4em] xl:w-1/2 h-1 bg-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)]"></div>
                    </h2>
                    
                    <div className="pt-2 md:pt-4">
@@ -539,7 +539,7 @@ const Experience = () => {
               className="text-3xl sm:text-4xl md:text-8xl font-black text-white tracking-tighter relative inline-block"
             >
               {t('experience.title')}
-              <div className="absolute -bottom-4 left-0 w-1/2 h-2 bg-cyan shadow-[0_0_20px_rgba(34,211,238,0.5)]"></div>
+              <div className="absolute -bottom-4 left-0 w-32 h-2 bg-cyan shadow-[0_0_20px_rgba(34,211,238,0.5)]"></div>
             </motion.h2>
           </header>
         
@@ -737,7 +737,7 @@ const Portfolio = () => {
             className="text-3xl sm:text-4xl md:text-8xl font-black text-white tracking-tighter relative inline-block"
           >
             {t('portfolio.title')}
-            <div className="absolute -bottom-4 left-0 w-1/2 h-2 bg-cyan shadow-[0_0_20px_rgba(34,211,238,0.5)]"></div>
+            <div className="absolute -bottom-4 left-0 w-32 h-2 bg-cyan shadow-[0_0_20px_rgba(34,211,238,0.5)]"></div>
             <span className="absolute -right-12 top-0 text-cyan/10 text-lg font-mono tracking-[0.5em] [writing-mode:vertical-lr] hidden xl:block uppercase">Works</span>
           </motion.h2>
         </header>
