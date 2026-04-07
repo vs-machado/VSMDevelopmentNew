@@ -113,7 +113,7 @@ i18n
             contact: 'Contato'
           },
           hero: {
-            title: 'Desenvolvedor Fullstack & Mobile',
+            title: 'Desenvolvedor Fullstack Web & Mobile',
             subtitle: 'Desenvolvo ecossistemas web escaláveis e aplicativos Android nativos de alta performance com foco em precisão e experiência do usuário.',
             cta: 'Ver Portfólio',
             status: 'Disponível para novos projetos'
