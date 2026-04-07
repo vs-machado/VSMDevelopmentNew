@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './i18n';
-import { Globe, Smartphone, ArrowRight, ExternalLink, Shield, X, Code2, Cpu, Search, MessageSquare, Newspaper, Binary, Briefcase, GraduationCap, Award, Play, Menu } from 'lucide-react';
+import { Globe, Smartphone, ArrowRight, ExternalLink, Shield, X, Code2, Cpu, Search, MessageSquare, Newspaper, Binary, Briefcase, GraduationCap, Award, Play, Menu, MapPin, Calendar, Layers } from 'lucide-react';
 
 
 import CoalesceBackground from './components/CoalesceBackground';
@@ -353,101 +353,194 @@ const Home = () => {
 
 const Experience = () => {
   const { t } = useTranslation();
+  
+  const techStackLia = ["FastAPI", "PostgreSQL", "Tailwind CSS", "JavaScript"];
+  const techStackAuditoria = ["FastAPI", "PostgreSQL", "Tailwind CSS", "JavaScript"];
+  const techStackBi = ["Vanilla JS", "HTML", "CSS"];
+
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 md:pt-48 pb-32 font-sans relative">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 md:pt-48 pb-32 font-sans relative overflow-hidden">
+      
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-cyan/10 to-transparent -z-10"></div>
+      
       <div className="max-w-screen-2xl mx-auto px-6 md:px-8">
         <div className="max-w-6xl relative">
-          <h2 className="text-3xl sm:text-4xl md:text-8xl mb-20 md:mb-32 font-extrabold text-white tracking-tighter relative">
-            {t('experience.title')}
-            <span className="absolute -left-12 top-0 text-cyan/10 text-lg font-mono tracking-[0.5em] [writing-mode:vertical-lr] hidden xl:block uppercase">Timeline</span>
-          </h2>
+          
+          <header className="mb-24 md:mb-40">
+            <motion.h2 
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              className="text-3xl sm:text-4xl md:text-8xl font-black text-white tracking-tighter relative inline-block"
+            >
+              {t('experience.title')}
+              <div className="absolute -bottom-4 left-0 w-1/2 h-2 bg-cyan shadow-[0_0_20px_rgba(34,211,238,0.5)]"></div>
+            </motion.h2>
+          </header>
         
-          <div className="space-y-32">
-            <div className="relative pl-12 border-l border-white/10 font-sans">
-              <div className="absolute top-0 left-[-8px] w-4 h-4 bg-cyan rounded-full shadow-[0_0_15px_rgba(34,211,238,0.5)]"></div>
-              
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
-                <div>
-                  <h3 className="text-4xl font-bold text-white mb-3 tracking-tight">{t('experience.nativa.role')}</h3>
-                  <div className="flex items-center gap-4 text-cyan font-bold text-sm uppercase tracking-[0.2em]">
-                    <span>{t('experience.nativa.company')}</span>
-                    <div className="w-1.5 h-1.5 bg-white/20 rounded-full"></div>
-                    <span className="opacity-60">{t('experience.nativa.location')}</span>
-                  </div>
-                </div>
-                <div className="px-6 py-2.5 glass-panel text-[11px] font-bold text-slate-400 uppercase tracking-widest bg-white/[0.02]">
-                  {t('experience.nativa.period')}
-                </div>
-              </div>
-              
-              <p className="text-xl text-slate-400 leading-relaxed mb-16 opacity-90 max-w-4xl font-sans">
-                {t('experience.nativa.description')}
-              </p>
-              
-              <div className="grid grid-cols-1 gap-10">
-                {/* LIA Project */}
-                <div className="group relative p-8 md:p-10 rounded-[2.5rem] bg-[#050505]/40 backdrop-blur-xl border border-white/5 hover:border-cyan/20 transition-all duration-500">
-                  <div>
-                    <h4 className="text-2xl font-bold text-white mb-4 tracking-tight">LIA (Licitações com IA) @ TRE-AC</h4>
-                    <p className="text-lg text-slate-400 leading-relaxed opacity-80 font-sans">{t('experience.nativa.lia')}</p>
-                  </div>
-                </div>
+          <div className="relative">
+            {/* Main Timeline Line */}
+            <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-cyan via-white/10 to-transparent"></div>
 
-                {/* Nativa Auditoria Project - AWARD */}
-                <div className="group relative p-[1px] rounded-[2.5rem] bg-gradient-to-r from-cyan/20 via-violet/20 to-cyan/20 overflow-hidden shadow-2xl">
-                  <div className="absolute inset-0 bg-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="relative bg-[#050505]/60 backdrop-blur-3xl p-10 md:p-12 rounded-[2.5rem] border border-white/5">
-                    <div className="flex flex-col md:flex-row gap-10">
-                      <div className="flex-grow">
-                        <div className="flex items-center gap-4 text-cyan mb-6">
-                          <div className="p-3 bg-cyan/10 rounded-xl">
-                            <Award size={28} className="animate-pulse" />
-                          </div>
-                          <span className="text-[11px] font-bold uppercase tracking-[0.3em]">{t('experience.award_badge')}</span>
+            <div className="space-y-40">
+              
+              {/* Nativa IA Main Entry */}
+              <section className="relative pl-12 md:pl-32">
+                {/* Node */}
+                <div className="absolute left-[-4px] md:left-[28px] top-0 w-2 h-2 bg-cyan rounded-full shadow-[0_0_15px_rgba(34,211,238,0.8)] ring-4 ring-cyan/20"></div>
+                
+                <motion.div 
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="mb-16"
+                >
+                  <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+                    <div>
+                      <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-none italic">{t('experience.nativa.role')}</h3>
+                      <div className="flex flex-wrap items-center gap-4 text-cyan font-black text-[12px] uppercase tracking-[0.2em]">
+                        <span className="flex items-center gap-2 bg-cyan/10 px-3 py-1 rounded-md">{t('experience.nativa.company')}</span>
+                        <div className="flex items-center gap-2 opacity-60">
+                           <MapPin size={14} /> {t('experience.nativa.location')}
                         </div>
-                        <h4 className="text-3xl font-bold text-white mb-6 tracking-tight">Nativa Auditoria</h4>
-                        <p className="text-lg text-slate-400 leading-relaxed opacity-90 mb-10 font-sans max-w-3xl">{t('experience.nativa.auditoria')}</p>
-                        
-                        <a 
-                          href="https://www.cnj.jus.br/geracao-de-valor-premiacao-reconhece-boas-praticas-em-auditoria-interna/" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-4 px-8 py-4 bg-white text-slate font-black rounded-full hover:bg-cyan transition-all text-[11px] uppercase tracking-[0.2em] shadow-xl"
-                        >
-                          <Play size={14} fill="currentColor" /> {t('experience.view_details')}
-                        </a>
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                {/* BI Dashboards Project */}
-                <div className="group relative p-8 md:p-10 rounded-[2.5rem] bg-[#050505]/40 backdrop-blur-xl border border-white/5 hover:border-cyan/20 transition-all duration-500">
-                  <div>
-                    <h4 className="text-2xl font-bold text-white mb-4 tracking-tight">BI Dashboards @ TRE-RO</h4>
-                    <p className="text-lg text-slate-400 leading-relaxed opacity-80 font-sans">{t('experience.nativa.bi')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Academic Background */}
-            <div className="pt-16">
-              <h3 className="text-4xl font-bold text-white mb-20 tracking-tight font-sans pl-12">{t('experience.education.title')}</h3>
-              <div className="relative pl-12 border-l border-white/10 font-sans">
-                <div className="absolute top-0 left-[-8px] w-4 h-4 glass-panel border-cyan/40 bg-[#050505] rounded-full"></div>
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 bg-[#050505]/30 p-10 rounded-[2.5rem] border border-white/5">
-                  <div>
-                    <h4 className="text-2xl font-bold text-white mb-3 tracking-tight">{t('experience.education.uninter.degree')}</h4>
-                    <div className="text-cyan font-bold text-[13px] uppercase tracking-[0.25em]">
-                      {t('experience.education.uninter.school')}
+                    <div className="flex flex-col items-start md:items-end gap-2">
+                       <div className="flex items-center gap-2 text-slate-500 font-bold text-[11px] uppercase tracking-widest">
+                          <Calendar size={14} /> {t('experience.nativa.period')}
+                       </div>
                     </div>
                   </div>
-                  <div className="px-6 py-2.5 glass-panel text-[11px] font-bold text-slate-400 uppercase tracking-widest bg-white/[0.02]">
+                  
+                  <p className="text-lg md:text-xl text-slate-400 leading-relaxed opacity-80 max-w-4xl font-medium">
+                    {t('experience.nativa.description')}
+                  </p>
+                </motion.div>
+                
+                {/* Sub-projects Grid */}
+                <div className="grid grid-cols-1 gap-8">
+                  
+                  {/* LIA Project */}
+                  <motion.div 
+                    whileHover={{ x: 10 }}
+                    className="group relative p-8 md:p-10 rounded-[2rem] bg-[#050505]/80 backdrop-blur-3xl border border-white/5 hover:border-cyan/30 transition-all duration-500"
+                  >
+                    <div className="flex flex-col md:flex-row gap-8 items-start">
+                       <div className="flex-grow">
+                          <h4 className="text-2xl font-bold text-white mb-4 tracking-tight flex items-center gap-3">
+                             LIA <span className="text-xs font-mono text-cyan/40 bg-cyan/5 px-2 py-1 rounded">TRE-AC</span>
+                          </h4>
+                          <p className="text-lg text-slate-400 leading-relaxed mb-6 opacity-80">{t('experience.nativa.lia')}</p>
+                          <div className="flex flex-wrap gap-2">
+                             {techStackLia.map(tech => (
+                               <span key={tech} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-white/5 rounded-md border border-white/5 text-slate-500 group-hover:text-cyan/60 group-hover:border-cyan/10 transition-colors">
+                                 {tech}
+                               </span>
+                             ))}
+                          </div>
+                       </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Nativa Auditoria Project - AWARD */}
+                  <motion.div 
+                    initial={{ scale: 0.98 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    className="group relative p-[1px] rounded-[2.5rem] bg-gradient-to-br from-cyan/40 via-white/5 to-violet/40 overflow-hidden shadow-2xl"
+                  >
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.2),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="relative bg-[#050505]/80 backdrop-blur-3xl p-8 md:p-12 rounded-[2.5rem] border border-white/5">
+                      <div className="flex flex-col lg:flex-row gap-10 items-start">
+                        <div className="flex-grow">
+                          <div className="flex items-center gap-4 text-cyan mb-8">
+                            <div className="p-4 bg-cyan/10 rounded-2xl shadow-[0_0_20px_rgba(34,211,238,0.2)] border border-cyan/30">
+                              <Award size={32} className="animate-pulse" />
+                            </div>
+                            <span className="text-[12px] font-black uppercase tracking-[0.4em] leading-none">{t('experience.award_badge')}</span>
+                          </div>
+                          <h4 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight italic">Nativa Auditoria</h4>
+                          <p className="text-lg md:text-xl text-slate-300 leading-relaxed opacity-90 mb-10 max-w-3xl">{t('experience.nativa.auditoria')}</p>
+                          
+                          <div className="flex flex-wrap gap-3 mb-10">
+                             {techStackAuditoria.map(tech => (
+                               <span key={tech} className="text-[10px] font-bold uppercase tracking-tighter px-4 py-1.5 bg-cyan/10 text-cyan rounded-full border border-cyan/20">
+                                 {tech}
+                               </span>
+                             ))}
+                          </div>
+
+                          <a 
+                            href="https://www.cnj.jus.br/geracao-de-valor-premiacao-reconhece-boas-praticas-em-auditoria-interna/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-4 px-10 py-5 bg-white text-slate-950 font-black rounded-full hover:bg-cyan transition-all text-[11px] uppercase tracking-[0.2em] shadow-2xl shadow-white/5"
+                          >
+                            <Play size={14} fill="currentColor" /> {t('experience.view_details')}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* BI Dashboards Project */}
+                  <motion.div 
+                    whileHover={{ x: 10 }}
+                    className="group relative p-8 md:p-10 rounded-[2rem] bg-[#050505]/80 backdrop-blur-3xl border border-white/5 hover:border-cyan/30 transition-all duration-500"
+                  >
+                    <div className="flex flex-col md:flex-row gap-8 items-start">
+                       <div className="flex-grow">
+                          <h4 className="text-2xl font-bold text-white mb-4 tracking-tight flex items-center gap-3">
+                             BI Dashboards <span className="text-xs font-mono text-cyan/40 bg-cyan/5 px-2 py-1 rounded">TRE-RO</span>
+                          </h4>
+                          <p className="text-lg text-slate-400 leading-relaxed mb-6 opacity-80">{t('experience.nativa.bi')}</p>
+                          <div className="flex flex-wrap gap-2">
+                             {techStackBi.map(tech => (
+                               <span key={tech} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-white/5 rounded-md border border-white/5 text-slate-500 group-hover:text-cyan/60 group-hover:border-cyan/10 transition-colors">
+                                 {tech}
+                               </span>
+                             ))}
+                          </div>
+                       </div>
+                    </div>
+                  </motion.div>
+
+                </div>
+              </section>
+
+              {/* Academic Background */}
+              <section className="relative pl-12 md:pl-32 pt-20">
+                {/* Node */}
+                <div className="absolute left-[-4px] md:left-[28px] top-20 w-2 h-2 border-2 border-cyan bg-[#050505] rounded-full ring-4 ring-cyan/10"></div>
+                
+                <header className="mb-16">
+                   <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight italic">
+                     {t('experience.education.title')}
+                   </h3>
+                </header>
+                
+                <motion.div 
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  className="group relative flex flex-col md:flex-row md:items-center justify-between gap-8 bg-[#050505]/80 backdrop-blur-3xl p-8 md:p-10 rounded-[2rem] border border-white/5 hover:border-cyan/20 transition-all duration-500 shadow-xl"
+                >
+                  <div className="flex items-center gap-6">
+                     <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-slate-500 group-hover:text-cyan group-hover:scale-110 transition-all border border-white/5">
+                        <GraduationCap size={32} />
+                     </div>
+                     <div>
+                       <h4 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">{t('experience.education.uninter.degree')}</h4>
+                       <div className="text-cyan font-black text-[11px] uppercase tracking-[0.3em] opacity-60">
+                         {t('experience.education.uninter.school')}
+                       </div>
+                     </div>
+                  </div>
+                  <div className="px-6 py-2 glass-panel text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] bg-white/[0.01] border-white/5">
                     {t('experience.education.uninter.period')}
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </section>
+
             </div>
           </div>
         </div>
@@ -472,10 +565,17 @@ const Portfolio = () => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pt-32 md:pt-48 pb-32 font-sans relative">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-8">
 
-        <h2 className="text-3xl sm:text-4xl md:text-8xl mb-16 md:mb-24 font-extrabold text-white tracking-tighter relative">
-          {t('portfolio.title')}
-          <span className="absolute -right-12 top-0 text-cyan/10 text-lg font-mono tracking-[0.5em] [writing-mode:vertical-lr] hidden xl:block uppercase">Works</span>
-        </h2>
+        <header className="mb-16 md:mb-24">
+          <motion.h2 
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            className="text-3xl sm:text-4xl md:text-8xl font-black text-white tracking-tighter relative inline-block"
+          >
+            {t('portfolio.title')}
+            <div className="absolute -bottom-4 left-0 w-1/2 h-2 bg-cyan shadow-[0_0_20px_rgba(34,211,238,0.5)]"></div>
+            <span className="absolute -right-12 top-0 text-cyan/10 text-lg font-mono tracking-[0.5em] [writing-mode:vertical-lr] hidden xl:block uppercase">Works</span>
+          </motion.h2>
+        </header>
 
         
         {/* Web Section */}
