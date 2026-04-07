@@ -302,7 +302,7 @@ const Home = () => {
                   {t('hero.title')}
                 </h1>
                 
-                <div className="flex flex-col md:flex-row md:items-center items-center xl:items-start gap-8 md:gap-16">
+                <div className="flex flex-col md:flex-row md:items-center items-center xl:items-center gap-8 md:gap-16">
                   <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-md font-medium opacity-80 font-sans tracking-tight text-center xl:text-left">
                     {t('hero.subtitle')}
                   </p>
