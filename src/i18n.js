@@ -36,6 +36,7 @@ i18n
           },
           experience: {
             title: 'Professional Experience',
+            developed_apps: 'Developed Applications',
             award_badge: '2025 Award Winner',
             view_details: 'View Details',
             nativa: {
@@ -49,6 +50,7 @@ i18n
               bi: 'On-site frontend development and deployment of BI (Business Intelligence) dashboards for the Regional Electoral Court - RO intranet.'
             },
             education: {
+              heading: 'Education',
               title: 'Academic Background',
               uninter: {
                 degree: 'B.S. in Computer Engineering',
@@ -59,22 +61,23 @@ i18n
           },
           portfolio: {
             title: 'Portfolio',
+            all_section: 'All Applications',
             web_section: 'Web Applications',
             mobile_section: 'Mobile Applications',
             debrid: {
               title: 'Debrid Searcher',
               desc: 'Web interface for searching torrents via Torznab indexers and instantly verifying cache status on TorBox.',
-              specs_list: ["React / TypeScript", "Node.js Backend", "Torznab Integration", "Dockerized"]
+              specs_list: ["React / TypeScript", "Node.js Backend", "Torznab Integration", "Docker"]
             },
             chatbot: {
               title: 'Chatbot RAG',
               desc: 'AI Chatbot application with Retrieval-Augmented Generation (RAG) capabilities using FastAPI and PostgreSQL.',
-              specs_list: ["FastAPI / Python", "PostgreSQL + pgvector", "RAG / LLM Integration", "Docker Compose"]
+              specs_list: ["FastAPI / Python", "PostgreSQL + pgvector", "RAG / LLM Integration", "Docker"]
             },
             remedi: {
               title: 'Remedi',
               desc: 'Precision medicine tracking engine built for Android to manage long-term treatments.',
-              specs_list: ["Kotlin / MVVM", "Room Database", "XML Layouts", "Local Persistence"]
+              specs_list: ["Kotlin / XML", "Room Database", "Alarm Manager", "Local Persistence"]
             },
             ainformation: {
               title: 'AInformation',
@@ -135,6 +138,7 @@ i18n
           },
           experience: {
             title: 'Experiência Profissional',
+            developed_apps: 'Aplicações Desenvolvidas',
             award_badge: 'Vencedor do Prêmio Geração de Valor 2025',
             view_details: 'Ver Detalhes',
             nativa: {
@@ -148,6 +152,7 @@ i18n
               bi: 'Desenvolvimento presencial do frontend e implantação de uma aplicação de painéis de BI (Business Intelligence) na intranet do Tribunal Regional Eleitoral - RO.'
             },
             education: {
+              heading: 'Formação',
               title: 'Formação Acadêmica',
               uninter: {
                 degree: 'Bacharelado em Engenharia da Computação',
@@ -158,27 +163,28 @@ i18n
           },
           portfolio: {
             title: 'Portfólio',
+            all_section: 'Todas as aplicações',
             web_section: 'Aplicações Web',
             mobile_section: 'Aplicações Mobile',
             debrid: {
               title: 'Debrid Searcher',
               desc: 'Interface web para busca de torrents via indexadores Torznab e verificação instantânea de cache no TorBox.',
-              specs_list: ["React / TypeScript", "Backend Node.js", "Integração Torznab", "Dockerizado"]
+              specs_list: ["React / TypeScript", "Backend Node.js", "Integração Torznab", "Docker"]
             },
             chatbot: {
               title: 'Chatbot RAG',
               desc: 'Aplicação de Chatbot de IA com capacidades de Retrieval-Augmented Generation (RAG) usando FastAPI e PostgreSQL.',
-              specs_list: ["FastAPI / Python", "PostgreSQL + pgvector", "Integração RAG / LLM", "Docker Compose"]
+              specs_list: ["FastAPI / Python", "PostgreSQL + pgvector", "Integração RAG / LLM", "Docker"]
             },
             remedi: {
               title: 'Remedi',
               desc: 'Mecanismo de rastreamento de medicamentos de precisão para Android, projetado para gerenciar tratamentos de longo prazo.',
-              specs_list: ["Kotlin / MVVM", "Banco de Dados Room", "Layouts XML", "Persistência Local"]
+              specs_list: ["Kotlin / XML", "Banco de Dados Room", "Alarm Manager", "Persistência Local"]
             },
             ainformation: {
               title: 'AInformation',
               desc: 'Aplicativo Android de demonstração que gera resumos de notícias por IA a partir de feeds RSS.',
-              specs_list: ["Kotlin / Compose", "SDK de IA Gemini", "Integração Feed RSS", "Injeção de Dependência Hilt"]
+              specs_list: ["Kotlin / Compose", "Google Gen AI SDK", "Integração Feed RSS", "Injeção de Dependência Hilt"]
             },
             specs: 'Especificações Principais',
             github: 'Github',

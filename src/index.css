@@ -1,66 +1,277 @@
 @import "tailwindcss";
 
-:root {
-  --font-sans: 'Outfit', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --color-slate: #0F172A;
-  --color-cyan: #22D3EE;
-  --color-white: #FFFFFF;
-  --color-glass: rgba(255, 255, 255, 0.05);
-}
-
 @theme {
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --color-slate: var(--color-slate);
-  --color-cyan: var(--color-cyan);
+  --color-void: #060a14;
+  --color-surface: #0c1220;
+  --color-raised: #131d30;
+  --color-glass: rgba(12, 18, 32, 0.8);
+  --color-accent: #22ff88;
+  --color-cyan: #00d4ff;
+  --color-highlight: #fbbf24;
+  --color-txt: #e2e8f0;
+  --color-dim: #7b8ba5;
+  --color-muted: #3e4c63;
+  --color-edge: rgba(34, 255, 136, 0.1);
+
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 }
 
-@layer base {
-  body {
-    @apply bg-slate text-slate-200 font-sans antialiased overflow-x-hidden;
-    background-color: #050505; /* Deep black for better contrast */
-    position: relative;
-    
-    /* Scrollbar para Firefox */
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-cyan) transparent;
+/* ── Base ────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-void);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-void);
+  color: var(--color-txt);
+  overflow-x: hidden;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ── Dot grid ────────────────────────────────────────── */
+
+.dot-grid {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(34, 255, 136, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(circle at center, black 52%, transparent 100%);
+}
+
+/* -- Ambient background -------------------------------- */
+
+.ambient-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambient-vignette {
+  position: absolute;
+  inset: -12%;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.03), transparent 28%),
+    radial-gradient(circle at 50% 50%, transparent 48%, rgba(6, 10, 20, 0.36) 100%);
+}
+
+.ambient-orb,
+.ambient-beam {
+  position: absolute;
+  filter: blur(22px);
+  opacity: 0.95;
+  will-change: transform, opacity;
+}
+
+.ambient-orb {
+  border-radius: 999px;
+}
+
+.ambient-orb-a {
+  animation: ambient-float-a 46s ease-in-out infinite alternate;
+}
+
+.ambient-orb-b {
+  animation: ambient-float-b 58s ease-in-out infinite alternate;
+}
+
+.ambient-orb-c {
+  animation: ambient-float-c 40s ease-in-out infinite alternate;
+}
+
+.ambient-beam {
+  --beam-rotate: 0deg;
+  --beam-tilt: 0deg;
+  --beam-shift: 3vw;
+  width: 42vw;
+  height: 120vh;
+  top: -10vh;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.01), rgba(34, 255, 136, 0.1), rgba(34, 255, 136, 0));
+  mix-blend-mode: screen;
+}
+
+.ambient-beam-a {
+  --beam-rotate: -22deg;
+  --beam-tilt: -14deg;
+  --beam-shift: 3vw;
+  left: 8%;
+  animation: ambient-beam-sway 24s ease-in-out infinite;
+}
+
+.ambient-beam-b {
+  --beam-rotate: 18deg;
+  --beam-tilt: 12deg;
+  --beam-shift: -3vw;
+  right: 2%;
+  background: linear-gradient(180deg, rgba(34, 255, 136, 0.01), rgba(0, 212, 255, 0.08), rgba(0, 212, 255, 0));
+  animation: ambient-beam-sway 30s ease-in-out infinite reverse;
+}
+
+/* ── Noise texture overlay ───────────────────────────── */
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0.018;
+  pointer-events: none;
+  z-index: 9998;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* ── Scrollbar ───────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+}
+
+/* ── Selection ───────────────────────────────────────── */
+
+::selection {
+  background: rgba(34, 255, 136, 0.2);
+  color: #fff;
+}
+
+/* ── Typography ──────────────────────────────────────── */
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+/* ── Keyframes ───────────────────────────────────────── */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes scroll-hint {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(8px); }
+}
+
+@keyframes ambient-float-a {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(3vw, 2vh, 0) scale(1.06); }
+}
+
+@keyframes ambient-float-b {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-4vw, -2vh, 0) scale(1.05); }
+}
+
+@keyframes ambient-float-c {
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.7; }
+  100% { transform: translate3d(2vw, -3vh, 0) scale(1.08); opacity: 0.85; }
+}
+
+@keyframes ambient-beam-sway {
+  0%, 100% { transform: rotate(var(--beam-rotate)) translate3d(0, 0, 0); opacity: 0.3; }
+  50% { transform: rotate(var(--beam-tilt)) translate3d(var(--beam-shift), 2vh, 0); opacity: 0.52; }
+}
+
+@keyframes shape-idle-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(var(--shape-drift-x), var(--shape-drift-y), 0) rotate(var(--shape-drift-rotate)); }
+}
+
+.parallax-shape-inner {
+  animation: shape-idle-drift 36s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ── Terminal ────────────────────────────────────────── */
+
+.terminal-window {
+  background: rgba(6, 10, 20, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(34, 255, 136, 0.15);
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: var(--color-txt);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  caret-color: var(--color-accent);
+  width: 100%;
+}
+
+.terminal-input:focus {
+  outline: none;
+}
+
+.terminal-input::placeholder {
+  color: var(--color-muted);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .dot-grid {
+    background-size: 30px 30px;
+  }
+
+  .ambient-orb-a,
+  .ambient-orb-b,
+  .ambient-orb-c {
+    width: min(72vw, 24rem) !important;
+    height: min(72vw, 24rem) !important;
+  }
+
+  .ambient-beam {
+    width: 60vw;
+    opacity: 0.72;
   }
 }
 
-/* Custom Scrollbar para Chrome, Edge e Safari */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
+/* ── Accessibility ───────────────────────────────────── */
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-cyan);
-  border-radius: 20px;
-  border: 3px solid #050505; /* Borda da cor do background para efeito "flutuante" */
-  background-clip: content-box;
-  opacity: 0.8;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ffffff; /* Fica branco no hover para mais brilho */
-  border-radius: 20px;
-}
-
-
-.glass-panel {
-  @apply bg-white/[0.02] border border-white/10 rounded-2xl;
-}
-
-.link-hover {
-  @apply relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-cyan after:transition-all hover:after:w-full;
-}
-
-/* No more text gradients or underlines by default */
-h1, h2, h3 {
-  @apply text-white font-extrabold;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
